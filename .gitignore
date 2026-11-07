@@ -1,0 +1,17 @@
+.godot/
+bin/
+/android/
+.git/
+.idea/
+.vs/
+publish/
+Properties/
+packages/
+.editorconfig
+*.user
+Directory.Build.props
+# Local build and Workshop upload outputs
+obj/
+workshop/content/
+mod-uploader.log
+__pycache__/

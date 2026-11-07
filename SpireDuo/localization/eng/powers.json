@@ -1,0 +1,23 @@
+{
+  "SPIREDUO-DROWSY_POWER.title": "Drowsy",
+  "SPIREDUO-DROWSY_POWER.description": "At the end of your turn, gain [gold]Block[/gold] equal to your Drowsy.",
+  "SPIREDUO-DROWSY_POWER.smartDescription": "At the end of your turn, gain [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "SPIREDUO-BAMBOO_POWER.title": "Bamboo",
+  "SPIREDUO-BAMBOO_POWER.description": "Cards that [gold]Munch[/gold] spend Bamboo for a bonus effect.",
+  "SPIREDUO-BAMBOO_POWER.smartDescription": "You have [blue]{Amount}[/blue] Bamboo. Cards that [gold]Munch[/gold] spend it for a bonus effect.",
+  "SPIREDUO-HIBERNATE_POWER.title": "Hibernate",
+  "SPIREDUO-HIBERNATE_POWER.description": "At the start of your turn, gain [gold]Drowsy[/gold].",
+  "SPIREDUO-HIBERNATE_POWER.smartDescription": "At the start of your turn, gain [blue]{Amount}[/blue] [gold]Drowsy[/gold].",
+  "SPIREDUO-BAMBOO_GROVE_POWER.title": "Bamboo Grove",
+  "SPIREDUO-BAMBOO_GROVE_POWER.description": "At the start of your turn, gain [gold]Bamboo[/gold].",
+  "SPIREDUO-BAMBOO_GROVE_POWER.smartDescription": "At the start of your turn, gain [blue]{Amount}[/blue] [gold]Bamboo[/gold].",
+  "SPIREDUO-IRON_HIDE_POWER.title": "Iron Hide",
+  "SPIREDUO-IRON_HIDE_POWER.description": "Whenever you [gold]Munch[/gold], gain [gold]Block[/gold].",
+  "SPIREDUO-IRON_HIDE_POWER.smartDescription": "Whenever you [gold]Munch[/gold], gain [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "SPIREDUO-BIG_APPETITE_POWER.title": "Big Appetite",
+  "SPIREDUO-BIG_APPETITE_POWER.description": "Whenever you [gold]Munch[/gold], gain [gold]Strength[/gold].",
+  "SPIREDUO-BIG_APPETITE_POWER.smartDescription": "Whenever you [gold]Munch[/gold], gain [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "SPIREDUO-PROMISE_POWER.title": "Promise",
+  "SPIREDUO-PROMISE_POWER.description": "At the start of your turn, gain [gold]Block[/gold].",
+  "SPIREDUO-PROMISE_POWER.smartDescription": "At the start of your turn, gain [blue]{Amount}[/blue] [gold]Block[/gold]."
+}

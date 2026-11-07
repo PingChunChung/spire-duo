@@ -1,0 +1,11 @@
+{
+  "title": "SanaCkoala",
+  "description": "[b]SanaCkoala[/b] adds two new playable characters to Slay the Spire 2, the Koala and the Panda. Both work in singleplayer, and they are built to play well together in co-op.\n\n[h2]The Koala[/h2]\n70 HP. Starter relic: [b]Eucalyptus Leaf[/b] (start each combat with 3 Drowsy).\n[list]\n[*][b]Drowsy[/b]: at the end of your turn, gain Block equal to your Drowsy.\n[*]Many cards build Drowsy. Wake-up cards remove all of it at once and turn it into damage, so you choose between steady defense and one big hit.\n[/list]\n\n[h2]The Panda[/h2]\n80 HP. Starter relic: [b]Bamboo Basket[/b] (start each combat with 3 Bamboo).\n[list]\n[*][b]Bamboo[/b] is a resource you gather with cards and powers.\n[*][b]Munch N[/b]: if you have at least N Bamboo, the card spends it and triggers a bonus effect.\n[/list]\n\nEach character has 22 cards (common, uncommon and rare) and their own Strike and Defend.\n\n[h2]Co-op content[/h2]\nIn multiplayer runs, both characters start with [b]Hold Hands[/b], and five more colorless cards can appear: [b]Share a Bite[/b], [b]Quarrel[/b], [b]Make Up[/b], [b]Pincer[/b] and [b]Promise[/b]. Two shared relics can also drop. These only show up when there is more than one player.\n\n[h2]Installation[/h2]\n[list]\n[*]Requires [b]BaseLib[/b]. Steam asks you to subscribe to it as well.\n[*]Subscribe and start the game. The first time, the game asks whether to load mods; allow it.\n[*]For multiplayer, every player needs this mod on the same version.\n[*]Do not also keep a manual copy in the game's [i]mods[/i] folder.\n[*]Modded play uses a separate set of save files. Your unmodded saves are not touched.\n[/list]\n\n[h2]Compatibility[/h2]\nTested on game version v0.107.1 only. Other versions may not load.\n\nFan-made mod, not affiliated with or endorsed by Mega Crit. Card and relic art made with AI image generation.",
+  "visibility": "public",
+  "changeNote": "Rewrote the description in English. Mod files unchanged (v0.1.0).",
+  "tags": [],
+  "dependencies": [
+    3737335127
+  ],
+  "contentDescriptors": []
+}

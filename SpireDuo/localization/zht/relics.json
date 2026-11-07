@@ -1,0 +1,14 @@
+{
+  "SPIREDUO-EUCALYPTUS_LEAF.title": "尤加利葉",
+  "SPIREDUO-EUCALYPTUS_LEAF.description": "在每場戰鬥開始時，獲得 [blue]{DrowsyPower}[/blue] 層[gold]睡意[/gold]。",
+  "SPIREDUO-EUCALYPTUS_LEAF.flavor": "無尾熊一天睡二十個小時，都是它害的。",
+  "SPIREDUO-BAMBOO_BASKET.title": "竹籃",
+  "SPIREDUO-BAMBOO_BASKET.description": "在每場戰鬥開始時，獲得 [blue]{BambooPower}[/blue] 根[gold]竹子[/gold]。",
+  "SPIREDUO-BAMBOO_BASKET.flavor": "永遠裝滿，永遠分你一半。",
+  "SPIREDUO-COUPLE_RINGS.title": "情侶對戒",
+  "SPIREDUO-COUPLE_RINGS.description": "在每場戰鬥開始時，所有玩家各獲得 [blue]{Block}[/blue] 點[gold]格擋[/gold]。",
+  "SPIREDUO-COUPLE_RINGS.flavor": "一只給你，一只給我。",
+  "SPIREDUO-SPARE_KEY.title": "備用鑰匙",
+  "SPIREDUO-SPARE_KEY.description": "在休息處回復生命時，其他玩家各回復 [blue]{Heal}[/blue] 點生命。",
+  "SPIREDUO-SPARE_KEY.flavor": "直接進來，門永遠為你開著。"
+}
