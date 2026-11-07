@@ -1,6 +1,6 @@
 namespace SpireDuo.SpireDuoCode.Cards;
 
-public sealed class Hibernate() : KoalaCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+public sealed class Hibernate() : KoalaCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<HibernatePower>(2m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DrowsyPower>()];

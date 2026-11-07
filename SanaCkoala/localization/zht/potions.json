@@ -1,0 +1,10 @@
+{
+  "SPIREDUO-WARM_MILK.title": "熱牛奶",
+  "SPIREDUO-WARM_MILK.description": "獲得 [blue]{DrowsyPower}[/blue] 層[gold]睡意[/gold]。",
+  "SPIREDUO-STRONG_COFFEE.title": "濃縮咖啡",
+  "SPIREDUO-STRONG_COFFEE.description": "移除你所有的[gold]睡意[/gold]。\n每移除 1 層，對所有敵人造成 [blue]{PerDrowsy}[/blue] 點傷害。",
+  "SPIREDUO-BAMBOO_JUICE.title": "竹子汁",
+  "SPIREDUO-BAMBOO_JUICE.description": "獲得 [blue]{BambooPower}[/blue] 根[gold]竹子[/gold]。",
+  "SPIREDUO-HONEY_JAR.title": "蜂蜜罐",
+  "SPIREDUO-HONEY_JAR.description": "獲得 [blue]{Block}[/blue] 點[gold]格擋[/gold]。\n獲得 [blue]1[/blue] 層[gold]殘影[/gold]。"
+}

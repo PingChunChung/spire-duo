@@ -13,7 +13,8 @@ Steam 工作坊：[SanaCkoala](https://steamcommunity.com/sharedfiles/filedetail
 70 HP。起始遺物「尤加利葉」，每場戰鬥開始獲得 3 層睡意。
 
 - **睡意**：回合結束時，獲得等同睡意層數的格擋。
-- 很多卡牌會累積睡意。起床類卡牌一次移除全部睡意，換成傷害。
+- **醒來**：部分卡牌會一次移除全部睡意，換成強力效果。
+- 三種玩法：一直疊睡意、不醒來（打呼、夢遊、夢境結界）；疊滿再醒來，換成爆發傷害或能量（起床氣、大夢初醒、火氣很大）；或是保留手牌，越放越強（慢慢來、蜷成一團、拖延症）。
 
 ### 熊貓
 
@@ -21,8 +22,9 @@ Steam 工作坊：[SanaCkoala](https://steamcommunity.com/sharedfiles/filedetail
 
 - **竹子**：用卡牌和能力收集的資源。
 - **啃 N**：手上有 N 根以上竹子時，卡牌會吃掉 N 根，觸發額外效果。
+- 三種玩法：囤竹子再大口啃（開動了、竹子雪崩、無底胃）；把格擋變成傷害（肚皮撞、壓路機、厚脂肪）；或是累積力量（高蛋白竹子、千斤掌、國寶）。
 
-兩個角色各有 22 張卡，包含自己的打擊和防禦，分布在普通、罕見和稀有三種稀有度。
+無尾熊有 36 張卡、熊貓有 35 張，都包含自己的打擊和防禦。每個角色另有起始遺物、4 個遺物和 2 瓶藥水。
 
 ## 多人共用內容
 
@@ -31,11 +33,14 @@ Steam 工作坊：[SanaCkoala](https://steamcommunity.com/sharedfiles/filedetail
 | 內容 | 效果 |
 |---|---|
 | 牽手 | 兩個角色起始牌組都有的基本卡。你和一名隊友獲得格擋。 |
-| 分你一口 | 0 費。一名隊友獲得能量。消耗。 |
+| 分你一口 | 0 費。你和一名隊友各獲得能量。消耗。 |
 | 吵架 | 造成傷害，所有玩家各失去 2 點生命。 |
 | 和好 | 你和一名隊友回復生命。消耗。 |
-| 夾擊 | 造成傷害並給予易傷。 |
+| 助攻 | 造成傷害；本回合隊友下一次打中這個敵人時，額外造成傷害。 |
 | 約定 | 稀有能力。你和一名隊友在每回合開始時獲得格擋。 |
+| 一起睡午覺 | 無尾熊的卡。你和一名隊友各獲得睡意。 |
+| 分你竹子 | 熊貓的卡。一名隊友獲得格擋；啃 2 時隊友再獲得力量。 |
+| 我罩你 | 熊貓的卡。獲得格擋，再讓一名隊友獲得等同你格擋值的格擋。 |
 | 兩個共用遺物 | 戰鬥開始時所有玩家獲得格擋；在休息處回血時讓隊友額外回血。 |
 
 ## 安裝
@@ -45,6 +50,7 @@ Steam 工作坊：[SanaCkoala](https://steamcommunity.com/sharedfiles/filedetail
 - 多人連線時，每位玩家都要裝同一個版本。
 - 不要另外在遊戲的 `mods` 資料夾放一份手動安裝的版本。
 - 有 mod 時遊戲使用另一組存檔，不會動到原本的進度。
+- 在全新的 mod 存檔上，原版會跳過第一章的先古之民 Neow，第一個寶箱也會給每位玩家同一個教學遺物。這個 mod 會保留 Neow，教學遺物只給其中一位玩家。
 
 只在遊戲 v0.107.1 測試過。
 
@@ -59,12 +65,12 @@ Steam 工作坊：[SanaCkoala](https://steamcommunity.com/sharedfiles/filedetail
 在 `Directory.Build.props` 設定 `GodotPath`；如果找不到遊戲，再設定 `Sts2Path`。這個檔案存的是本機路徑，所以不進 git。
 
 ```bash
-dotnet publish SpireDuo.csproj
+dotnet publish SanaCkoala.csproj
 ```
 
-`dotnet build` 會把 DLL 複製到遊戲的 `mods/SpireDuo`。`dotnet publish` 另外匯出含圖片和文字的 `SpireDuo.pck`。
+`dotnet build` 會把 DLL 複製到遊戲的 `mods/SanaCkoala`。`dotnet publish` 另外匯出含圖片和文字的 `SanaCkoala.pck`。
 
-內部 mod id 維持 `SpireDuo`，顯示名稱寫在 `SpireDuo.json`。
+mod id 是 `SanaCkoala`。C# 命名空間和卡牌 id 保留原本的 `SpireDuo` 前綴，舊版存下的對局仍然讀得到。
 
 ## 專案結構
 
@@ -73,9 +79,11 @@ dotnet publish SpireDuo.csproj
 | `SpireDuoCode/Character` | 角色、卡池、遺物池 |
 | `SpireDuoCode/Cards` | 所有卡牌 |
 | `SpireDuoCode/Powers` | 睡意、竹子等能力 |
-| `SpireDuoCode/Relics` | 起始遺物與共用遺物 |
-| `SpireDuo/localization` | `eng`、`zht`、`zhs` 三種語言的文字 |
-| `SpireDuo/images` | 卡圖、圖示、角色圖 |
+| `SpireDuoCode/Relics` | 起始遺物、角色遺物與共用遺物 |
+| `SpireDuoCode/Potions` | 角色藥水 |
+| `SpireDuoCode/Patches` | 處理全新 mod 存檔的 Harmony 補丁 |
+| `SanaCkoala/localization` | `eng`、`zht`、`zhs` 三種語言的文字 |
+| `SanaCkoala/images` | 卡圖、圖示、角色圖 |
 | `tools/gen_localization.py` | 產生全部語言檔，`zhs` 由 `zht` 轉換 |
 | `tools/install_art.py` | 把原始圖縮成 mod 需要的尺寸並放進圖片資料夾 |
 | `workshop/` | Mega Crit ModUploader 用的工作坊上架資料夾 |

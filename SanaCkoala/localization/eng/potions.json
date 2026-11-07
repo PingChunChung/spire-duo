@@ -1,0 +1,10 @@
+{
+  "SPIREDUO-WARM_MILK.title": "Warm Milk",
+  "SPIREDUO-WARM_MILK.description": "Gain [blue]{DrowsyPower}[/blue] [gold]Drowsy[/gold].",
+  "SPIREDUO-STRONG_COFFEE.title": "Strong Coffee",
+  "SPIREDUO-STRONG_COFFEE.description": "Remove all your [gold]Drowsy[/gold].\nDeal [blue]{PerDrowsy}[/blue] damage to ALL enemies for each one removed.",
+  "SPIREDUO-BAMBOO_JUICE.title": "Bamboo Juice",
+  "SPIREDUO-BAMBOO_JUICE.description": "Gain [blue]{BambooPower}[/blue] [gold]Bamboo[/gold].",
+  "SPIREDUO-HONEY_JAR.title": "Honey Jar",
+  "SPIREDUO-HONEY_JAR.description": "Gain [blue]{Block}[/blue] [gold]Block[/gold].\nGain [blue]1[/blue] [gold]Blur[/gold]."
+}

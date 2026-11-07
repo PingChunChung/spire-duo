@@ -1,6 +1,6 @@
 namespace SpireDuo.SpireDuoCode.Cards;
 
-public sealed class IronHide() : PandaCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+public sealed class IronHide() : PandaCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<IronHidePower>(4m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BambooPower>(), HoverTipFactory.Static(StaticHoverTip.Block)];

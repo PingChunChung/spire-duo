@@ -1,22 +1,18 @@
 namespace SpireDuo.SpireDuoCode.Cards;
 
-public sealed class DarkCircles() : PandaCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public sealed class DarkCircles() : PandaCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6m, ValueProp.Move), new PowerVar<VulnerablePower>(2m)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
-
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<BambooPower>(2m)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [EnergyHoverTip, HoverTipFactory.FromPower<BambooPower>(), HoverTipFactory.FromCard<MegaCrit.Sts2.Core.Models.Cards.Dazed>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_blunt")
-            .Execute(choiceContext);
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, cardPlay.Target, DynamicVars["VulnerablePower"].BaseValue, Owner.Creature, this);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
+        await PowerCmd.Apply<BambooPower>(choiceContext, Owner.Creature, DynamicVars["BambooPower"].BaseValue, Owner.Creature, this);
+        CardModel dazed = CombatState!.CreateCard<MegaCrit.Sts2.Core.Models.Cards.Dazed>(Owner);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(dazed, PileType.Discard, Owner));
     }
-
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2m);
-        DynamicVars["VulnerablePower"].UpgradeValueBy(1m);
+        DynamicVars["BambooPower"].UpgradeValueBy(1m);
     }
 }

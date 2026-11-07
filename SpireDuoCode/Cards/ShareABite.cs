@@ -14,11 +14,12 @@ public sealed class ShareABite() : SpireDuoCard(0, CardType.Skill, CardRarity.Un
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target?.Player, "cardPlay.Target.Player");
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, cardPlay.Target.Player);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Energy.UpgradeValueBy(1m);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

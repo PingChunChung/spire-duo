@@ -11,7 +11,7 @@ public sealed class WakeUpCall() : KoalaCard(2, CardType.Attack, CardRarity.Unco
         await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_blunt")
             .Execute(choiceContext);
-        await DrowsyPower.WakeUp(Owner.Creature);
+        await DrowsyPower.WakeUp(choiceContext, Owner.Creature);
     }
 
     protected override void OnUpgrade()

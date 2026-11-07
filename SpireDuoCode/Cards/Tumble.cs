@@ -3,7 +3,7 @@ namespace SpireDuo.SpireDuoCode.Cards;
 public sealed class Tumble() : PandaCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override bool GainsBlock => true;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(9m, ValueProp.Move), new CardsVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7m, ValueProp.Move), new CardsVar(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BambooPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -5,11 +5,11 @@ using MegaCrit.Sts2.Core.Modding;
 
 namespace SpireDuo.SpireDuoCode;
 
-//You're recommended but not required to keep all your code in this package and all your assets in the SpireDuo folder.
+//You're recommended but not required to keep all your code in this package and all your assets in the SanaCkoala folder.
 [ModInitializer(nameof(Initialize))]
 public partial class MainFile : Node
 {
-    public const string ModId = "SpireDuo"; //Used for resource filepath
+    public const string ModId = "SanaCkoala"; //Used for resource filepath
     public const string ResPath = $"res://{ModId}";
 
     public static MegaCrit.Sts2.Core.Logging.Logger Logger { get; } = new(ModId, MegaCrit.Sts2.Core.Logging.LogType.Generic);
