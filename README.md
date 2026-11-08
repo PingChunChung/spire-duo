@@ -10,21 +10,27 @@ Steam Workshop: [SanaCkoala](https://steamcommunity.com/sharedfiles/filedetails/
 
 ### The Koala
 
-70 HP. Starter relic **Eucalyptus Leaf**: start each combat with 3 Drowsy.
+70 HP. Starter relic **Eucalyptus Leaf**: start each combat with 3 Drowsy. Touch of Orobas upgrades it to **Eucalyptus Crown** (6 Drowsy).
 
 - **Drowsy**: at the end of your turn, gain Block equal to your Drowsy.
 - **Waking up**: some cards remove all of your Drowsy at once for a big effect.
-- Three ways to play: keep stacking Drowsy and never wake up (Snoring, Sleepwalk, Dream Shield); stack it, then wake up for burst damage or Energy (Wake-Up Call, Wide Awake, Short Temper); or Retain cards that grow stronger the longer you hold them (Take It Slow, Curl Up, Procrastination).
+- Three ways to play: keep stacking Drowsy and never wake up (Snoring, Sleep Like a Log, Dreamland); stack it, then wake up for burst damage or Energy (Wake-Up Call, Wide Awake, Tantrum, Morning Person); or Retain cards that grow stronger the longer you hold them (Take It Slow, Long Overdue, Grudge).
 
 ### The Panda
 
-80 HP. Starter relic **Bamboo Basket**: start each combat with 3 Bamboo.
+80 HP. Starter relic **Bamboo Basket**: start each combat with 3 Bamboo. Touch of Orobas upgrades it to **Bamboo Hamper** (6 Bamboo).
 
 - **Bamboo** is a resource gathered with cards and powers.
 - **Munch N**: if you have at least N Bamboo, the card spends it and triggers a bonus effect.
-- Three ways to play: hoard Bamboo and munch it (Dig In, Bamboo Avalanche, Bottomless Stomach); turn Block into damage (Belly Bump, Steamroller, Thick Fat); or build Strength (Bamboo Protein, Heavy Paw, National Treasure).
+- Three ways to play: hoard Bamboo and munch it (Dig In, Bottomless Stomach, Second Stomach); turn Block into damage (Belly Bump, Pancake Press, Belly Bounce); or build Strength (National Treasure, Hulking Paws, Fury of the Fluffy).
 
-The Koala has 36 cards and the Panda has 35, counting their own Strike and Defend. Each character also has a starter relic, four more relics and two potions.
+Each character has 87 cards: 3 Basic, 20 Common, 36 Uncommon, 26 Rare and 2 Ancient, the same split as the vanilla characters. Each also has seven relics besides the starter relic, and two potions.
+
+## Ancient cards and events
+
+- **Archaic Tooth** turns Doze into Deep Sleep and Gather Bamboo into Bamboo Harvest.
+- **Dusty Tome** gives the Koala Lazy Sunday and the Panda Rolling Thunder.
+- Four events appear only in runs with the Koala or the Panda: Picnic for Two (act 1), Stargazing (act 2), Little Quarrel (acts 2 and 3) and Photo Booth (any act). Stargazing and Little Quarrel need more than one player.
 
 ## Co-op content
 
@@ -38,10 +44,11 @@ These appear only in runs with more than one player.
 | Make Up | You and an ally heal. Exhaust. |
 | Assist | Deal damage. This turn, an ally's next hit on that enemy deals extra damage. |
 | Promise | Rare power. You and an ally gain Block at the start of each turn. |
-| Nap Together | Koala card. You and an ally gain Drowsy. |
-| Share Bamboo | Panda card. An ally gains Block; Munch 2 gives them Strength. |
-| Shelter | Panda card. Gain Block, then an ally gains Block equal to yours. |
 | Two shared relics | Block for every player at the start of combat, and extra healing for allies at Rest Sites. |
+| Koala cards | Nap Together, Pillow Toss, Snuggle, Wake-Up Kiss and Pajama Party hand out Drowsy, Block, cards and Energy to allies. |
+| Panda cards | Share Bamboo, Shelter, Panda Pile, Piggyback Charge, Carry You, Feeding Time and Partner in Crime protect allies, give them Energy and cards, or hit harder together. |
+| Character relics | Shared Blanket (Koala): allies gain Block at the end of your turn. Picnic Mat (Panda): allies gain Block whenever you Munch. |
+| Events | Stargazing and Little Quarrel. |
 
 ## Installation
 
@@ -81,7 +88,8 @@ The mod id is `SanaCkoala`. C# namespaces and card ids keep the original `SpireD
 | `SpireDuoCode/Powers` | Drowsy, Bamboo and other powers |
 | `SpireDuoCode/Relics` | Starter, character and shared relics |
 | `SpireDuoCode/Potions` | Character potions |
-| `SpireDuoCode/Patches` | Harmony patches for fresh modded saves |
+| `SpireDuoCode/Events` | The four events |
+| `SpireDuoCode/Patches` | Harmony patches for fresh modded saves, upgraded starter relics, Archaic Tooth and the shop sprite |
 | `SanaCkoala/localization` | `eng`, `zht`, `zhs` text |
 | `SanaCkoala/images` | Card art, icons, character images |
 | `tools/gen_localization.py` | Writes all localization files; `zhs` is converted from `zht` |
