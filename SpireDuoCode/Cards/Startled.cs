@@ -9,7 +9,7 @@ public sealed class Startled() : KoalaCard(0, CardType.Skill, CardRarity.Common,
     {
         int removed = await DrowsyPower.WakeUp(choiceContext, Owner.Creature);
         if (removed > 0)
-            await CreatureCmd.GainBlock(Owner.Creature, removed, ValueProp.Move, cardPlay);
+            await CreatureCmd.GainBlock(Owner.Creature, removed * 2, ValueProp.Move, cardPlay);
         if (IsUpgraded)
             await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }

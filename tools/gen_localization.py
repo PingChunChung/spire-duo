@@ -186,8 +186,9 @@ cards = {
     "PROMISE": ("Promise", "You and an ally gain {PromisePower:diff()} [gold]Promise[/gold].",
                 "約定", "你和一名隊友各獲得 {PromisePower:diff()} 層[gold]約定[/gold]。"),
     # Stage C: Koala
-    "CRANKY_SWAT": ("Cranky Swat", f"Deal {D} damage.\nRemove all your {DRE}.",
-                    "起床巴掌", f"造成 {D} 點傷害。\n移除你所有的{DRZ}。"),
+    "CRANKY_SWAT": ("Cranky Swat",
+                    f"Remove all your {DRE}. If you removed any, apply {{VulnerablePower:diff()}} [gold]Vulnerable[/gold].\nDeal {D} damage.",
+                    "起床巴掌", f"移除你所有的{DRZ}。若有移除，給予 {{VulnerablePower:diff()}} 層[gold]易傷[/gold]。\n造成 {D} 點傷害。"),
     "GROGGY_COMBO": ("Groggy Combo", f"Deal {D} damage.\nIf you have at least {DR} {DRE}, lose {DR} and hit again.",
                      "迷糊連擊", f"造成 {D} 點傷害。\n若你至少有 {DR} 層{DRZ}，失去 {DR} 層並再打一次。"),
     "BARK_SCRATCH": ("Bark Scratch", f"Deal {D} damage.\nApply {{VulnerablePower:diff()}} [gold]Vulnerable[/gold].",
@@ -199,8 +200,8 @@ cards = {
                    "慢慢眨眼", f"獲得 {B} 點{GB_Z}。\n每次被[gold]保留[/gold]時，獲得 {DR} 層{DRZ}。"),
     "SAVE_FOR_LATER": ("Save It for Later", f"Gain {B} {GB_E}.\nChoose a card in your [gold]Hand[/gold] to gain [gold]Retain[/gold].",
                        "晚點再說", f"獲得 {B} 點{GB_Z}。\n選擇一張手牌獲得[gold]保留[/gold]。"),
-    "STARTLED": ("Startled", f"Remove all your {DRE}.\nGain {GB_E} equal to the amount removed.{{IfUpgraded:show:\nDraw {CARDS} card.|}}",
-                 "嚇醒", f"移除你所有的{DRZ}。\n獲得等同移除層數的{GB_Z}。{{IfUpgraded:show:\n抽 {CARDS} 張牌。|}}"),
+    "STARTLED": ("Startled", f"Remove all your {DRE}.\nGain {GB_E} equal to twice the amount removed.{{IfUpgraded:show:\nDraw {CARDS} card.|}}",
+                 "嚇醒", f"移除你所有的{DRZ}。\n獲得移除層數 2 倍的{GB_Z}。{{IfUpgraded:show:\n抽 {CARDS} 張牌。|}}"),
     "POWER_NAP": ("Power Nap", f"Gain {DR} {DRE}.\nNext turn, gain {EN}.",
                   "小睡片刻", f"獲得 {DR} 層{DRZ}。\n下回合獲得 {EN}。"),
     "SNORE_WAVE": ("Snore Wave", f"Deal {CD} damage to ALL enemies.\nDeals {EX} additional damage for each {DRE}.",
@@ -715,15 +716,15 @@ events = {
         "pages.INITIAL.options.SHARE.description": ("Every player heals [green]{Heal}[/green] HP.",
                                                     "所有玩家各回復 [green]{Heal}[/green] 點生命。"),
         "pages.INITIAL.options.FEAST.title": ("Eat It All", "全部吃光"),
-        "pages.INITIAL.options.FEAST.description": ("Gain [green]{MaxHp}[/green] Max HP.",
-                                                    "獲得 [green]{MaxHp}[/green] 點最大生命值。"),
+        "pages.INITIAL.options.FEAST.description": ("Every player gains [green]{MaxHp}[/green] Max HP.",
+                                                    "所有玩家各獲得 [green]{MaxHp}[/green] 點最大生命值。"),
         "pages.SHARE.description": (
             "You split every bite down the middle. The food runs out fast, but nobody minds.\n\n"
             "You both feel [green]refreshed[/green].",
             "每一口都對半分。食物很快就吃完了，但沒有人在意。\n\n兩個人都覺得[green]精神好多了[/green]。"),
         "pages.FEAST.description": (
-            "While your partner watches the clouds, the basket quietly empties.\n\n[sine]You feel very full.[/sine]",
-            "趁另一半在看雲，籃子悄悄空了。\n\n[sine]好飽。[/sine]"),
+            "Nobody holds back. Within minutes the basket is empty and everyone is lying on the blanket.\n\n[sine]You feel very full.[/sine]",
+            "誰也沒有客氣，沒幾分鐘籃子就空了，大家躺在野餐墊上動不了。\n\n[sine]好飽。[/sine]"),
     },
     "STARGAZING": {
         "title": ("Stargazing", "一起看星星"),

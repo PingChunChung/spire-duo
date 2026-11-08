@@ -2,9 +2,10 @@ using MegaCrit.Sts2.Core.Events;
 
 namespace SpireDuo.SpireDuoCode.Events;
 
-/// <summary>Act 1. Sharing heals every player, so a couple who both share heal twice.</summary>
+/// <summary>Act 1. Shared, so the players vote once and the winning option applies to each of them.</summary>
 public sealed class PicnicForTwo : SpireDuoEvent
 {
+    public override bool IsShared => true;
     protected override int[] ActIndices => [0];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(10m), new MaxHpVar(5m)];
 
@@ -12,10 +13,7 @@ public sealed class PicnicForTwo : SpireDuoEvent
 
     private async Task Share()
     {
-        foreach (var player in Owner.RunState.Players.Where(p => p.Creature.IsAlive))
-        {
-            await CreatureCmd.Heal(player.Creature, DynamicVars.Heal.BaseValue);
-        }
+        await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
         SetEventFinished(PageDescription("SHARE"));
     }
 

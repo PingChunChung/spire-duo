@@ -2,5 +2,52 @@
 
 [ext_resource type="Texture2D" path="res://SanaCkoala/images/charui/koala_rest_site.png" id="1"]
 
-[node name="KoalaRestSite" type="Sprite2D"]
+[node name="KoalaRestSite" type="Node2D"]
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Visuals" type="Sprite2D" parent="ControlRoot"]
+position = Vector2(0, -63)
 texture = ExtResource("1")
+
+[node name="SelectionReticle" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -169
+offset_top = -178
+offset_right = 169
+offset_bottom = 252
+mouse_filter = 2
+
+[node name="Hitbox" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -169
+offset_top = -178
+offset_right = 169
+offset_bottom = 252
+
+[node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 101.4
+offset_top = -92
+offset_right = 101.4
+offset_bottom = -92
+mouse_filter = 2
+
+[node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -101.4
+offset_top = -92
+offset_right = -101.4
+offset_bottom = -92
+mouse_filter = 2
