@@ -1,4 +1,5 @@
-"""gen_localization.py <spire-duo dir>: writes eng / zht / zhs localization. zhs is converted from zht with a character table."""
+"""gen_localization.py <spire-duo dir>: writes eng / zht / zhs localization. zhs is converted from zht by Windows (LCMapStringEx)."""
+import ctypes
 import json
 import pathlib
 import sys
@@ -85,6 +86,10 @@ cards = {
                          "臨時抱佛腳", f"手牌中每有 1 張其他牌，造成 {EX} 點傷害。{{InCombat:\n（造成 {CD} 點傷害）|}}"),
     "BEDTIME_STORY": ("Bedtime Story", f"Draw {CARDS} cards.\nThey gain [gold]Retain[/gold].",
                       "床邊故事", f"抽 {CARDS} 張牌。\n抽到的牌獲得[gold]保留[/gold]。"),
+    "DEEP_SLEEP": ("Deep Sleep", f"Gain {B} {GB_E}.\nGain {DR} {DRE}.",
+                   "呼呼大睡", f"獲得 {B} 點{GB_Z}。\n獲得 {DR} 層{DRZ}。"),
+    "LAZY_SUNDAY": ("Lazy Sunday", "At the end of your turn, cards you [gold]Retain[/gold] cost [blue]0[/blue] until played.",
+                    "慵懶星期天", "在你的回合結束時，你[gold]保留[/gold]的牌在打出前耗能變為 [blue]0[/blue]。"),
     # Panda
     "STRIKE_PANDA": ("Strike", f"Deal {D} damage.", "打擊", f"造成 {D} 點傷害。"),
     "DEFEND_PANDA": ("Defend", f"Gain {B} {GB_E}.", "防禦", f"獲得 {B} 點{GB_Z}。"),
@@ -165,6 +170,10 @@ cards = {
                          "竹子雪崩", f"{MZ}掉所有{BAZ}。\n每啃 1 根，對隨機一名敵人造成 {D} 點傷害。"),
     "STEAMROLLER": ("Steamroller", f"Deal damage equal to your {GB_E} to ALL enemies.{{InCombat:\n(Deals {CD} damage)|}}",
                     "壓路機", f"對所有敵人造成等同你{GB_Z}值的傷害。{{InCombat:\n（造成 {CD} 點傷害）|}}"),
+    "BAMBOO_HARVEST": ("Bamboo Harvest", f"Gain {B} {GB_E}.\nGain {BA} {BAE}.",
+                       "竹林豐收", f"獲得 {B} 點{GB_Z}。\n獲得 {BA} 根{BAZ}。"),
+    "ROLLING_THUNDER": ("Rolling Thunder", f"At the end of your turn, deal damage equal to your {GB_E} to a random enemy.",
+                        "滾滾雷霆", f"在你的回合結束時，對隨機一名敵人造成等同你{GB_Z}值的傷害。"),
     # Duo (colorless, multiplayer only)
     "SHARE_A_BITE": ("Share a Bite", "You and an ally each gain {Energy:energyIcons()}.",
                      "分你一口", "你和一名隊友各獲得 {Energy:energyIcons()}。"),
@@ -249,6 +258,15 @@ powers = {
                                  f"{ME} costs [blue]{{Amount}}[/blue] less {BAE} (minimum [blue]1[/blue]).",
                                  "無底胃", f"{MZ}少花一些{BAZ}（至少 [blue]1[/blue] 根）。",
                                  f"{MZ}少花 [blue]{{Amount}}[/blue] 根{BAZ}（至少 [blue]1[/blue] 根）。"),
+    "LAZY_SUNDAY_POWER": ("Lazy Sunday", "At the end of your turn, cards you [gold]Retain[/gold] cost [blue]0[/blue] until played.",
+                          "At the end of your turn, cards you [gold]Retain[/gold] cost [blue]0[/blue] until played.",
+                          "慵懶星期天", "在你的回合結束時，你[gold]保留[/gold]的牌在打出前耗能變為 [blue]0[/blue]。",
+                          "在你的回合結束時，你[gold]保留[/gold]的牌在打出前耗能變為 [blue]0[/blue]。"),
+    "ROLLING_THUNDER_POWER": ("Rolling Thunder", f"At the end of your turn, deal damage equal to your {GB_E} to a random enemy.",
+                              f"At the end of your turn, deal damage equal to your {GB_E} to a random enemy "
+                              f"[blue]{{Amount}}[/blue] {{Amount:plural:time|times}}.",
+                              "滾滾雷霆", f"在你的回合結束時，對隨機一名敵人造成等同你{GB_Z}值的傷害。",
+                              f"在你的回合結束時，對隨機敵人造成等同你{GB_Z}值的傷害，共 [blue]{{Amount}}[/blue] 次。"),
 }
 
 relics = {
@@ -310,6 +328,31 @@ relics = {
                       "Packed for two. Empty by noon.",
                       "野餐竹籃", f"在每場戰鬥開始時，獲得 [blue]{{BambooPower}}[/blue] 根{BAZ}。",
                       "裝了兩人份，中午前就見底。"),
+    "HAMMOCK": ("Hammock", "At the start of your turn, if you [gold]Retained[/gold] a card last turn, draw [blue]{Cards}[/blue] additional card.",
+                "Swing gently. Do nothing. Repeat.",
+                "吊床", "在你的回合開始時，若上回合有[gold]保留[/gold]牌，多抽 [blue]{Cards}[/blue] 張牌。",
+                "輕輕晃，什麼都不做，再晃一次。"),
+    "FIVE_MORE_MINUTES": ("Five More Minutes", f"Whenever you remove all your {DRE}, regain half of it.",
+                          "Just five more minutes. Then five more.",
+                          "賴床", f"每次移除所有{DRZ}時，取回其中一半。",
+                          "再五分鐘就好，然後再五分鐘。"),
+    "SHARED_BLANKET": ("Shared Blanket", f"At the end of your turn, your allies gain {GB_E} equal to half your {DRE}.",
+                       "One blanket. Two sleepers. Endless negotiations.",
+                       "共用毛毯", f"在你的回合結束時，隊友獲得等同你一半{DRZ}層數的{GB_Z}。",
+                       "一條毯子，兩個人搶。"),
+    "BEANBAG": ("Beanbag", f"The first time you gain {GB_E} from a card each turn, gain [blue]{{Block}}[/blue] additional {GB_E}.",
+                "Sit down once. Never get up.",
+                "懶骨頭", f"每回合第一次從卡牌獲得{GB_Z}時，額外獲得 [blue]{{Block}}[/blue] 點{GB_Z}。",
+                "坐下去就起不來了。"),
+    "BAMBOO_BARBELL": ("Bamboo Barbell",
+                       f"At the end of your turn, if you have [blue]{{Threshold}}[/blue] or more {BAE}, gain [blue]{{StrengthPower}}[/blue] [gold]Strength[/gold].",
+                       "Lift it first. Eat it later.",
+                       "竹子槓鈴", f"在你的回合結束時，若有至少 [blue]{{Threshold}}[/blue] 根{BAZ}，獲得 [blue]{{StrengthPower}}[/blue] 點[gold]力量[/gold]。",
+                       "先舉起來，再吃掉。"),
+    "PICNIC_MAT": ("Picnic Mat", f"Whenever you {ME}, your allies gain [blue]{{Block}}[/blue] {GB_E}.",
+                   "Spread out. Waiting for you.",
+                   "野餐墊", f"每次{MZ}竹子時，隊友各獲得 [blue]{{Block}}[/blue] 點{GB_Z}。",
+                   "鋪好了，就等你來。"),
 }
 
 potions = {
@@ -365,7 +408,106 @@ ancients_zht = {
     "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-1r.ancient": "你爬了這麼高，就只是為了找點心？",
 }
 
-# Traditional -> Simplified for every character used above that differs.
+# key under SPIREDUO-<EVENT>. -> (eng, zht). Option keys come from the handler method names (BaseLib slugifies them).
+events = {
+    "PICNIC_FOR_TWO": {
+        "title": ("Picnic for Two", "雙人野餐"),
+        "pages.INITIAL.description": (
+            "A sunny clearing, a checkered blanket and a basket packed far too full.\n\n"
+            "Someone planned this. There are bamboo shoots, eucalyptus sandwiches and exactly enough for two... "
+            "[sine]if nobody gets greedy.[/sine]",
+            "陽光灑落的空地上鋪著格子野餐墊，旁邊擺著一個塞得太滿的籃子。\n\n"
+            "看得出有人特地準備過：竹筍、尤加利三明治，剛好兩人份……[sine]前提是沒有人偷吃。[/sine]"),
+        "pages.INITIAL.options.SHARE.title": ("Share Everything", "分著吃"),
+        "pages.INITIAL.options.SHARE.description": ("Every player heals [green]{Heal}[/green] HP.",
+                                                    "所有玩家各回復 [green]{Heal}[/green] 點生命。"),
+        "pages.INITIAL.options.FEAST.title": ("Eat It All", "全部吃光"),
+        "pages.INITIAL.options.FEAST.description": ("Gain [green]{MaxHp}[/green] Max HP.",
+                                                    "獲得 [green]{MaxHp}[/green] 點最大生命值。"),
+        "pages.SHARE.description": (
+            "You split every bite down the middle. The food runs out fast, but nobody minds.\n\n"
+            "You both feel [green]refreshed[/green].",
+            "每一口都對半分。食物很快就吃完了，但沒有人在意。\n\n兩個人都覺得[green]精神好多了[/green]。"),
+        "pages.FEAST.description": (
+            "While your partner watches the clouds, the basket quietly empties.\n\n[sine]You feel very full.[/sine]",
+            "趁另一半在看雲，籃子悄悄空了。\n\n[sine]好飽。[/sine]"),
+    },
+    "STARGAZING": {
+        "title": ("Stargazing", "一起看星星"),
+        "pages.INITIAL.description": (
+            "Far from the noise of the Spire, you find a quiet hill under a sky full of stars.\n\n"
+            "You lie down side by side. For a while, nobody says anything.\n\n"
+            "Then a [gold]shooting star[/gold] streaks across the sky.",
+            "遠離高塔的喧鬧，你們找到一座安靜的小山丘，頭頂是滿天星星。\n\n"
+            "兩個人並肩躺下，好一陣子都沒說話。\n\n接著，一顆[gold]流星[/gold]劃過天空。"),
+        "pages.INITIAL.options.MAKE_A_PROMISE.title": ("Make a Promise", "許下約定"),
+        "pages.INITIAL.options.MAKE_A_PROMISE.description": ("Add [gold]Promise[/gold] to your [gold]Deck[/gold].",
+                                                             "將一張[gold]約定[/gold]加入你的[gold]牌組[/gold]。"),
+        "pages.INITIAL.options.WISH.title": ("Chase the Star", "去追流星"),
+        "pages.INITIAL.options.WISH.description": ("Lose [red]{Damage}[/red] HP. Obtain a random [gold]Relic[/gold].",
+                                                   "失去 [red]{Damage}[/red] 點生命。獲得一件隨機[gold]遺物[/gold]。"),
+        "pages.MAKE_A_PROMISE.description": (
+            "You hook your little fingers together and make a promise under the stars.\n\n"
+            "Whatever waits up there, you'll face it [gold]together[/gold].",
+            "你們勾起小指，在星空下許下約定。\n\n不管塔上等著什麼，都要[gold]一起[/gold]面對。"),
+        "pages.WISH.description": (
+            "You sprint down the hill toward where the star fell, trip over a root and tumble the rest of the way.\n\n"
+            "At the bottom, something is [gold]glowing[/gold] in the grass.",
+            "你衝下山坡去找流星落下的地方，被樹根絆了一跤，一路滾到山腳。\n\n草叢裡有個東西正在[gold]發光[/gold]。"),
+        "loss": ("{character} chased a falling star at [gold]{event}[/gold] and never came back.",
+                 "{character}在[gold]{event}[/gold]去追流星，再也沒有回來。"),
+    },
+    "LITTLE_QUARREL": {
+        "title": ("Little Quarrel", "小吵架"),
+        "pages.INITIAL.description": (
+            "It started with something small. Who ate the last bamboo shoot? Whose turn was it to keep watch?\n\n"
+            "Now you're sitting back to back, arms crossed, and neither of you wants to speak first.",
+            "一開始只是小事：最後一根竹筍是誰吃掉的？昨晚輪到誰守夜？\n\n"
+            "現在兩個人背對背坐著，雙手抱胸，誰都不想先開口。"),
+        "pages.INITIAL.options.APOLOGIZE.title": ("Apologize First", "先道歉"),
+        "pages.INITIAL.options.APOLOGIZE.description": (
+            "Add [gold]Make Up[/gold] to your [gold]Deck[/gold]. Heal [green]{Heal}[/green] HP.",
+            "將一張[gold]和好[/gold]加入你的[gold]牌組[/gold]。回復 [green]{Heal}[/green] 點生命。"),
+        "pages.INITIAL.options.STORM_OFF.title": ("Storm Off", "氣沖沖走掉"),
+        "pages.INITIAL.options.STORM_OFF.description": (
+            "Lose [red]{Damage}[/red] HP. Remove [blue]1[/blue] card from your [gold]Deck[/gold].",
+            "失去 [red]{Damage}[/red] 點生命。從你的[gold]牌組[/gold]中移除 [blue]1[/blue] 張牌。"),
+        "pages.APOLOGIZE.description": (
+            "\"...Sorry.\"\n\nA long pause. Then a small voice behind you: \"Me too.\"\n\nThe air feels [green]lighter[/green] already.",
+            "「……對不起。」\n\n沉默了好一會兒，背後傳來小小的聲音：「我也是。」\n\n空氣一下子[green]輕鬆[/green]多了。"),
+        "pages.STORM_OFF.description": (
+            "You stomp off into the woods and kick a tree. It hurts. A lot.\n\n"
+            "By the time you come back, your head is [gold]clear[/gold] and you've forgotten what the fight was about.",
+            "你氣呼呼地走進樹林，踢了一棵樹。好痛，非常痛。\n\n走回來的時候，腦袋[gold]清醒[/gold]了，也忘了到底在吵什麼。"),
+        "loss": ("{character} stormed off at [gold]{event}[/gold] and never came back.",
+                 "{character}在[gold]{event}[/gold]氣沖沖走掉，再也沒有回來。"),
+    },
+    "PHOTO_BOOTH": {
+        "title": ("Photo Booth", "大頭貼機"),
+        "pages.INITIAL.description": (
+            "Wedged between two crumbling pillars is a [gold]photo booth[/gold], its curtain half open and its lights still blinking.\n\n"
+            "Nobody knows who put it here. It still takes coins.",
+            "兩根快倒的柱子之間卡著一台[gold]大頭貼機[/gold]，簾子半開，燈還在閃。\n\n沒人知道是誰把它放在這裡，但它還收硬幣。"),
+        "pages.INITIAL.options.PHOTO.title": ("Take a Photo", "拍一張"),
+        "pages.INITIAL.options.PHOTO.description": ("Pay [red]{Gold}[/red] [gold]Gold[/gold]. Duplicate a card in your [gold]Deck[/gold].",
+                                                    "支付 [red]{Gold}[/red] [gold]金幣[/gold]。複製你[gold]牌組[/gold]中的 1 張牌。"),
+        "pages.INITIAL.options.PHOTO_LOCKED.title": ("Locked", "已鎖定"),
+        "pages.INITIAL.options.PHOTO_LOCKED.description": ("Requires [blue]{Gold}[/blue] [gold]Gold[/gold].",
+                                                           "需要 [blue]{Gold}[/blue] [gold]金幣[/gold]。"),
+        "pages.INITIAL.options.SILLY_FACES.title": ("Make Silly Faces", "扮鬼臉"),
+        "pages.INITIAL.options.SILLY_FACES.description": ("[gold]Upgrade[/gold] [blue]{Cards}[/blue] random cards.",
+                                                          "隨機[gold]升級[/gold] [blue]{Cards}[/blue] 張牌。"),
+        "pages.PHOTO.selectionScreenPrompt": ("Choose a card to duplicate", "選擇一張牌複製"),
+        "pages.PHOTO.description": ("Flash! The booth whirs and prints two copies of the photo.\n\nOne for each of you.",
+                                    "喀嚓！機器嗡嗡作響，印出兩張一模一樣的照片。\n\n一人一張。"),
+        "pages.SILLY_FACES.description": (
+            "You pull the silliest faces you can manage. The booth flashes, sputters and refuses to print.\n\n"
+            "Still, laughing that hard makes you feel [gold]stronger[/gold].",
+            "你們擠出最醜的鬼臉。機器閃了一下、卡了幾聲，然後拒絕印出照片。\n\n不過笑成這樣，好像也讓人[gold]變強[/gold]了。"),
+    },
+}
+
+# Traditional -> Simplified overrides, applied before LCMapStringEx converts everything else.
 T2S = {}
 T2S.update({"圓": "圆", "鐘": "钟", "結": "结", "界": "界", "敲": "敲", "咬": "咬", "棍": "棍", "胃": "胃", "王": "王", "戳": "戳", "慢": "慢", "吞": "吞", "來": "来", "著": "着", "牽": "牵", "無": "无", "戰": "战", "發": "发", "擊": "击", "禦": "御", "獲": "获", "層": "层", "隊": "队", "頭": "头", "張": "张", "飛": "飞", "撲": "扑", "氣": "气", "對": "对", "夢": "梦", "遊": "游", "懶": "懒", "醒": "醒", "給": "给", "予": "予", "虛": "虚", "弱": "弱", "飽": "饱", "傷": "伤", "鐵": "铁", "點": "点", "樹": "树", "擋": "挡", "於": "于", "麼": "么", "為": "为", "與": "与", "憂": "忧", "盹": "盹", "睏": "困",
             "臉": "脸", "蜷": "蜷", "團": "团", "伸": "伸", "睡": "睡", "竹": "竹", "啃": "啃", "掉": "掉",
@@ -389,8 +531,20 @@ T2S.update({"並": "并", "兩": "两", "壓": "压", "壘": "垒", "夠": "够"
 T2S.update({"裡": "里", "頂": "顶", "繼": "继", "續": "续", "見": "见", "總": "总"})
 
 
+_kernel32 = ctypes.WinDLL("kernel32")
+_kernel32.LCMapStringEx.argtypes = [ctypes.c_wchar_p, ctypes.c_uint32, ctypes.c_wchar_p, ctypes.c_int,
+                                    ctypes.c_wchar_p, ctypes.c_int, ctypes.c_void_p, ctypes.c_void_p, ctypes.c_void_p]
+LCMAP_SIMPLIFIED_CHINESE = 0x02000000
+
+
 def zhs(text):
-    return "".join(T2S.get(ch, ch) for ch in text)
+    text = "".join(T2S.get(ch, ch) for ch in text)
+    if not text:
+        return text
+    n = _kernel32.LCMapStringEx("zh-CN", LCMAP_SIMPLIFIED_CHINESE, text, len(text), None, 0, None, None, None)
+    buf = ctypes.create_unicode_buffer(n + 1)
+    _kernel32.LCMapStringEx("zh-CN", LCMAP_SIMPLIFIED_CHINESE, text, len(text), buf, n, None, None, None)
+    return buf.value
 
 
 def merge(path, entries):
@@ -423,6 +577,12 @@ for lang, entries in localized(remote_powers, ("remoteDescription",)).items():
 relic_loc = localized(relics, ("title", "description", "flavor"))
 potion_loc = localized(potions, ("title", "description"))
 characters["zhs"] = {k: zhs(v) for k, v in characters["zht"].items()}
+event_loc = {"eng": {}, "zht": {}, "zhs": {}}
+for event, entries in events.items():
+    for key, (e, z) in entries.items():
+        event_loc["eng"][f"SPIREDUO-{event}.{key}"] = e
+        event_loc["zht"][f"SPIREDUO-{event}.{key}"] = z
+        event_loc["zhs"][f"SPIREDUO-{event}.{key}"] = zhs(z)
 
 for lang in ("eng", "zht", "zhs"):
     d = loc / lang
@@ -431,11 +591,9 @@ for lang in ("eng", "zht", "zhs"):
     merge(d / "relics.json", relic_loc[lang])
     merge(d / "potions.json", potion_loc[lang])
     merge(d / "characters.json", characters[lang])
+    merge(d / "events.json", event_loc[lang])
 merge(loc / "eng" / "ancients.json", ancients)
 merge(loc / "zht" / "ancients.json", ancients_zht)
 merge(loc / "zhs" / "ancients.json", {k: zhs(v) for k, v in ancients_zht.items()})
-
-leftover = {ch for v in list(card_loc["zhs"].values()) + list(power_loc["zhs"].values()) + list(relic_loc["zhs"].values())
-            + list(potion_loc["zhs"].values()) + [zhs(v) for v in ancients_zht.values()]
-            for ch in v if "一" <= ch <= "鿿" and ch not in T2S.values() and ch not in T2S}
-print("unmapped chars:", "".join(sorted(leftover)))
+print({kind: len(table["eng"]) for kind, table in
+       (("cards", card_loc), ("powers", power_loc), ("relics", relic_loc), ("potions", potion_loc), ("events", event_loc))})

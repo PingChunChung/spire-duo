@@ -55,5 +55,7 @@ public sealed class BambooPower : SpireDuoPower
             digIn.FlashIcon();
             await CardPileCmd.Draw(choiceContext, digIn.Amount, creature.Player);
         }
+        var mat = creature.Player?.GetRelic<PicnicMat>();
+        if (mat != null) await mat.OnMunch();
     }
 }

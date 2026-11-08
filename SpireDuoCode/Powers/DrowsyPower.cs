@@ -27,6 +27,8 @@ public sealed class DrowsyPower : SpireDuoPower
         if (temper != null) await temper.OnWake(choiceContext, amount);
         var clock = creature.Player?.GetRelic<AlarmClock>();
         if (clock != null) await clock.OnWake(choiceContext);
+        var snooze = creature.Player?.GetRelic<FiveMoreMinutes>();
+        if (snooze != null) await snooze.OnWake(choiceContext, amount);
         return amount;
     }
 }

@@ -50,5 +50,11 @@
   "SPIREDUO-PINCER_POWER.title": "Opening",
   "SPIREDUO-PINCER_POWER.description": "This turn, an ally's next hit on this enemy deals extra damage.",
   "SPIREDUO-PINCER_POWER.smartDescription": "This turn, an ally's next hit on this enemy deals [blue]{Amount}[/blue] extra damage.",
-  "SPIREDUO-PINCER_POWER.remoteDescription": "This turn, your next hit on this enemy deals [blue]{Amount}[/blue] extra damage."
+  "SPIREDUO-PINCER_POWER.remoteDescription": "This turn, your next hit on this enemy deals [blue]{Amount}[/blue] extra damage.",
+  "SPIREDUO-LAZY_SUNDAY_POWER.title": "Lazy Sunday",
+  "SPIREDUO-LAZY_SUNDAY_POWER.description": "At the end of your turn, cards you [gold]Retain[/gold] cost [blue]0[/blue] until played.",
+  "SPIREDUO-LAZY_SUNDAY_POWER.smartDescription": "At the end of your turn, cards you [gold]Retain[/gold] cost [blue]0[/blue] until played.",
+  "SPIREDUO-ROLLING_THUNDER_POWER.title": "Rolling Thunder",
+  "SPIREDUO-ROLLING_THUNDER_POWER.description": "At the end of your turn, deal damage equal to your [gold]Block[/gold] to a random enemy.",
+  "SPIREDUO-ROLLING_THUNDER_POWER.smartDescription": "At the end of your turn, deal damage equal to your [gold]Block[/gold] to a random enemy [blue]{Amount}[/blue] {Amount:plural:time|times}."
 }

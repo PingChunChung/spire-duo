@@ -7,10 +7,13 @@ srcs = [pathlib.Path(p) for p in sys.argv[2:]]
 POWERS = {"drowsy_power", "hibernate_power", "bamboo_power", "bamboo_grove_power", "iron_hide_power", "big_appetite_power",
           "promise_power", "snoring_power", "lazy_afternoon_power", "short_temper_power", "dream_catcher_power",
           "procrastination_power", "dream_power_power", "dig_in_power", "national_treasure_power", "bottomless_stomach_power",
-          "pincer_power"}
+          "pincer_power", "lazy_sunday_power", "rolling_thunder_power"}
 RELICS = {"eucalyptus_leaf", "bamboo_basket", "couple_rings", "spare_key", "fluffy_pillow", "alarm_clock", "night_cap",
-          "body_pillow", "chopsticks", "rice_bowl", "golden_bamboo", "lunch_box", "eucalyptus_crown", "bamboo_hamper"}
+          "body_pillow", "chopsticks", "rice_bowl", "golden_bamboo", "lunch_box", "eucalyptus_crown", "bamboo_hamper",
+          "hammock", "five_more_minutes", "shared_blanket", "beanbag", "bamboo_barbell", "picnic_mat"}
 POTIONS = {"warm_milk", "strong_coffee", "bamboo_juice", "honey_jar"}
+# Same 2.13:1 shape as the vanilla 3440x1613 portraits; the event screen fits them into 2560x1200.
+EVENTS = {"picnic_for_two", "stargazing", "little_quarrel", "photo_booth"}
 ORB = re.compile(r"(koala|panda)_orb_layer_[1-5]")
 HAND = re.compile(r"(koala|panda)_hand_(point|rock|paper|scissors)")
 # Character height in pixels; BaseLib shows these sprites at native size (vanilla shop Ironclad is ~470px tall).
@@ -45,7 +48,7 @@ def on_canvas(im, size):
     return canvas
 
 
-n = {"card": 0, "power": 0, "relic": 0, "potion": 0, "charui": 0}
+n = {"card": 0, "power": 0, "relic": 0, "potion": 0, "charui": 0, "event": 0}
 for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswith("ref_")):
     im = Image.open(f)
     stem = f.stem
@@ -66,6 +69,10 @@ for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswit
         im.save(dst / "potions" / f.name)
         outline(im, 9).save(dst / "potions" / "outline" / f.name)
         n["potion"] += 1
+    elif stem in EVENTS:
+        (dst / "events").mkdir(exist_ok=True)
+        im.convert("RGB").resize((1920, 900), Image.LANCZOS).save(dst / "events" / f.name)
+        n["event"] += 1
     elif ORB.fullmatch(stem):
         (dst / "charui" / "orb").mkdir(exist_ok=True)
         im.convert("RGBA").resize((256, 256), Image.LANCZOS).save(dst / "charui" / "orb" / f.name)

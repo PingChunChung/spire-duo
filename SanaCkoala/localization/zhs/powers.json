@@ -50,5 +50,11 @@
   "SPIREDUO-PINCER_POWER.title": "破绽",
   "SPIREDUO-PINCER_POWER.description": "本回合队友下一次打中这名敌人时，额外造成伤害。",
   "SPIREDUO-PINCER_POWER.smartDescription": "本回合队友下一次打中这名敌人时，额外造成 [blue]{Amount}[/blue] 点伤害。",
-  "SPIREDUO-PINCER_POWER.remoteDescription": "本回合你下一次打中这名敌人时，额外造成 [blue]{Amount}[/blue] 点伤害。"
+  "SPIREDUO-PINCER_POWER.remoteDescription": "本回合你下一次打中这名敌人时，额外造成 [blue]{Amount}[/blue] 点伤害。",
+  "SPIREDUO-LAZY_SUNDAY_POWER.title": "慵懒星期天",
+  "SPIREDUO-LAZY_SUNDAY_POWER.description": "在你的回合结束时，你[gold]保留[/gold]的牌在打出前耗能变为 [blue]0[/blue]。",
+  "SPIREDUO-LAZY_SUNDAY_POWER.smartDescription": "在你的回合结束时，你[gold]保留[/gold]的牌在打出前耗能变为 [blue]0[/blue]。",
+  "SPIREDUO-ROLLING_THUNDER_POWER.title": "滚滚雷霆",
+  "SPIREDUO-ROLLING_THUNDER_POWER.description": "在你的回合结束时，对随机一名敌人造成等同你[gold]格挡[/gold]值的伤害。",
+  "SPIREDUO-ROLLING_THUNDER_POWER.smartDescription": "在你的回合结束时，对随机敌人造成等同你[gold]格挡[/gold]值的伤害，共 [blue]{Amount}[/blue] 次。"
 }
