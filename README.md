@@ -94,6 +94,7 @@ The mod id is `SanaCkoala`. C# namespaces and card ids keep the original `SpireD
 | `SanaCkoala/images` | Card art, icons, character images |
 | `tools/gen_localization.py` | Writes all localization files; `zhs` is converted from `zht` |
 | `tools/install_art.py` | Resizes source art into the mod's image folders |
+| `tools/set_workshop_description.py` | Updates the Workshop description per language |
 | `workshop/` | Steam Workshop workspace for Mega Crit's ModUploader |
 
 Edit text in `tools/gen_localization.py`, not in the JSON files, then run:
@@ -101,6 +102,21 @@ Edit text in `tools/gen_localization.py`, not in the JSON files, then run:
 ```bash
 python tools/gen_localization.py .
 ```
+
+## Publishing to the Workshop
+
+Every update needs both an English and a Traditional Chinese description.
+
+1. Update `workshop/workshop.json` (English description, and a change note with English and Chinese bullet lists) and `workshop/description.zh-TW.txt`.
+2. Bump `version` in `SanaCkoala.json`, run `dotnet publish`, and copy the DLL, `.pck` and `.json` into `workshop/content`.
+3. Upload with ModUploader. It reads the item id from `workshop/mod_id.txt` and uploads the English description.
+4. Upload the Chinese description:
+
+```bash
+python tools/set_workshop_description.py <ModUploader folder>
+```
+
+Pass `english tchinese` to update both languages without uploading the mod again or adding a change note.
 
 ## Art
 

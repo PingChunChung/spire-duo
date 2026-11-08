@@ -94,6 +94,7 @@ mod id 是 `SanaCkoala`。C# 命名空間和卡牌 id 保留原本的 `SpireDuo`
 | `SanaCkoala/images` | 卡圖、圖示、角色圖 |
 | `tools/gen_localization.py` | 產生全部語言檔，`zhs` 由 `zht` 轉換 |
 | `tools/install_art.py` | 把原始圖縮成 mod 需要的尺寸並放進圖片資料夾 |
+| `tools/set_workshop_description.py` | 依語言更新工作坊說明 |
 | `workshop/` | Mega Crit ModUploader 用的工作坊上架資料夾 |
 
 要改文字請改 `tools/gen_localization.py`，不要直接改 JSON，改完執行：
@@ -101,6 +102,21 @@ mod id 是 `SanaCkoala`。C# 命名空間和卡牌 id 保留原本的 `SpireDuo`
 ```bash
 python tools/gen_localization.py .
 ```
+
+## 發布到工作坊
+
+每次更新都要有英文和繁體中文兩份說明。
+
+1. 更新 `workshop/workshop.json`（英文說明，以及中英文各一段列點的更新紀錄）和 `workshop/description.zh-TW.txt`。
+2. 把 `SanaCkoala.json` 的 `version` 加一版，執行 `dotnet publish`，再把 DLL、`.pck`、`.json` 複製到 `workshop/content`。
+3. 用 ModUploader 上傳。它會從 `workshop/mod_id.txt` 讀作品 ID，並上傳英文說明。
+4. 上傳中文說明：
+
+```bash
+python tools/set_workshop_description.py <ModUploader 資料夾>
+```
+
+加上 `english tchinese` 參數會同時更新兩種語言，不會重傳 mod，也不會新增更新紀錄。
 
 ## 美術
 
