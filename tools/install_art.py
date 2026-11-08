@@ -7,7 +7,12 @@ srcs = [pathlib.Path(p) for p in sys.argv[2:]]
 POWERS = {"drowsy_power", "hibernate_power", "bamboo_power", "bamboo_grove_power", "iron_hide_power", "big_appetite_power",
           "promise_power", "snoring_power", "lazy_afternoon_power", "short_temper_power", "dream_catcher_power",
           "procrastination_power", "dream_power_power", "dig_in_power", "national_treasure_power", "bottomless_stomach_power",
-          "pincer_power", "lazy_sunday_power", "rolling_thunder_power"}
+          "pincer_power", "lazy_sunday_power", "rolling_thunder_power",
+          "morning_person_power", "grumpy_morning_power", "grudge_power", "warm_and_fuzzy_power", "night_light_power",
+          "nap_habit_power", "do_not_disturb_power", "energy_saving_mode_power", "sleep_like_a_log_power",
+          "dreamland_power", "hoarder_power", "bear_stance_power", "snack_addict_power", "belly_bounce_power",
+          "feeding_time_power", "second_stomach_power", "bamboo_shoots_power", "fury_of_the_fluffy_power",
+          "hulking_paws_power", "partner_in_crime_power"}
 RELICS = {"eucalyptus_leaf", "bamboo_basket", "couple_rings", "spare_key", "fluffy_pillow", "alarm_clock", "night_cap",
           "body_pillow", "chopsticks", "rice_bowl", "golden_bamboo", "lunch_box", "eucalyptus_crown", "bamboo_hamper",
           "hammock", "five_more_minutes", "shared_blanket", "beanbag", "bamboo_barbell", "picnic_mat"}

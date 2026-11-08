@@ -13,6 +13,12 @@ public sealed class BambooPower : SpireDuoPower
     {
         var stomach = creature.GetPower<BottomlessStomachPower>();
         if (stomach != null) cost = Math.Max(1, cost - stomach.Amount);
+        var secondStomach = creature.GetPower<SecondStomachPower>();
+        if (secondStomach != null && secondStomach.TryUseFreeMunch())
+        {
+            await AfterMunch(choiceContext, creature, source);
+            return true;
+        }
         var bamboo = creature.GetPower<BambooPower>();
         if (bamboo == null || bamboo.Amount < cost)
         {
@@ -55,6 +61,8 @@ public sealed class BambooPower : SpireDuoPower
             digIn.FlashIcon();
             await CardPileCmd.Draw(choiceContext, digIn.Amount, creature.Player);
         }
+        var addict = creature.GetPower<SnackAddictPower>();
+        if (addict != null) await addict.OnMunch(choiceContext);
         var mat = creature.Player?.GetRelic<PicnicMat>();
         if (mat != null) await mat.OnMunch();
     }

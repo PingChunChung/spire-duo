@@ -25,6 +25,10 @@ public sealed class DrowsyPower : SpireDuoPower
         await PowerCmd.Remove<DrowsyPower>(creature);
         var temper = creature.GetPower<ShortTemperPower>();
         if (temper != null) await temper.OnWake(choiceContext, amount);
+        var morning = creature.GetPower<MorningPersonPower>();
+        if (morning != null) await morning.OnWake();
+        var grumpy = creature.GetPower<GrumpyMorningPower>();
+        if (grumpy != null) await grumpy.OnWake(choiceContext);
         var clock = creature.Player?.GetRelic<AlarmClock>();
         if (clock != null) await clock.OnWake(choiceContext);
         var snooze = creature.Player?.GetRelic<FiveMoreMinutes>();
