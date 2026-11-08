@@ -301,6 +301,15 @@ relics = {
                   "Packed the night before.",
                   "便當盒", f"在每場戰鬥開始時，獲得 [blue]{{BambooPower}}[/blue] 根{BAZ}。",
                   "前一晚就裝好了。"),
+    # Starter relics upgraded by Touch of Orobas
+    "EUCALYPTUS_CROWN": ("Eucalyptus Crown", f"At the start of each combat, gain [blue]{{DrowsyPower}}[/blue] {DRE}.",
+                         "Heavy is the head that naps.",
+                         "尤加利花冠", f"在每場戰鬥開始時，獲得 [blue]{{DrowsyPower}}[/blue] 層{DRZ}。",
+                         "頭越重，睡得越沉。"),
+    "BAMBOO_HAMPER": ("Bamboo Hamper", f"At the start of each combat, gain [blue]{{BambooPower}}[/blue] {BAE}.",
+                      "Packed for two. Empty by noon.",
+                      "野餐竹籃", f"在每場戰鬥開始時，獲得 [blue]{{BambooPower}}[/blue] 根{BAZ}。",
+                      "裝了兩人份，中午前就見底。"),
 }
 
 potions = {
@@ -346,6 +355,15 @@ ancients = {
     "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-1r.ancient": "You climbed all this way for a snack?",
     "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-attack": "Attack",
 }
+# The -attack keys are parsed as an ArchitectAttackers name, not shown, so they stay English-only.
+ancients_zht = {
+    "THE_ARCHITECT.talk.SPIREDUO-KOALA.0-0r.char": "這裡就是塔頂了嗎？",
+    "THE_ARCHITECT.talk.SPIREDUO-KOALA.0-0r.next": "繼續",
+    "THE_ARCHITECT.talk.SPIREDUO-KOALA.0-1r.ancient": "你爬了這麼高，就只是為了睡午覺？",
+    "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-0r.char": "上面有竹子嗎？",
+    "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-0r.next": "繼續",
+    "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-1r.ancient": "你爬了這麼高，就只是為了找點心？",
+}
 
 # Traditional -> Simplified for every character used above that differs.
 T2S = {}
@@ -368,6 +386,7 @@ T2S.update({"圓": "圆", "鐘": "钟", "結": "结", "界": "界", "敲": "敲"
             "撞": "撞", "眼": "眼", "圈": "圈", "黑": "黑", "跟": "跟", "斗": "斗", "翻": "翻", "滾": "滚",
             "種": "种", "採": "采", "拍": "拍", "掌": "掌", "熊": "熊", "貓": "猫", "揹": "背", "籃": "篮", "隊": "队", "獲": "获", "傷": "伤", "給": "给", "對": "对", "戒": "戒", "鑰": "钥", "匙": "匙", "備": "备", "處": "处", "復": "复", "開": "开", "門": "门", "遠": "远", "為": "为", "進": "进", "約": "约", "定": "定", "吵": "吵", "架": "架", "夾": "夹", "擊": "击", "失": "失", "去": "去", "命": "命", "玩": "玩", "家": "家", "所": "所", "各": "各", "侶": "侣", "情": "情", "只": "只", "來": "来", "著": "着", "息": "息", "休": "休", "時": "时", "場": "场", "戰": "战", "鬥": "斗", "點": "点", "層": "层", "易": "易"})
 T2S.update({"並": "并", "兩": "两", "壓": "压", "壘": "垒", "夠": "够", "將": "将", "後": "后", "從": "从", "捨": "舍", "暈": "晕", "棄": "弃", "機": "机", "殘": "残", "沒": "没", "減": "减", "濃": "浓", "熱": "热", "環": "环", "當": "当", "籠": "笼", "籬": "篱", "網": "网", "緊": "紧", "縮": "缩", "腳": "脚", "臨": "临", "蓋": "盖", "覺": "觉", "這": "这", "連": "连", "過": "过", "還": "还", "邊": "边", "響": "响", "飯": "饭", "鬆": "松", "鬧": "闹", "織": "织", "綻": "绽"})
+T2S.update({"裡": "里", "頂": "顶", "繼": "继", "續": "续", "見": "见", "總": "总"})
 
 
 def zhs(text):
@@ -413,8 +432,10 @@ for lang in ("eng", "zht", "zhs"):
     merge(d / "potions.json", potion_loc[lang])
     merge(d / "characters.json", characters[lang])
 merge(loc / "eng" / "ancients.json", ancients)
+merge(loc / "zht" / "ancients.json", ancients_zht)
+merge(loc / "zhs" / "ancients.json", {k: zhs(v) for k, v in ancients_zht.items()})
 
 leftover = {ch for v in list(card_loc["zhs"].values()) + list(power_loc["zhs"].values()) + list(relic_loc["zhs"].values())
-            + list(potion_loc["zhs"].values())
+            + list(potion_loc["zhs"].values()) + [zhs(v) for v in ancients_zht.values()]
             for ch in v if "一" <= ch <= "鿿" and ch not in T2S.values() and ch not in T2S}
 print("unmapped chars:", "".join(sorted(leftover)))

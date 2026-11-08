@@ -34,5 +34,11 @@
   "SPIREDUO-GOLDEN_BAMBOO.flavor": "漂亮到舍不得吃，结果还是吃了。",
   "SPIREDUO-LUNCH_BOX.title": "便当盒",
   "SPIREDUO-LUNCH_BOX.description": "在每场战斗开始时，获得 [blue]{BambooPower}[/blue] 根[gold]竹子[/gold]。",
-  "SPIREDUO-LUNCH_BOX.flavor": "前一晚就装好了。"
+  "SPIREDUO-LUNCH_BOX.flavor": "前一晚就装好了。",
+  "SPIREDUO-EUCALYPTUS_CROWN.title": "尤加利花冠",
+  "SPIREDUO-EUCALYPTUS_CROWN.description": "在每场战斗开始时，获得 [blue]{DrowsyPower}[/blue] 层[gold]睡意[/gold]。",
+  "SPIREDUO-EUCALYPTUS_CROWN.flavor": "头越重，睡得越沉。",
+  "SPIREDUO-BAMBOO_HAMPER.title": "野餐竹篮",
+  "SPIREDUO-BAMBOO_HAMPER.description": "在每场战斗开始时，获得 [blue]{BambooPower}[/blue] 根[gold]竹子[/gold]。",
+  "SPIREDUO-BAMBOO_HAMPER.flavor": "装了两人份，中午前就见底。"
 }

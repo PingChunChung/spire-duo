@@ -34,5 +34,11 @@
   "SPIREDUO-GOLDEN_BAMBOO.flavor": "Too pretty to eat. Eaten anyway.",
   "SPIREDUO-LUNCH_BOX.title": "Lunch Box",
   "SPIREDUO-LUNCH_BOX.description": "At the start of each combat, gain [blue]{BambooPower}[/blue] [gold]Bamboo[/gold].",
-  "SPIREDUO-LUNCH_BOX.flavor": "Packed the night before."
+  "SPIREDUO-LUNCH_BOX.flavor": "Packed the night before.",
+  "SPIREDUO-EUCALYPTUS_CROWN.title": "Eucalyptus Crown",
+  "SPIREDUO-EUCALYPTUS_CROWN.description": "At the start of each combat, gain [blue]{DrowsyPower}[/blue] [gold]Drowsy[/gold].",
+  "SPIREDUO-EUCALYPTUS_CROWN.flavor": "Heavy is the head that naps.",
+  "SPIREDUO-BAMBOO_HAMPER.title": "Bamboo Hamper",
+  "SPIREDUO-BAMBOO_HAMPER.description": "At the start of each combat, gain [blue]{BambooPower}[/blue] [gold]Bamboo[/gold].",
+  "SPIREDUO-BAMBOO_HAMPER.flavor": "Packed for two. Empty by noon."
 }
