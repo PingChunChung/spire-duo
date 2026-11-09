@@ -18,6 +18,19 @@ public static class ProgressStore
         Save(progress);
     }
 
+    /// <summary>Records which of the Koala and the Panda have won Act 3 and returns the updated progress.</summary>
+    public static SanaCkoalaProgress RecordSpireClear(bool koala, bool panda)
+    {
+        var progress = Load();
+        if ((!koala || progress.KoalaSpireCleared) && (!panda || progress.PandaSpireCleared))
+            return progress;
+
+        progress.KoalaSpireCleared |= koala;
+        progress.PandaSpireCleared |= panda;
+        Save(progress);
+        return progress;
+    }
+
     private static SanaCkoalaProgress Load()
     {
         if (!Godot.FileAccess.FileExists(ProgressPath)) return new SanaCkoalaProgress();

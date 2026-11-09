@@ -4,5 +4,7 @@ public sealed class SanaCkoalaProgress
 {
     public int SchemaVersion { get; set; } = 1;
     public bool BlackCatUnlocked { get; set; }
+    public bool KoalaSpireCleared { get; set; }
+    public bool PandaSpireCleared { get; set; }
     public bool RaccoonUnlocked { get; set; }
 }

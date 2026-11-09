@@ -26,7 +26,7 @@ Steam Workshop: [SanaCkoala](https://steamcommunity.com/sharedfiles/filedetails/
 
 ### The Black Cat (unlockable)
 
-68 HP. Unlock it by winning Act 3 with the Koala and the Panda in the same party. Each player's unlock is stored in the mod's own progress file (`%APPDATA%\SlayTheSpire2\SanaCkoala\progress.json`); game saves are not touched. Starter relic **Moonbell Collar**: start each combat with the middle Footprint slot set to S. Touch of Orobas upgrades it to **Eclipse Chime** (left slot A, middle slot S and locked until your first turn ends).
+68 HP. Unlock it by winning Act 3 with the Koala and the Panda in the same party, or by winning Act 3 once with each of them (separate runs and singleplayer count). Each player's unlock is stored in the mod's own progress file (`%APPDATA%\SlayTheSpire2\SanaCkoala\progress.json`); game saves are not touched. Starter relic **Moonbell Collar**: start each combat with the middle Footprint slot set to S. Touch of Orobas upgrades it to **Eclipse Chime** (left slot A, middle slot S and locked until your first turn ends).
 
 - **Footprints**: three slots above the health bar remember the types of your last cards, A (Attack), S (Skill) and P (Power). They carry over between turns.
 - Finish a Line to trigger it and clear the slots: **Pounce** A-S-A (8 damage, 1 Vulnerable), **Groom** S-S-A (8 Block, draw 1), **Omen** P-S-P (1 Energy, Retain 1 card).
