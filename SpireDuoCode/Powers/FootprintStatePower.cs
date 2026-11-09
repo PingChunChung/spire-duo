@@ -167,7 +167,7 @@ public sealed class FootprintStatePower : SpireDuoPower
             player: Owner.Player!,
             filter: null,
             source: cardPlay.Card)).FirstOrDefault();
-        retained?.AddKeyword(CardKeyword.Retain);
+        retained?.GiveSingleTurnRetain();
 
         var velvet = Owner.GetPower<VelvetEclipsePower>();
         int turn = Owner.Player!.PlayerCombatState?.TurnNumber ?? -1;
