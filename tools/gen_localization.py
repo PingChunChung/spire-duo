@@ -642,6 +642,13 @@ powers = {
 }
 
 relics = {
+    "VELVET_POUCH": ("Velvet Pouch", "The first time you clear Footprints each combat, draw {Cards} cards.", "A soft little pouch for treasures found under the sofa.", "絨布小袋", "每場戰鬥中，首次清空足跡時，抽 {Cards} 張牌。", "柔軟的小袋，收著沙發底下找到的寶物。"),
+    "WINDOWSILL_TOKEN": ("Windowsill Token", "At the start of each combat, gain 1 Dexterity if your deck has at least 8 Skills.", "Its warm edge catches the afternoon sun.", "窗臺代幣", "每場戰鬥開始時，若你的牌組至少有 8 張技能牌，獲得 1 點敏捷。", "溫暖的邊緣，接住午後的陽光。"),
+    "QUIET_HOURGLASS": ("Quiet Hourglass", "The first time you trigger Omen each combat, gain {Energy} Energy.", "The sand falls slowly while a cat dozes nearby.", "靜時沙漏", "每場戰鬥中，首次觸發預兆時，獲得 {Energy} 點能量。", "貓在身旁打盹時，沙粒落得格外慢。"),
+    "GUTTER_CROWN": ("Gutter Crown", "Whenever you trigger Pounce, deal {Damage} damage to ALL enemies.", "A rain-polished prize, carried home with great pride.", "雨槽王冠", "每當你觸發撲擊時，對所有敵人造成 {Damage} 點傷害。", "被雨洗亮的戰利品，被神氣地帶回家。"),
+    "COMET_COMB": ("Comet Comb", "Whenever you trigger Groom, gain {Block} Block and 1 Dexterity this turn.", "One careful brush, then a pleased little purr.", "彗星梳", "每當你觸發理毛時，獲得 {Block} 點格擋與本回合 1 點敏捷。", "仔細梳一下，接著傳來滿意的小呼嚕。"),
+    "LANTERN_OF_ONE_WINDOW": ("Lantern of One Window", "The first time an ally receives a resource from one of your cards each combat, both of you draw 1 card.", "One lit window means someone saved you a warm place.", "獨窗燈", "每場戰鬥中，首次有盟友從你的牌獲得資源時，你們各抽 1 張牌。", "亮著的一扇窗，代表有人留了暖位給你。"),
+    "CURIOSITY_STRING": ("Curiosity String", "Whenever you rotate or set a Footprint slot, gain {Block} Block.", "It rolls under the chair exactly when no one is looking.", "好奇繩", "每當你旋轉或設定足跡欄位時，獲得 {Block} 點格擋。", "總在沒人注意時，滾到椅子底下。"),
     "MOONBELL_COLLAR": ("Moonbell Collar", "At the start of each combat, set the middle Footprint slot to S.", "A small bell for a quiet house cat.", "月鈴項圈", "每場戰鬥開始時，將中間足跡欄位設為 S。", "給安靜家貓的一只小鈴鐺。"),
     "ECLIPSE_CHIME": ("Eclipse Chime", "At the start of each combat, set the left Footprint slot to A, the middle slot to S, and lock the middle slot until your first turn ends.", "It rings softly under a dark moon.", "日蝕風鈴", "每場戰鬥開始時，將左側足跡欄位設為 A、中間設為 S，並鎖定中間欄位直到你的第一回合結束。", "暗月下，它輕輕作響。"),
     "EUCALYPTUS_LEAF": ("Eucalyptus Leaf", f"At the start of each combat, gain [blue]{{DrowsyPower}}[/blue] {DRE}.",
@@ -733,6 +740,9 @@ relics = {
 }
 
 potions = {
+    "PAWPRINT_DRAUGHT": ("Pawprint Draught", "Choose A, S, or P. Set an empty Footprint slot to it. Draw 1 card.", "爪印藥劑", "選擇 A、S 或 P。將一個空足跡欄位設為它。抽 1 張牌。"),
+    "MOONMILK_FLASK": ("Moonmilk Flask", "Gain {Block} Block. Lock the left Footprint slot until your next turn.", "月乳瓶", "獲得 {Block} 點格擋。鎖定左側足跡欄位直到你的下一回合。"),
+    "NINTH_SPARK": ("Ninth Spark", "Choose a basic Line to trigger without changing your Footprints.", "第九火花", "選擇一條基本路線來觸發，不改變你的足跡。"),
     "WARM_MILK": ("Warm Milk", f"Gain [blue]{{DrowsyPower}}[/blue] {DRE}.",
                   "熱牛奶", f"獲得 [blue]{{DrowsyPower}}[/blue] 層{DRZ}。"),
     "STRONG_COFFEE": ("Strong Coffee",
@@ -1138,6 +1148,9 @@ cards.update({
     "CAT_OF_THE_THRESHOLD": ("Cat of the Threshold", "Once per combat, when you would die, survive at 1 HP.", "門檻之貓", "每場戰鬥一次，生命將降至 0 時改為保留 1 點生命。"),
 })
 
+cards.update({key: (name, "A Black Cat uncommon card.", zh, "一張黑貓非凡卡牌。") for key, name, zh in [
+    ("ALLEY_ARC", "Alley Arc", "巷弄弧線"), ("FENCE_VAULT", "Fence Vault", "翻越籬欄"), ("MOONLIT_LUNGE", "Moonlit Lunge", "月下突刺"), ("PAWPRINT_MAP", "Pawprint Map", "爪印地圖"), ("DARING_DESCENT", "Daring Descent", "冒險俯衝"), ("ROOFTOP_CHASE", "Rooftop Chase", "屋脊追逐"), ("HUNTERS_PAUSE", "Hunter's Pause", "獵手停步"), ("VELVET_AMBUSH", "Velvet Ambush", "絨布伏擊"), ("LAST_PAW", "Last Paw", "最後一掌"), ("BRISTLE_AND_BRUSH", "Bristle and Brush", "鬃毛與梳子"), ("TIDY_MIND", "Tidy Mind", "整潔心緒"), ("WARM_LOAF", "Warm Loaf", "暖麵包"), ("FLEA_COMB", "Flea Comb", "跳蚤梳"), ("SCRUPULOUS", "Scrupulous", "一絲不苟"), ("CATNAP_LEDGER", "Catnap Ledger", "小睡帳本"), ("SWEEP_ASIDE", "Sweep Aside", "掃到一旁"), ("EVENING_WASH", "Evening Wash", "晚間洗漱"), ("POLISHED_CLAWS", "Polished Claws", "拋光利爪"), ("OMEN_READER", "Omen Reader", "預兆讀者"), ("HALF_MOON_RITUAL", "Half-Moon Ritual", "半月儀式"), ("INKED_WINDOW", "Inked Window", "墨染窗"), ("FORETELL", "Foretell", "預言"), ("LANTERN_SHADOW", "Lantern Shadow", "燈影"), ("NINE_LIVES", "Nine Lives", "九命"), ("MIDNIGHT_ORACLE", "Midnight Oracle", "午夜神諭"), ("ECLIPSE_VEIL", "Eclipse Veil", "日蝕面紗"), ("FAMILIAR_ROUTE", "Familiar Route", "熟悉路徑"), ("THREAD_THE_NEEDLE", "Thread the Needle", "穿針引線"), ("MOONBEAM_MESSAGE", "Moonbeam Message", "月光訊息"), ("TANDEM_PROWL", "Tandem Prowl", "結伴巡行"), ("WATCH_THEIR_BACK", "Watch Their Back", "守望背後"), ("BORROWED_RHYTHM", "Borrowed Rhythm", "借來節奏"), ("QUIET_COMPANY", "Quiet Company", "安靜陪伴"), ("PASSING_BLINK", "Passing Blink", "擦身一瞬"), ("TWIN_MOON", "Twin Moon", "雙月"), ("LANTERN_PASS", "Lantern Pass", "傳燈")
+]})
 card_loc = localized(cards, ("title", "description"))
 # Title of the card selection screen for cards that make the player choose.
 card_prompts = {
@@ -1188,6 +1201,8 @@ relic_loc = localized(relics, ("title", "description", "flavor"))
 potion_loc = localized(potions, ("title", "description"))
 enchantment_loc = localized(enchantments, ("title", "description"))
 potion_prompts = {
+    "PAWPRINT_DRAUGHT": ("Choose a Footprint.", "選擇一個足跡。"),
+    "NINTH_SPARK": ("Choose a Line to trigger.", "選擇要觸發的路線。"),
     "LUCID_TEA": ("Choose a Retain card.", "選擇一張保留牌。"),
 }
 for lang, entries in localized(potion_prompts, ("selectionScreenPrompt",)).items():

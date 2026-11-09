@@ -97,6 +97,22 @@ public sealed class FootprintStatePower : SpireDuoPower
 
     public async Task TriggerOmenNow(PlayerChoiceContext context, CardPlay cardPlay) => await TriggerOmen(context, cardPlay);
 
+    public async Task TriggerLineNow(PlayerChoiceContext context, CardPlay cardPlay, FootprintLine line)
+    {
+        switch (line)
+        {
+            case FootprintLine.Pounce:
+                await TriggerPounce(context, cardPlay);
+                break;
+            case FootprintLine.Groom:
+                await TriggerGroom(context, cardPlay);
+                break;
+            case FootprintLine.Omen:
+                await TriggerOmen(context, cardPlay);
+                break;
+        }
+    }
+
     public static async Task ArmCompanion(PlayerChoiceContext context, Creature creature, Creature? ally, CardType type, decimal block, CardModel? source = null)
     {
         var state = await GetOrCreate(context, creature, source);
@@ -244,7 +260,7 @@ public sealed class FootprintStatePower : SpireDuoPower
         Array.Fill(_slots, Footprint.Empty);
         Array.Fill(_locked, false);
         Flash();
-        foreach (IFootprintListener listener in Owner.Powers.OfType<IFootprintListener>())
+        foreach (IFootprintListener listener in Listeners())
             await listener.OnFootprintCleared(context, cardPlay);
     }
 
@@ -258,25 +274,28 @@ public sealed class FootprintStatePower : SpireDuoPower
     private async Task NotifyLine(PlayerChoiceContext context, CardPlay play, FootprintLine line)
     {
         _triggeredThisTurn.Add(line);
-        foreach (IFootprintListener listener in Owner.Powers.OfType<IFootprintListener>())
+        foreach (IFootprintListener listener in Listeners())
             await listener.OnFootprintLine(context, play, line);
     }
 
     private async Task NotifySetOrRotated(PlayerChoiceContext context, CardModel? source)
     {
-        foreach (IFootprintListener listener in Owner.Powers.OfType<IFootprintListener>())
+        foreach (IFootprintListener listener in Listeners())
             await listener.OnFootprintSetOrRotated(context, source);
     }
 
     private async Task NotifyEmptySlotFilled(PlayerChoiceContext context, CardPlay play)
     {
-        foreach (IFootprintListener listener in Owner.Powers.OfType<IFootprintListener>())
+        foreach (IFootprintListener listener in Listeners())
             await listener.OnEmptySlotFilled(context, play);
     }
 
     private async Task NotifyCompanionResolved(PlayerChoiceContext context, CardPlay play, Creature? ally)
     {
-        foreach (IFootprintListener listener in Owner.Powers.OfType<IFootprintListener>())
+        foreach (IFootprintListener listener in Listeners())
             await listener.OnCompanionResolved(context, play, ally);
     }
+
+    private IEnumerable<IFootprintListener> Listeners() =>
+        Owner.Powers.OfType<IFootprintListener>().Concat(Owner.Player?.Relics.OfType<IFootprintListener>() ?? []);
 }

@@ -13,5 +13,13 @@
   "SPIREDUO-CRUNCHY_SHOOT.description": "Gain [blue]{BambooPower}[/blue] [gold]Bamboo[/gold].\nThis turn, your next [gold]Munch[/gold] costs [blue]{CrunchyShootPower}[/blue] less [gold]Bamboo[/gold] (minimum [blue]0[/blue]).",
   "SPIREDUO-HALF_AND_HALF.title": "Half-and-Half",
   "SPIREDUO-HALF_AND_HALF.description": "You and an ally each gain [blue]{Block}[/blue] [gold]Block[/gold] and draw [blue]{Cards}[/blue] card.",
-  "SPIREDUO-LUCID_TEA.selectionScreenPrompt": "Choose a Retain card."
+  "SPIREDUO-LUCID_TEA.selectionScreenPrompt": "Choose a Retain card.",
+  "SPIREDUO-PAWPRINT_DRAUGHT.title": "Pawprint Draught",
+  "SPIREDUO-PAWPRINT_DRAUGHT.description": "Choose A, S, or P. Set an empty Footprint slot to it. Draw 1 card.",
+  "SPIREDUO-MOONMILK_FLASK.title": "Moonmilk Flask",
+  "SPIREDUO-MOONMILK_FLASK.description": "Gain {Block} Block. Lock the left Footprint slot until your next turn.",
+  "SPIREDUO-NINTH_SPARK.title": "Ninth Spark",
+  "SPIREDUO-NINTH_SPARK.description": "Choose a basic Line to trigger without changing your Footprints.",
+  "SPIREDUO-PAWPRINT_DRAUGHT.selectionScreenPrompt": "Choose a Footprint.",
+  "SPIREDUO-NINTH_SPARK.selectionScreenPrompt": "Choose a Line to trigger."
 }
