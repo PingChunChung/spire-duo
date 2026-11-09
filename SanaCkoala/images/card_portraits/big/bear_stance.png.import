@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bear_stance.png-f8553d864ed472567fcc07acd2a19
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

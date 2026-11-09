@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/fortress_nap.png-6884828075acd987630d05eafd62
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

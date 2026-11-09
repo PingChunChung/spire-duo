@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/snack_addict.png-0f6d20e0cc55169f03bbf5a6b853
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

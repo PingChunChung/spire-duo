@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/stretch.png-ab1a1818ec7b3e9ccb46cbfcbfa8e185.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

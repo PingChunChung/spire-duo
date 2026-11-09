@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/drowsy_pounce.png-0039c7fd6d3a699b709357dd1d3
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

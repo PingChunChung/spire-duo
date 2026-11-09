@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/last_minute_rush.png-f95785eedc934e1065fcbc2e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

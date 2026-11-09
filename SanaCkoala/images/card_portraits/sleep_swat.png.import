@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/sleep_swat.png-2059e59ebdf639c4bc5c45fbb00cbd
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

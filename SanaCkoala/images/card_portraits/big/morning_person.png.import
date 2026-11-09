@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/morning_person.png-51eb8118f1a201077bd48a341a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/dream_power.png-69a5e76370cbdfaae1c0da1f12944
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

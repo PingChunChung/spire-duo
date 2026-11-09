@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/snuggle.png-dc7c1aa9941aea7e731a3ee9d39f3cac.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

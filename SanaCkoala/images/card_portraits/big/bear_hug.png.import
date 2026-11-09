@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bear_hug.png-0ed15615aa4b55d744318a6b70767bfd
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

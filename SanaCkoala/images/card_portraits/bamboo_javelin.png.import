@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bamboo_javelin.png-8726853ec3eb79fc82d13fa745
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

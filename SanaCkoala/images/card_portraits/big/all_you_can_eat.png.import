@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/all_you_can_eat.png-df727b41ef5c5d04085d2929f
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/moonlit_lunge.png-912ae77381bf1a4e8b3e6e850b9
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

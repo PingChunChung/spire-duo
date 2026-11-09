@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/packed_lunch.png-7514bf6760f90cfb8b49f6beb0e4
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

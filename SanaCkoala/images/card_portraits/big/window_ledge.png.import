@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/window_ledge.png-d6dfa4280158a0ac9933d05e35e5
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/warm_up.png-b35ba7ee595e39c1d535ec194fe80823.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

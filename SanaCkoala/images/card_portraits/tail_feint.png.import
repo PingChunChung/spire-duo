@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/tail_feint.png-89bf2cf1e6137b884fc8b9d9d691dc
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

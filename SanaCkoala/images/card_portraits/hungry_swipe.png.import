@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hungry_swipe.png-a98b0e0537c879aa948f3f0c8a14
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/rolling_momentum.png-f4b6eb46cb7ad40c6b6edc6c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

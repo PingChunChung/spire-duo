@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/dig_in.png-9bd8aa11205648c75d9a045602bab311.c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/inked_window.png-694cccb3b1ddc821b419f1be14f1
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

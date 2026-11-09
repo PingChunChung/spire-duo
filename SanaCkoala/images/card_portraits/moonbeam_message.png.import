@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/moonbeam_message.png-189e3558c90f8bc41cb4b0a4
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

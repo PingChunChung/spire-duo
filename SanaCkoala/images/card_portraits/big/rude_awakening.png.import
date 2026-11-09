@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/rude_awakening.png-7b96f9d07bc40d362c6e79e187
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/nap_habit.png-7f44ef60f0c1cf9d5e79327cc48490f
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

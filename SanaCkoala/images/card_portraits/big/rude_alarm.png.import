@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/rude_alarm.png-71c41024f54ecfb0ff7560987fa55b
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

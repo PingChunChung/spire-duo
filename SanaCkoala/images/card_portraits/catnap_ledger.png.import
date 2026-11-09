@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/catnap_ledger.png-70d658e87839e7d0a842bade3d7
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

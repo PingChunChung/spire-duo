@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/moonlit_relay.png-ab7d946eddc6b08df343a5d4ac1
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

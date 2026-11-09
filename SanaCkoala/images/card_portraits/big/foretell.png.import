@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/foretell.png-22f913b701c19de01b6614d6e2417946
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

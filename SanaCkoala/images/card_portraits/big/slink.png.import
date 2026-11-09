@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/slink.png-d1bea2fdab41d8cc1a784730b73f5a4f.ct
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

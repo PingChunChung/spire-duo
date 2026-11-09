@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/panda_power.png-25ca2f20294b012521c4bbd2a15a9
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

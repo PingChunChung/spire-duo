@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/perfect_arc.png-b81d2ddb71148803be45cf3c75b67
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

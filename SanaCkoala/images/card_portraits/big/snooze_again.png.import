@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/snooze_again.png-16f71e8f968886e29f3d3419d7de
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

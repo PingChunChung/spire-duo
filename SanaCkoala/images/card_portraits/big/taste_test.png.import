@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/taste_test.png-63cc4a4303e6317313f734c3c93590
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

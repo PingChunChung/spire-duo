@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/yawn.png-2284c0967e452a8c1ccc59cb5433f68d.cte
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

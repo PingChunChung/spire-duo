@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/plant_bamboo.png-978e2c905df76a769a1a87f1e306
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

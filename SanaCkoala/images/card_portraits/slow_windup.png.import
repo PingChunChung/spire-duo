@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/slow_windup.png-ee040b9000008799c6d2a3e6c9d58
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

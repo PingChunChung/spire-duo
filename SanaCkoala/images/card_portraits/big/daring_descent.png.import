@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/daring_descent.png-117f83c8e42a094c6ac9d3663e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

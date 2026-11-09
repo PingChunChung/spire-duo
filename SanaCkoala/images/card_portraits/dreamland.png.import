@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/dreamland.png-bcc09b8e98c1e1c65a18a5dd4abd75a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

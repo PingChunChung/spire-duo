@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bide_time.png-8fb4781890309f5f953fb538227bdcc
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

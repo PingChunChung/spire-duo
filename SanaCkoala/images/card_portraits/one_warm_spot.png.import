@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/one_warm_spot.png-72a5c1edfdf436cf2201cba20c0
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

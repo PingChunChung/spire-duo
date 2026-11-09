@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bamboo_stick.png-2464f7e22055f999d5d1d88f1ca1
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

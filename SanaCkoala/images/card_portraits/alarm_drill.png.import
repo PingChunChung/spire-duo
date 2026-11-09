@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/alarm_drill.png-2537ab572f5df6d4914f3035477de
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

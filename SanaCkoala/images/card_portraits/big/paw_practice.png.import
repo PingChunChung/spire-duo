@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/paw_practice.png-cabede0f66cd5e24d4a8bcc89846
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

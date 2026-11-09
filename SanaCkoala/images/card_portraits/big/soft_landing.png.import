@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/soft_landing.png-3e154a4d7f180199944177125a11
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

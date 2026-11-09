@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/snoring.png-b6ef9d9a54133999ea0fa3a4176a1f9a.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

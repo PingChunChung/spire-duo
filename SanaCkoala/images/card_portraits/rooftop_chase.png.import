@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/rooftop_chase.png-1643c5152b4fdf0a7b974b8cf90
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/second_bell.png-985f0923e56e29f5a5b96455adc67
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

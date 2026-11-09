@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/feeding_time.png-1ed3fe5297da30b3c241aa26e4b0
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

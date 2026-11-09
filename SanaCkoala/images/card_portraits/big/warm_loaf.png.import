@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/warm_loaf.png-5682fb8ffda0e31d7a08bc9e688dcde
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

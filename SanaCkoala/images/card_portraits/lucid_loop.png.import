@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/lucid_loop.png-63367c8053b35e393560d011fa306a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

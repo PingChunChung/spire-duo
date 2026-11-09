@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/long_overdue.png-05e7486fa455d4214a4fb5c1428f
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

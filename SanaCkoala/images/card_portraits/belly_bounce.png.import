@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/belly_bounce.png-a5a4b6cc9fd71f2c288b9a7be86c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

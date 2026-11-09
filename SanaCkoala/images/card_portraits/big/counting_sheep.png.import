@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/counting_sheep.png-7ddb0814df140b85b06065e831
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

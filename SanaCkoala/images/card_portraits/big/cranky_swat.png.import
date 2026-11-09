@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/cranky_swat.png-d9b550a9a824e05e1f0a8824b5153
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

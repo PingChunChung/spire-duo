@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/familiar_route.png-d7b9055c024a3d0941662184b7
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/scrupulous.png-0b474a924324cc3eb119825f68d957
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

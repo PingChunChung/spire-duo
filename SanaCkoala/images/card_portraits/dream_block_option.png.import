@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/dream_block_option.png-9f6218fb8b0806c5d8e0b7
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

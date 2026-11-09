@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/tidy_mind.png-9d5a2c009332d7ada25c5e4f07a4b5a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

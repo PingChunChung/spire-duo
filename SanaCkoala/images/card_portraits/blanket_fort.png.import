@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/blanket_fort.png-e240ef58273ab33d7fd266007fa5
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

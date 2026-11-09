@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/slow_blink.png-0b6d64ab1fe6c8768dd3c39245722a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/soft_authority.png-3ca3bd96bdb551d4daa1bfd480
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

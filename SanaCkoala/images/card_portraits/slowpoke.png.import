@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/slowpoke.png-325fbc4119e6fe28c0e098f9add9079d
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

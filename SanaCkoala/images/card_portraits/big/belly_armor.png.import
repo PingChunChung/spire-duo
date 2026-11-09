@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/belly_armor.png-c83d900ed2dec0cf8788a4aa3d547
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

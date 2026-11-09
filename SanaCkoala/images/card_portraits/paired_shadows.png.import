@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/paired_shadows.png-483fae7fd0f5a4051ee2bfb1e0
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

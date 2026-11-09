@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hush.png-850a6c9f314d915498e693b18804b7ce.cte
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

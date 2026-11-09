@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/evening_wash.png-538726ab806d96ecca1f9a33f8c4
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

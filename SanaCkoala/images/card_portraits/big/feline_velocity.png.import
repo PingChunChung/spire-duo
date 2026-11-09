@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/feline_velocity.png-3da2c485ca7b2d72835baa3a1
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

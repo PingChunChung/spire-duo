@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/cornered.png-7c1d36d2b22b4945194adb7ed0dc171f
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

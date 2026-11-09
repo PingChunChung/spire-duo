@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bedtime_story.png-c3d07cf2d64cb94f53eb01d2b72
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

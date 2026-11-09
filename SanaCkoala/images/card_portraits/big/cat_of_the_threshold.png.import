@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/cat_of_the_threshold.png-61e2aa8af656f38eb796
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/do_not_disturb.png-e297777ebf9d24def2f70194a5
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

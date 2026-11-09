@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/downhill.png-0fd7953c9ef9baa136b409b3a8740358
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

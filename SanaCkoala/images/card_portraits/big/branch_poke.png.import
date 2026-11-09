@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/branch_poke.png-0f59f93fd0d84830e140d79155e33
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

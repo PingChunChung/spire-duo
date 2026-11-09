@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/tandem_prowl.png-1fbff76d85884af0cdfe2d3f1d9a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/lucky_fall.png-9f77b700832befb1d3109519d0f23a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

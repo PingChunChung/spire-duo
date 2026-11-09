@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/constellation_nap.png-9be28b415e674d6818f231d
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

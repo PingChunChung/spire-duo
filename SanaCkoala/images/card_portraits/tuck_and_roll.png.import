@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/tuck_and_roll.png-6a6a2eda5840865e75c6e71d169
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

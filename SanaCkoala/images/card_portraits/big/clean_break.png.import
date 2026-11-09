@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/clean_break.png-ad7b28f9b2c3522a43fc492ff6974
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

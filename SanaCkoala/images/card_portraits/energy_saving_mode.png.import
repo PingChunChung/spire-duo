@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/energy_saving_mode.png-45d70485c559c5407cb4e7
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

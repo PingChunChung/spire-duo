@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/purrfect_order.png-7b3bf61a217cd423558f3e2b13
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

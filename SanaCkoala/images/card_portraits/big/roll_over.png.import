@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/roll_over.png-8258667e1e699c2f09a7eb233c53b90
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

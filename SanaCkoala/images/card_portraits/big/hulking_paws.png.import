@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hulking_paws.png-511e7cf52c4cd3fb6c4ca1a5ed39
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

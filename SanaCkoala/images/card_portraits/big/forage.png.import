@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/forage.png-8222996ab5c1883a4dfb601bda1782c3.c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

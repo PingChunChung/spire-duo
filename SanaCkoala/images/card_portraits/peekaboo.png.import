@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/peekaboo.png-c55b8460bcc7109590d2a99bb7e5a949
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

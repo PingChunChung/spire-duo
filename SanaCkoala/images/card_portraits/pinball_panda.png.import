@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/pinball_panda.png-eaa08a8e2182c2a7f4caacf6537
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

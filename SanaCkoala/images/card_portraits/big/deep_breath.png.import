@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/deep_breath.png-1d94b84e8150b8e37db4b715a638d
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

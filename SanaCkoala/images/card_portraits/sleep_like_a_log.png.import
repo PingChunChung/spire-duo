@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/sleep_like_a_log.png-9f6509540e9aed747b20f1c3
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

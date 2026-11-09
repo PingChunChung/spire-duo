@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/roll_back.png-35d1a0924e771c6b3fc0f0afebebed4
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

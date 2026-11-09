@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/belly_laugh.png-26d34a27aae7401316b94316b1607
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

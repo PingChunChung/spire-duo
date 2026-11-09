@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/wake_the_forest.png-a20854e7c61b0250f34a724d2
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

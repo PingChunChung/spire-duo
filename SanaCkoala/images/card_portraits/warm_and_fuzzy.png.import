@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/warm_and_fuzzy.png-900ba39e32b254c51bff9fab14
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

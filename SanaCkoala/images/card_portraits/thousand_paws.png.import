@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/thousand_paws.png-5bce720501840e7367bc9f80909
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

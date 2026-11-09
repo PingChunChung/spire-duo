@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/slumber_party.png-dcc8d507e58529c54fc9e8b2ad8
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

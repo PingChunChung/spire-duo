@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/dark_circles.png-0f8d24f20e9ab9e2ce77f9a5cbeb
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/big_appetite.png-c5aa038cd11ddf7083ad932c4051
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

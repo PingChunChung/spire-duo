@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/strike_cat.png-fc538e8f1f1b45447aa10cce6dd65b
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

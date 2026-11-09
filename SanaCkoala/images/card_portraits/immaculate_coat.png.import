@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/immaculate_coat.png-5deee978069c681ad3df7cc8a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

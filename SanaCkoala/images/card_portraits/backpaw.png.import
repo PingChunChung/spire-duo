@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/backpaw.png-92a8f73b555a1a0c05610ff8a1f4cc62.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

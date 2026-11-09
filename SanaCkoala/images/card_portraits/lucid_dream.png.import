@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/lucid_dream.png-f9cd72e48bb72c0ab859c0a86f9e6
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

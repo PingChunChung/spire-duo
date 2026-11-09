@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hunters_pause.png-61402e12a4efaa97f2da9971db6
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

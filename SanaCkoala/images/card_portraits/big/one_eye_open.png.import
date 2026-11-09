@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/one_eye_open.png-19832a393c3b998b45364a9cb519
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/rolling_feast.png-834206d76c0c06b094ae3a4bd64
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
