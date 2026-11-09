@@ -1,4 +1,5 @@
-"""install_art.py <mod images dir> <art dir>...: resize Codex art into the mod's image folders. Files named ref_* are skipped."""
+"""install_art.py <mod images dir> <art dir>...: resize Codex art into the mod's image folders.
+Files named ref_* or _* and *_work drafts are skipped."""
 import re
 import sys, pathlib
 from PIL import Image, ImageFilter
@@ -23,6 +24,7 @@ RELICS = {"eucalyptus_leaf", "bamboo_basket", "couple_rings", "spare_key", "fluf
           "body_pillow", "chopsticks", "rice_bowl", "golden_bamboo", "lunch_box", "eucalyptus_crown", "bamboo_hamper",
           "hammock", "five_more_minutes", "shared_blanket", "beanbag", "bamboo_barbell", "picnic_mat"}
 RELICS.update({"sleepy_ledger", "dream_catcher_bell", "bamboo_sled", "split_bamboo", "passing_note"})
+RELICS.update({"moonbell_collar", "eclipse_chime"})
 POTIONS = {"warm_milk", "strong_coffee", "bamboo_juice", "honey_jar", "lucid_tea", "crunchy_shoot", "half_and_half"}
 # Same 2.13:1 shape as the vanilla 3440x1613 portraits; the event screen fits them into 2560x1200.
 EVENTS = {"picnic_for_two", "stargazing", "little_quarrel", "photo_booth", "the_last_dumpling", "borrowed_hammock"}
@@ -30,12 +32,16 @@ EVENTS.update({"eucalyptus_tollbooth", "honeyed_hive", "bamboo_appraiser", "rain
                "the_summit_picnic"})
 # Vanilla enchantment icons are 64x64.
 ENCHANTMENTS = {"well_rested", "freshly_cut"}
-ORB = re.compile(r"(koala|panda)_orb_layer_[1-5]")
-HAND = re.compile(r"(koala|panda)_hand_(point|rock|paper|scissors)")
+ORB = re.compile(r"(koala|panda|cat)_orb_layer_[1-5]")
+HAND = re.compile(r"(koala|panda|cat)_hand_(point|rock|paper|scissors)")
+# Footprint slot icons on the Black Cat's health bar.
+FOOTPRINT = re.compile(r"footprint_(attack|skill|power|empty|lock)")
+# Already at final size; copied as-is.
+CHARUI = {"cat_body", "character_icon_cat", "map_marker_cat", "char_select_cat", "char_select_cat_locked"}
 # Character height in pixels; BaseLib shows these sprites at native size (vanilla shop Ironclad is ~470px tall).
-REST_SITE = {"koala_rest_site": 430, "panda_rest_site": 460}
-MERCHANT = {"koala_merchant": 400, "panda_merchant": 450}
-SELECT_BG = {"koala_char_select_bg", "panda_char_select_bg"}
+REST_SITE = {"koala_rest_site": 430, "panda_rest_site": 460, "cat_rest_site": 350}
+MERCHANT = {"koala_merchant": 400, "panda_merchant": 450, "cat_merchant": 380}
+SELECT_BG = {"koala_char_select_bg", "panda_char_select_bg", "cat_char_select_bg"}
 # BaseLib centres the rest-site sprite at y = -0.1 * height, so on a 630px canvas its bottom edge sits at +252,
 # the same ground line as the vanilla Ironclad's hitbox.
 REST_SITE_CANVAS_HEIGHT = 630
@@ -65,7 +71,7 @@ def on_canvas(im, size):
 
 
 n = {"card": 0, "power": 0, "relic": 0, "potion": 0, "charui": 0, "event": 0, "enchantment": 0}
-for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswith("ref_")):
+for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswith(("ref_", "_")) and not p.stem.endswith("_work")):
     im = Image.open(f)
     stem = f.stem
     if stem in POWERS:
@@ -93,6 +99,13 @@ for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswit
         (dst / "events").mkdir(exist_ok=True)
         im.convert("RGB").resize((1920, 900), Image.LANCZOS).save(dst / "events" / f.name)
         n["event"] += 1
+    elif FOOTPRINT.fullmatch(stem):
+        (dst / "charui" / "footprints").mkdir(exist_ok=True)
+        im.convert("RGBA").resize((64, 64), Image.LANCZOS).save(dst / "charui" / "footprints" / f.name)
+        n["charui"] += 1
+    elif stem in CHARUI:
+        im.convert("RGBA").save(dst / "charui" / f.name)
+        n["charui"] += 1
     elif ORB.fullmatch(stem):
         (dst / "charui" / "orb").mkdir(exist_ok=True)
         im.convert("RGBA").resize((256, 256), Image.LANCZOS).save(dst / "charui" / "orb" / f.name)
@@ -123,7 +136,7 @@ for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswit
         n["card"] += 1
 
 # The co-op vote and Ancient dialogue icons draw this silhouette behind the character icon.
-for who in ("koala", "panda"):
+for who in ("koala", "panda", "cat"):
     icon = Image.open(dst / "charui" / f"character_icon_{who}.png").convert("RGBA")
     outline(icon, 7).save(dst / "charui" / f"character_icon_{who}_outline.png")
 print(n)
