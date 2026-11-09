@@ -9,7 +9,10 @@ namespace SpireDuo.SpireDuoCode.Character;
 
 public sealed class BlackCatCharacterSelectEntry : CustomCharacterSelectEntry
 {
-    public override string ButtonIconPath => "char_select_cat.png".CharacterUiOrKoalaPath("char_select_koala.png");
+    // BaseLib draws the entry button from this path only, so swap in the dimmed portrait while the cat is locked.
+    public override string ButtonIconPath => UnlockedInCharacterSelect
+        ? "char_select_cat.png".CharacterUiOrKoalaPath("char_select_koala.png")
+        : "char_select_cat_locked.png".CharacterUiOrKoalaPath("char_select_koala_locked.png");
     public override string EntryTitle => Text("title");
     public override string EntryDescription => Text("description");
     public override string LockedDescription => Text("lockedDescription");

@@ -10,5 +10,6 @@
   "SPIREDUO-BLACK_CAT.description": "安靜地觀察，將每一步思量化作突然的回應。",
   "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "換你了。",
   "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "……小心腳步。",
-  "SPIREDUO-BLACK_CAT.lockedDescription": "尚未解鎖。隊伍中同時有無尾熊和熊貓並打贏第 3 幕，就能解鎖黑貓。"
+  "SPIREDUO-BLACK_CAT.lockedDescription": "尚未解鎖。隊伍中同時有無尾熊和熊貓並打贏第 3 幕，就能解鎖黑貓。",
+  "SPIREDUO-BLACK_CAT.unlockedBanner": "黑貓加入了！之後在選角畫面就能選牠。"
 }
