@@ -114,6 +114,17 @@ public sealed class FootprintStatePower : SpireDuoPower
         }
     }
 
+    public async Task ResolveCompanionNow(PlayerChoiceContext context, CardPlay cardPlay)
+    {
+        if (!CompanionArmed)
+            return;
+
+        if (_companionAlly is { IsDead: false })
+            await CreatureCmd.GainBlock(_companionAlly, _companionBlock, ValueProp.Move, cardPlay);
+        await NotifyCompanionResolved(context, cardPlay, _companionAlly);
+        DisarmCompanion();
+    }
+
     public static async Task ArmCompanion(PlayerChoiceContext context, Creature creature, Creature? ally, CardType type, decimal block, CardModel? source = null)
     {
         var state = await GetOrCreate(context, creature, source);
@@ -164,12 +175,7 @@ public sealed class FootprintStatePower : SpireDuoPower
         PlayedCardsThisTurn++;
 
         if (CompanionArmed && cardPlay.Card.Type == _companionType)
-        {
-            if (_companionAlly is { IsDead: false })
-                await CreatureCmd.GainBlock(_companionAlly, _companionBlock, ValueProp.Move, cardPlay);
-            await NotifyCompanionResolved(choiceContext, cardPlay, _companionAlly);
-            DisarmCompanion();
-        }
+            await ResolveCompanionNow(choiceContext, cardPlay);
 
         bool filledEmpty = RecordIntoUnlockedSlots(footprint);
         if (filledEmpty)

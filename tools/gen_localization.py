@@ -1171,6 +1171,26 @@ cards.update({
     "EVENING_WASH": ("Evening Wash", "At the start of your next turn, gain {EveningWashPower:diff()} Block.", "暮色洗梳", "下回合開始時，獲得 {EveningWashPower:diff()} 點格擋。"),
     "POLISHED_CLAWS": ("Polished Claws", "Deal {IfUpgraded:show:9|7} damage. If the first two Footprints are S-S, deal {IfUpgraded:show:20|16} instead.", "磨亮爪尖", "造成 {IfUpgraded:show:9|7} 點傷害。若前兩格足跡為 S-S，改為造成 {IfUpgraded:show:20|16} 點。"),
 })
+cards.update({
+    "OMEN_READER": ("Omen Reader", "Whenever you play a Power, draw {OmenReaderPower:diff()} card{OmenReaderPower:plural}.", "讀兆", "每當你打出 Power，抽 {OmenReaderPower:diff()} 張牌。"),
+    "HALF_MOON_RITUAL": ("Half-Moon Ritual", f"Gain {B} Block. Set the left Footprint to P and the middle Footprint to S.", "半月儀式", f"獲得 {B} 格擋。設定左格為 P、中格為 S。"),
+    "INKED_WINDOW": ("Inked Window", "Whenever you trigger Omen, deal {InkedWindowPower:diff()} damage to a random enemy.", "墨窗", "每次觸發 Omen 後，對隨機敵人造成 {InkedWindowPower:diff()} 傷害。"),
+    "FORETELL": ("Foretell", "Look at the top 3 cards of your draw pile. Put 1 into your hand. Rotate Footprints right.{IfUpgraded:show:|}", "先知", "查看抽牌堆前 3 張牌，選 1 張放入手牌。右旋足跡。{IfUpgraded:show:|}"),
+    "LANTERN_SHADOW": ("Lantern Shadow", "The first time you trigger Omen each turn, gain 1 Artifact.{IfUpgraded:show: Draw 1 card.|}", "燈影", "每回合第一次觸發 Omen 後，獲得 1 層人工製品。{IfUpgraded:show:再抽 1 張牌。|}"),
+    "NINE_LIVES": ("Nine Lives", "Lose {HpLoss:diff()} HP. Draw {Cards:diff()} cards.", "九命", "失去 {HpLoss:diff()} HP。抽 {Cards:diff()} 張牌。"),
+    "MIDNIGHT_ORACLE": ("Midnight Oracle", "The first time you play a Power each turn, reduce the cost of {MidnightOraclePower:diff()} random card{MidnightOraclePower:plural} in your hand to 0 this turn.", "午夜神諭", "每回合第一次打出 Power 後，將手牌中 {MidnightOraclePower:diff()} 張隨機牌本回合費用降為 0。"),
+    "ECLIPSE_VEIL": ("Eclipse Veil", f"Gain {B} Block. If the left Footprint is P, gain {{PowerBlock:diff()}} more Block and draw {{Cards:diff()}} card.", "蝕影帷幕", f"獲得 {B} 格擋。若左格為 P，再獲得 {{PowerBlock:diff()}} 格擋並抽 {{Cards:diff()}} 張牌。"),
+    "FAMILIAR_ROUTE": ("Familiar Route", "Copy the rightmost non-empty Footprint into an empty slot.{IfUpgraded:show: Draw 1 card.|}", "熟路", "將三格中最右邊的非空足跡複製到一個空格。{IfUpgraded:show:再抽 1 張牌。|}"),
+    "THREAD_THE_NEEDLE": ("Thread the Needle", "Deal {IfUpgraded:show:10|8} damage. If the first two Footprints are P-S, deal {IfUpgraded:show:22|18} instead.", "穿針引線", "造成 {IfUpgraded:show:10|8} 傷害。若前兩格為 P-S，改為造成 {IfUpgraded:show:22|18} 傷害。"),
+    "MOONBEAM_MESSAGE": ("Moonbeam Message", "An ally gains 1 Energy. Set the left Footprint to P.{IfUpgraded:show: That ally draws 1 card.|}", "月光傳訊", "該盟友獲得 1 能量。設定左格為 P。{IfUpgraded:show:該盟友抽 1 張牌。|}"),
+    "TANDEM_PROWL": ("Tandem Prowl", "Whenever Companion resolves, the chosen ally gains {TandemProwlPower:diff()} Block.", "並行巡行", "每次 Companion 結算時，該盟友獲得 {TandemProwlPower:diff()} 格擋。"),
+    "WATCH_THEIR_BACK": ("Watch Their Back", "Give an ally {AllyBlock:diff()} Block. Lock the left and middle Footprints.", "守住背後", "給一名盟友 {AllyBlock:diff()} 格擋。鎖定左、中格。"),
+    "BORROWED_RHYTHM": ("Borrowed Rhythm", "That ally's next card costs 1 less this turn.{IfUpgraded:show: That ally draws 1 card.|}", "借來的節拍", "該盟友本回合下一張牌費用 -1。{IfUpgraded:show:該盟友抽 1 張牌。|}"),
+    "QUIET_COMPANY": ("Quiet Company", "Whenever an ally gains Block, gain {QuietCompanyPower:diff()} Block.", "安靜陪伴", "每次盟友獲得格擋時，你獲得 {QuietCompanyPower:diff()} 格擋。"),
+    "PASSING_BLINK": ("Passing Blink", "Deal {IfUpgraded:show:9|7} damage. If Companion is armed, deal {IfUpgraded:show:18|15} instead and resolve it.", "交會一瞥", "造成 {IfUpgraded:show:9|7} 傷害。若 Companion 待命，改為造成 {IfUpgraded:show:18|15} 傷害並結算它。"),
+    "TWIN_MOON": ("Twin Moon", "You and an ally each draw {Cards:diff()} cards. Set the middle Footprint to S.", "雙月", "你與一名盟友各抽 {Cards:diff()} 張牌。設定中格為 S。"),
+    "LANTERN_PASS": ("Lantern Pass", "An ally gains 1 Energy. Arm Companion: the next Skill gives that ally {CompanionBlock:diff()} Block.{IfUpgraded:show: That ally draws 1 card.|}", "傳燈", "該盟友獲得 1 能量。Arm Companion：下一張 Skill 給該盟友 {CompanionBlock:diff()} 格擋。{IfUpgraded:show:該盟友再抽 1 張牌。|}"),
+})
 card_loc = localized(cards, ("title", "description"))
 # Title of the card selection screen for cards that make the player choose.
 card_prompts = {
@@ -1182,6 +1202,7 @@ card_prompts = {
     "NEAT_PILE": ("Choose a card to put on top of your Draw Pile.", "選擇一張牌放到你的抽牌堆頂。"),
 }
 card_prompts.update({
+    "FORETELL": ("Choose a card to put into your hand.", "選擇一張牌放入手牌。"),
     "TIDY_MIND": ("Choose a card to discard.", "選擇一張牌棄掉。"),
     "SWEEP_ASIDE": ("Choose a card to Exhaust.", "選擇一張牌消耗。"),
 })
@@ -1213,6 +1234,15 @@ powers.update({
     "CATNAP_LEDGER_POWER": ("Catnap Ledger", "The first time you play your second Skill each turn, draw 1 card.", "Draw 1 card.", "小憩帳本", "每回合首次打出第 2 張技能牌時，抽 1 張牌。", "抽 1 張牌。"),
     "EVENING_WASH_POWER": ("Evening Wash", "At the start of your next turn, gain [blue]{Amount}[/blue] Block.", "Gain [blue]{Amount}[/blue] Block next turn.", "暮色洗梳", "下回合開始時，獲得 [blue]{Amount}[/blue] 點格擋。", "下回合獲得 [blue]{Amount}[/blue] 點格擋。"),
     "SCRUPULOUS_DEXTERITY_POWER": ("Scrupulous", "Temporary Dexterity until end of turn.", "Temporary Dexterity until end of turn.", "一絲不苟", "持續到回合結束的敏捷。", "持續到回合結束的敏捷。"),
+})
+powers.update({
+    "OMEN_READER_POWER": ("Omen Reader", "Whenever you play a Power, draw [blue]{Amount}[/blue] card.", "Draw [blue]{Amount}[/blue] card.", "讀兆", "每當你打出 Power，抽 [blue]{Amount}[/blue] 張牌。", "抽 [blue]{Amount}[/blue] 張牌。"),
+    "INKED_WINDOW_POWER": ("Inked Window", "Whenever you trigger Omen, deal [blue]{Amount}[/blue] damage to a random enemy.", "Deal [blue]{Amount}[/blue] damage to a random enemy.", "墨窗", "每次觸發 Omen 後，對隨機敵人造成 [blue]{Amount}[/blue] 傷害。", "對隨機敵人造成 [blue]{Amount}[/blue] 傷害。"),
+    "LANTERN_SHADOW_POWER": ("Lantern Shadow", "The first Omen each turn grants Artifact.", "Gain Artifact.", "燈影", "每回合第一次觸發 Omen 後，獲得人工製品。", "獲得人工製品。"),
+    "MIDNIGHT_ORACLE_POWER": ("Midnight Oracle", "The first Power each turn makes [blue]{Amount}[/blue] random hand card free this turn.", "Make cards free this turn.", "午夜神諭", "每回合第一張 Power 使手牌中 [blue]{Amount}[/blue] 張隨機牌本回合費用變為 0。", "使牌本回合費用變為 0。"),
+    "TANDEM_PROWL_POWER": ("Tandem Prowl", "Whenever Companion resolves, its ally gains [blue]{Amount}[/blue] Block.", "The ally gains Block.", "並行巡行", "每次 Companion 結算時，該盟友獲得 [blue]{Amount}[/blue] 格擋。", "該盟友獲得格擋。"),
+    "BORROWED_RHYTHM_POWER": ("Borrowed Rhythm", "Your next card costs 1 less this turn.", "Your next card costs less.", "借來的節拍", "你本回合下一張牌費用 -1。", "你下一張牌費用降低。"),
+    "QUIET_COMPANY_POWER": ("Quiet Company", "Whenever an ally gains Block, gain [blue]{Amount}[/blue] Block.", "Gain Block.", "安靜陪伴", "每次盟友獲得格擋時，你獲得 [blue]{Amount}[/blue] 格擋。", "獲得格擋。"),
 })
 power_loc = localized(powers, ("title", "description", "smartDescription"))
 # Shown instead of smartDescription to players other than the one who applied the power.
