@@ -27,6 +27,7 @@ public interface IFootprintListener
     Task OnFootprintSetOrRotated(PlayerChoiceContext context, CardModel? source);
     Task OnCompanionResolved(PlayerChoiceContext context, CardPlay cardPlay, Creature? ally);
     Task OnEmptySlotFilled(PlayerChoiceContext context, CardPlay cardPlay);
+    Task OnFootprintCleared(PlayerChoiceContext context, CardPlay cardPlay);
 }
 
 /// <summary>Combat-local Black Cat state. A single hidden power records the owner's card plays.</summary>
@@ -70,6 +71,31 @@ public sealed class FootprintStatePower : SpireDuoPower
         var state = await GetOrCreate(context, creature, source);
         state._locked[index] = true;
     }
+
+    public static async Task LockAllNonEmpty(PlayerChoiceContext context, Creature creature, CardModel? source = null)
+    {
+        var state = await GetOrCreate(context, creature, source);
+        for (int i = 0; i < state._slots.Length; i++)
+            if (state._slots[i] != Footprint.Empty)
+                state._locked[i] = true;
+    }
+
+    public static async Task UnlockAll(PlayerChoiceContext context, Creature creature, CardModel? source = null)
+    {
+        var state = await GetOrCreate(context, creature, source);
+        Array.Fill(state._locked, false);
+    }
+
+    public static async Task SetAll(PlayerChoiceContext context, Creature creature, Footprint first, Footprint second, Footprint third, CardModel? source = null)
+    {
+        var state = await GetOrCreate(context, creature, source);
+        state._slots[0] = first;
+        state._slots[1] = second;
+        state._slots[2] = third;
+        await state.NotifySetOrRotated(context, source);
+    }
+
+    public async Task TriggerOmenNow(PlayerChoiceContext context, CardPlay cardPlay) => await TriggerOmen(context, cardPlay);
 
     public static async Task ArmCompanion(PlayerChoiceContext context, Creature creature, Creature? ally, CardType type, decimal block, CardModel? source = null)
     {
@@ -180,7 +206,7 @@ public sealed class FootprintStatePower : SpireDuoPower
             await PowerCmd.Apply<VulnerablePower>(context, enemy, 1, Owner, cardPlay.Card);
         }
         await NotifyLine(context, cardPlay, FootprintLine.Pounce);
-        Clear();
+        await Clear(context, cardPlay);
     }
 
     private async Task TriggerGroom(PlayerChoiceContext context, CardPlay cardPlay)
@@ -188,7 +214,7 @@ public sealed class FootprintStatePower : SpireDuoPower
         await CreatureCmd.GainBlock(Owner, 8, ValueProp.Unpowered, cardPlay);
         await CardPileCmd.Draw(context, 1, Owner.Player!);
         await NotifyLine(context, cardPlay, FootprintLine.Groom);
-        Clear();
+        await Clear(context, cardPlay);
     }
 
     private async Task TriggerOmen(PlayerChoiceContext context, CardPlay cardPlay)
@@ -210,14 +236,16 @@ public sealed class FootprintStatePower : SpireDuoPower
             await CardPileCmd.Draw(context, velvet.Amount, Owner.Player!);
         }
         await NotifyLine(context, cardPlay, FootprintLine.Omen);
-        Clear();
+        await Clear(context, cardPlay);
     }
 
-    private void Clear()
+    private async Task Clear(PlayerChoiceContext context, CardPlay cardPlay)
     {
         Array.Fill(_slots, Footprint.Empty);
         Array.Fill(_locked, false);
         Flash();
+        foreach (IFootprintListener listener in Owner.Powers.OfType<IFootprintListener>())
+            await listener.OnFootprintCleared(context, cardPlay);
     }
 
     private void DisarmCompanion()

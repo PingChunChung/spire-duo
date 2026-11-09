@@ -1107,6 +1107,37 @@ def localized(table, fields_per_lang):
     return out
 
 
+cards.update({
+    "SOVEREIGN_POUNCE": ("Sovereign Pounce", f"Deal {D} damage. Each Pounce this combat increases this card's damage by {{PounceBonus:diff()}}.", "王者撲擊", f"造成 {D} 點傷害。本戰鬥每次撲擊使此牌傷害增加 {{PounceBonus:diff()}}。"),
+    "CATWALK_KING": ("Catwalk King", "The first Pounce each turn copies its completing Attack into your hand. It costs 0 this turn and Exhausts.", "貓道之王", "每回合首次撲擊時，將完成撲擊的攻擊牌複製到手牌。複製品在本回合費用為 0 並消耗。"),
+    "RED_ROOF": ("Red Roof", f"Deal {D} damage to ALL enemies. Rotate Footprints right for each enemy hit.", "赤瓦屋頂", f"對所有敵人造成 {D} 點傷害。每擊中一名敵人便將足跡右旋。"),
+    "PERFECT_ARC": ("Perfect Arc", f"Deal {D} damage. If Pounce just triggered, deal 8 more damage.", "完美弧線", f"造成 {D} 點傷害。若剛觸發撲擊，再造成 8 點傷害。"),
+    "FELINE_VELOCITY": ("Feline Velocity", "Whenever you play {IfUpgraded:show:2|3} Attacks, draw 1 card and gain 1 Energy.", "貓科速度", "每打出 {IfUpgraded:show:2|3} 張攻擊牌，抽 1 張牌並獲得 1 點能量。"),
+    "NEEDLE_LEAP": ("Needle Leap", f"Deal {D} damage 3 times.", "針躍", f"造成 {D} 點傷害 3 次。"),
+    "IMMACULATE_COAT": ("Immaculate Coat", "Whenever you trigger Groom, gain {ImmaculateCoatPower:diff()} Block.", "完美毛皮", "每次觸發梳理時，獲得 {ImmaculateCoatPower:diff()} 點格擋。"),
+    "GRAND_GROOMING": ("Grand Grooming", f"Gain {B} Block. Set every unlocked empty Footprint slot to S.", "盛大梳理", f"獲得 {B} 點格擋。將所有未鎖定的空足跡欄位設為 S。"),
+    "PURRFECT_ORDER": ("Purrfect Order", "After your first Skill each turn, your next Attack deals {PurrfectOrderPower:diff()} more damage.", "秩序呼嚕", "每回合第一張技能牌打出後，下一張攻擊牌額外造成 {PurrfectOrderPower:diff()} 點傷害。"),
+    "SILENT_HOUSEHOLD": ("Silent Household", f"Exhaust any number of cards. Gain {B} Block for each.", "無聲家務", f"消耗任意張手牌。每張獲得 {B} 點格擋。"),
+    "SOFT_AUTHORITY": ("Soft Authority", "The first time you complete S-S-A each turn, remove all Debuffs from yourself.", "柔韌威嚴", "每回合首次完成 S-S-A 時，移除自身所有負面狀態。"),
+    "CLEANSING_SPRINT": ("Cleansing Sprint", f"Deal {D} damage. Deal {{PerExhaust:diff()}} more for each Exhaust card.", "淨毛衝刺", f"造成 {D} 點傷害。每有 1 張消耗牌，額外造成 {{PerExhaust:diff()}} 點傷害。"),
+    "EBON_CALENDAR": ("Ebon Calendar", "The first Omen each turn returns a card from your discard pile to your hand.", "烏木月曆", "每回合首次預兆時，從棄牌堆將 1 張牌放入手牌。"),
+    "DARK_MOON_CONTRACT": ("Dark Moon Contract", "At the start of your turn, set the left Footprint to P and draw 1 card.", "暗月契約", "每回合開始時，設定左側足跡為 P 並抽 1 張牌。"),
+    "ORACLES_PAW": ("Oracle's Paw", "Set Footprints to P-S-P, then trigger Omen.", "神諭之掌", "將足跡設為 P-S-P，然後觸發預兆。"),
+    "INKWELL_SKY": ("Inkwell Sky", "Whenever you play a Power, deal {InkwellSkyPower:diff()} damage to ALL enemies.", "墨色天幕", "每次打出能力牌時，對所有敵人造成 {InkwellSkyPower:diff()} 點傷害。"),
+    "VELVET_FATE": ("Velvet Fate", "Lose 4 HP. Upgrade a card in your hand for this combat.", "絨毛命運", "失去 4 點生命。選擇 1 張手牌，使其升級至本戰鬥結束。"),
+    "CONSTELLATION_NAP": ("Constellation Nap", "The first empty Footprint slot filled each turn gives 1 Energy.", "星座小睡", "每回合第一個空足跡欄位被填入時，獲得 1 點能量。"),
+    "SHARED_NIGHTSHIFT": ("Shared Nightshift", "The first time an ally plays an Attack each turn, you gain Block and they gain Block.", "共守夜班", "每回合首次有盟友打出攻擊牌時，你與該盟友獲得格擋。"),
+    "ONE_WARM_SPOT": ("One Warm Spot", "An ally Retains their hand this turn. Lock all your non-empty Footprints.", "一處暖位", "使一名盟友保留全部手牌至下回合。鎖定所有非空足跡。"),
+    "SECRET_SIGNAL": ("Secret Signal", "While Companion is armed, the next allied Attack resolves it and draws cards.", "祕密訊號", "同伴足跡待命時，下一次你或盟友打出攻擊牌會結算它並抽牌。"),
+    "PAIRED_SHADOWS": ("Paired Shadows", f"You and an ally each gain {B} Block.", "成對影子", f"你與一名盟友各獲得 {B} 點格擋。"),
+    "MOONLIT_RELAY": ("Moonlit Relay", "An ally gains 1 Energy and draws 2 cards.", "月下接力", "一名盟友獲得 1 點能量並抽 2 張牌。"),
+    "QUIET_PACT": ("Quiet Pact", "Whenever Companion resolves, you and its chosen ally gain Artifact.", "寂靜約定", "每次同伴足跡結算後，你與該次指定的盟友各獲得 1 層人工製品。"),
+    "GUARDIAN_OF_THE_EAVES": ("Guardian of the Eaves", "The first time an ally loses HP each turn, deal damage to a random enemy.", "簷下守衛", "每回合盟友首次失去生命時，對隨機敵人造成傷害。"),
+    "SECOND_BELL": ("Second Bell", "Unlock all Footprints.", "第二鈴", "解除所有足跡鎖定。"),
+    "NIGHT_ATLAS": ("Night Atlas", "The first basic Line each turn gives 1 Energy and draws 1 card.", "夜行星圖", "每回合首次完成基本連段時，獲得 1 點能量並抽 1 張牌。"),
+    "CAT_OF_THE_THRESHOLD": ("Cat of the Threshold", "Once per combat, when you would die, survive at 1 HP.", "門檻之貓", "每場戰鬥一次，生命將降至 0 時改為保留 1 點生命。"),
+})
+
 card_loc = localized(cards, ("title", "description"))
 # Title of the card selection screen for cards that make the player choose.
 card_prompts = {
@@ -1119,6 +1150,26 @@ card_prompts = {
 }
 for lang, entries in localized(card_prompts, ("selectionScreenPrompt",)).items():
     card_loc[lang].update(entries)
+powers.update({
+    key: (title, desc, desc, title, desc, desc)
+    for key, title, desc in [
+        ("CATWALK_KING_POWER", "Catwalk King", "The first Pounce each turn copies its completing Attack."),
+        ("FELINE_VELOCITY_POWER", "Feline Velocity", "After enough Attacks, draw 1 card and gain 1 Energy."),
+        ("IMMACULATE_COAT_POWER", "Immaculate Coat", "Whenever Groom triggers, gain Block."),
+        ("PURRFECT_ORDER_POWER", "Purrfect Order", "Your next Attack after your first Skill deals additional damage."),
+        ("SOFT_AUTHORITY_POWER", "Soft Authority", "The first Groom each turn removes your Debuffs."),
+        ("EBON_CALENDAR_POWER", "Ebon Calendar", "The first Omen each turn returns a discarded card."),
+        ("DARK_MOON_CONTRACT_POWER", "Dark Moon Contract", "At turn start, set the left Footprint to P and draw 1 card."),
+        ("INKWELL_SKY_POWER", "Inkwell Sky", "Whenever you play a Power, damage ALL enemies."),
+        ("CONSTELLATION_NAP_POWER", "Constellation Nap", "The first empty Footprint filled each turn gives Energy."),
+        ("SHARED_NIGHTSHIFT_POWER", "Shared Nightshift", "The first allied Attack each turn grants Block."),
+        ("SECRET_SIGNAL_POWER", "Secret Signal", "An allied Attack resolves armed Companion and draws cards."),
+        ("QUIET_PACT_POWER", "Quiet Pact", "Companion resolution grants Artifact to you and its ally."),
+        ("GUARDIAN_OF_THE_EAVES_POWER", "Guardian of the Eaves", "The first ally damaged each turn retaliates."),
+        ("NIGHT_ATLAS_POWER", "Night Atlas", "The first basic Line each turn gives Energy and a card."),
+        ("CAT_OF_THE_THRESHOLD_POWER", "Cat of the Threshold", "Once per combat, survive lethal damage at 1 HP."),
+    ]
+})
 power_loc = localized(powers, ("title", "description", "smartDescription"))
 # Shown instead of smartDescription to players other than the one who applied the power.
 remote_powers = {
