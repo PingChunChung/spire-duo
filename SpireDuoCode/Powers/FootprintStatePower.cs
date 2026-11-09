@@ -1,4 +1,6 @@
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Rooms;
 using SpireDuo.SpireDuoCode.Character;
 
 namespace SpireDuo.SpireDuoCode.Powers;
@@ -11,19 +13,23 @@ public enum Footprint
     Power
 }
 
-/// <summary>Combat-local Black Cat state. It is advanced only by replicated card-play hooks.</summary>
+/// <summary>Combat-local Black Cat state. A single hidden power records the owner's card plays.</summary>
 public sealed class FootprintStatePower : SpireDuoPower
 {
     private readonly Footprint[] _slots = [Footprint.Empty, Footprint.Empty, Footprint.Empty];
     private readonly bool[] _locked = [false, false, false];
     private int _omenTurn = -1;
+    private Creature? _companionAlly;
+    private CardType _companionType;
+    private decimal _companionBlock;
 
     public IReadOnlyList<Footprint> Slots => _slots;
     public IReadOnlyList<bool> Locked => _locked;
-    public bool CompanionArmed { get; private set; }
+    public bool CompanionArmed => _companionAlly != null;
 
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
+    protected override bool IsVisibleInternal => false;
 
     public static async Task<FootprintStatePower> GetOrCreate(PlayerChoiceContext context, Creature creature, CardModel? source = null)
     {
@@ -47,10 +53,12 @@ public sealed class FootprintStatePower : SpireDuoPower
         state._locked[index] = true;
     }
 
-    public static async Task ArmCompanion(PlayerChoiceContext context, Creature creature, CardModel? source = null)
+    public static async Task ArmCompanion(PlayerChoiceContext context, Creature creature, Creature? ally, CardType type, decimal block, CardModel? source = null)
     {
         var state = await GetOrCreate(context, creature, source);
-        state.CompanionArmed = true;
+        state._companionAlly = ally;
+        state._companionType = type;
+        state._companionBlock = block;
     }
 
     public void Set(int index, Footprint footprint)
@@ -61,18 +69,17 @@ public sealed class FootprintStatePower : SpireDuoPower
 
     public void RotateRight()
     {
-        var slots = _slots.ToArray();
-        var locks = _locked.ToArray();
-        for (int i = 0; i < 3; i++)
-        {
-            if (_locked[i])
-                continue;
-
-            int source = (i + 2) % 3;
-            _slots[i] = slots[source];
-            _locked[i] = locks[source] && !locks[i];
-        }
+        Footprint slot = _slots[2];
+        bool locked = _locked[2];
+        _slots[2] = _slots[1];
+        _locked[2] = _locked[1];
+        _slots[1] = _slots[0];
+        _locked[1] = _locked[0];
+        _slots[0] = slot;
+        _locked[0] = locked;
     }
+
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay) => Record(choiceContext, cardPlay);
 
     public async Task Record(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -89,41 +96,21 @@ public sealed class FootprintStatePower : SpireDuoPower
         if (footprint == Footprint.Empty)
             return;
 
-        if (CompanionArmed && footprint == Footprint.Attack)
-            CompanionArmed = false;
+        if (CompanionArmed && cardPlay.Card.Type == _companionType)
+        {
+            if (_companionAlly is { IsDead: false })
+                await CreatureCmd.GainBlock(_companionAlly, _companionBlock, ValueProp.Move, cardPlay);
+            DisarmCompanion();
+        }
 
-        if (!_locked[0])
-        {
-            _slots[0] = _slots[1];
-            _slots[1] = _slots[2];
-            _slots[2] = footprint;
-        }
-        else if (!_locked[1])
-        {
-            _slots[1] = _slots[2];
-            _slots[2] = footprint;
-        }
-        else if (!_locked[2])
-        {
-            _slots[2] = footprint;
-        }
-        else
-        {
-            return;
-        }
+        RecordIntoUnlockedSlots(footprint);
 
         if (_slots.SequenceEqual([Footprint.Attack, Footprint.Skill, Footprint.Attack]))
-        {
             await TriggerPounce(choiceContext, cardPlay);
-        }
         else if (_slots.SequenceEqual([Footprint.Skill, Footprint.Skill, Footprint.Attack]))
-        {
             await TriggerGroom(choiceContext, cardPlay);
-        }
         else if (_slots.SequenceEqual([Footprint.Power, Footprint.Skill, Footprint.Power]))
-        {
             await TriggerOmen(choiceContext, cardPlay);
-        }
     }
 
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
@@ -133,12 +120,31 @@ public sealed class FootprintStatePower : SpireDuoPower
         return Task.CompletedTask;
     }
 
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        DisarmCompanion();
+        return Task.CompletedTask;
+    }
+
+    private void RecordIntoUnlockedSlots(Footprint footprint)
+    {
+        int[] writable = Enumerable.Range(0, _slots.Length).Where(index => !_locked[index]).ToArray();
+        if (writable.Length == 0)
+            return;
+
+        for (int i = 0; i < writable.Length - 1; i++)
+            _slots[writable[i]] = _slots[writable[i + 1]];
+        _slots[writable[^1]] = footprint;
+    }
+
     private async Task TriggerPounce(PlayerChoiceContext context, CardPlay cardPlay)
     {
         var enemies = Owner.CombatState!.HittableEnemies;
         if (enemies.Count > 0)
         {
-            var enemy = Owner.Player!.RunState.Rng.CombatTargets.NextItem(enemies)!;
+            var enemy = cardPlay.Target is { IsDead: false } target && enemies.Contains(target)
+                ? target
+                : enemies.MaxBy(enemy => enemy.CurrentHp)!;
             await DamageCmd.Attack(8).FromCard(cardPlay.Card).Targeting(enemy).WithHitFx("vfx/vfx_attack_slash").Execute(context);
             await PowerCmd.Apply<VulnerablePower>(context, enemy, 1, Owner, cardPlay.Card);
         }
@@ -155,7 +161,14 @@ public sealed class FootprintStatePower : SpireDuoPower
     private async Task TriggerOmen(PlayerChoiceContext context, CardPlay cardPlay)
     {
         await PlayerCmd.GainEnergy(1, Owner.Player!);
-        await PowerCmd.Apply<RetainHandPower>(context, Owner, 1, Owner, cardPlay.Card);
+        var retained = (await CardSelectCmd.FromHand(
+            prefs: new CardSelectorPrefs(SelectionScreenPrompt, 1),
+            context: context,
+            player: Owner.Player!,
+            filter: null,
+            source: cardPlay.Card)).FirstOrDefault();
+        retained?.AddKeyword(CardKeyword.Retain);
+
         var velvet = Owner.GetPower<VelvetEclipsePower>();
         int turn = Owner.Player!.PlayerCombatState?.TurnNumber ?? -1;
         if (velvet != null && _omenTurn != turn)
@@ -171,5 +184,12 @@ public sealed class FootprintStatePower : SpireDuoPower
         Array.Fill(_slots, Footprint.Empty);
         Array.Fill(_locked, false);
         Flash();
+    }
+
+    private void DisarmCompanion()
+    {
+        _companionAlly = null;
+        _companionType = CardType.None;
+        _companionBlock = 0;
     }
 }

@@ -28,6 +28,11 @@ public static class FootprintUiPatch
 public sealed partial class NFootprintStrip : HBoxContainer
 {
     private const string ImageRoot = "res://SanaCkoala/images/charui/footprints/";
+    private static readonly Texture2D EmptyTexture = ResourceLoader.Load<Texture2D>(ImageRoot + "footprint_empty.png");
+    private static readonly Texture2D AttackTexture = ResourceLoader.Load<Texture2D>(ImageRoot + "footprint_attack.png");
+    private static readonly Texture2D SkillTexture = ResourceLoader.Load<Texture2D>(ImageRoot + "footprint_skill.png");
+    private static readonly Texture2D PowerTexture = ResourceLoader.Load<Texture2D>(ImageRoot + "footprint_power.png");
+    private static readonly Texture2D LockTexture = ResourceLoader.Load<Texture2D>(ImageRoot + "footprint_lock.png");
     private readonly Creature _creature;
     private readonly TextureRect[] _slots = new TextureRect[3];
     private readonly TextureRect[] _locks = new TextureRect[3];
@@ -38,7 +43,7 @@ public sealed partial class NFootprintStrip : HBoxContainer
         Name = "NFootprintStrip";
         Size = new Vector2(78, 26);
         MouseFilter = MouseFilterEnum.Stop;
-        TooltipText = new LocString("powers", "SPIREDUO-FOOTPRINT_STATE_POWER.description").GetFormattedText();
+        TooltipText = new LocString("powers", "SPIREDUO-FOOTPRINT_UI_TOOLTIP.description").GetFormattedText();
 
         for (int i = 0; i < 3; i++)
         {
@@ -51,7 +56,7 @@ public sealed partial class NFootprintStrip : HBoxContainer
             };
             var locked = new TextureRect
             {
-                Texture = ResourceLoader.Load<Texture2D>(ImageRoot + "footprint_lock.png"),
+                Texture = LockTexture,
                 Position = new Vector2(16, 16),
                 Size = new Vector2(10, 10),
                 ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
@@ -75,14 +80,14 @@ public sealed partial class NFootprintStrip : HBoxContainer
         for (int i = 0; i < 3; i++)
         {
             Footprint footprint = state?.Slots[i] ?? Footprint.Empty;
-            string icon = footprint switch
+            Texture2D icon = footprint switch
             {
-                Footprint.Attack => "footprint_attack.png",
-                Footprint.Skill => "footprint_skill.png",
-                Footprint.Power => "footprint_power.png",
-                _ => "footprint_empty.png"
+                Footprint.Attack => AttackTexture,
+                Footprint.Skill => SkillTexture,
+                Footprint.Power => PowerTexture,
+                _ => EmptyTexture
             };
-            _slots[i].Texture = ResourceLoader.Load<Texture2D>(ImageRoot + icon);
+            _slots[i].Texture = icon;
             _locks[i].Visible = state?.Locked[i] ?? false;
         }
     }

@@ -184,6 +184,9 @@
   "SPIREDUO-VELVET_ECLIPSE_POWER.description": "The first time you trigger Omen each turn, draw [blue]{Amount}[/blue] card.",
   "SPIREDUO-VELVET_ECLIPSE_POWER.smartDescription": "Draw [blue]{Amount}[/blue] card.",
   "SPIREDUO-BLACK_THREAD_POWER.title": "Black Thread",
-  "SPIREDUO-BLACK_THREAD_POWER.description": "At end of turn, if 2 or more Footprint slots are empty, draw [blue]{Amount}[/blue] card.",
-  "SPIREDUO-BLACK_THREAD_POWER.smartDescription": "Draw [blue]{Amount}[/blue] card."
+  "SPIREDUO-BLACK_THREAD_POWER.description": "At end of turn, if [blue]{Amount}[/blue] or more Footprint slots are empty, draw 1 card.",
+  "SPIREDUO-BLACK_THREAD_POWER.smartDescription": "Draw 1 card when [blue]{Amount}[/blue] or more Footprint slots are empty.",
+  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.title": "Footprints",
+  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.description": "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line. Locked slots do not move or change. Companion armed: your next matching card helps the chosen ally.",
+  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.smartDescription": "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line. Locked slots do not move or change. Companion armed: your next matching card helps the chosen ally."
 }

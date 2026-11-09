@@ -10,7 +10,7 @@ public sealed class BlackThreadPower : SpireDuoPower
         if (!participants.Contains(Owner))
             return;
         var state = Owner.GetPower<FootprintStatePower>();
-        if (state == null || state.Slots.Count(slot => slot == Footprint.Empty) < 2)
+        if (state == null || state.Slots.Count(slot => slot == Footprint.Empty) < Amount)
             return;
         Flash();
         await CardPileCmd.Draw(context, 1, Owner.Player!);

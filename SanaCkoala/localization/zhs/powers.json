@@ -184,6 +184,9 @@
   "SPIREDUO-VELVET_ECLIPSE_POWER.description": "每回合第一次触发预兆时，抽 [blue]{Amount}[/blue] 张牌。",
   "SPIREDUO-VELVET_ECLIPSE_POWER.smartDescription": "抽 [blue]{Amount}[/blue] 张牌。",
   "SPIREDUO-BLACK_THREAD_POWER.title": "黑线",
-  "SPIREDUO-BLACK_THREAD_POWER.description": "回合结束时，若有至少 2 个空足迹栏位，抽 [blue]{Amount}[/blue] 张牌。",
-  "SPIREDUO-BLACK_THREAD_POWER.smartDescription": "抽 [blue]{Amount}[/blue] 张牌。"
+  "SPIREDUO-BLACK_THREAD_POWER.description": "回合结束时，若至少 [blue]{Amount}[/blue] 个足迹栏位为空，抽 1 张牌。",
+  "SPIREDUO-BLACK_THREAD_POWER.smartDescription": "至少 [blue]{Amount}[/blue] 个栏位为空时抽 1 张牌。",
+  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.title": "足迹",
+  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.description": "最近打出的牌：A、S、P。A-S-A：扑击（8 伤害、1 易伤）；S-S-A：理毛（8 格挡、抽 1）；P-S-P：预兆（1 能量、保留 1）。栏位跨回合保留，完成路线后清空。锁定栏位不会移动或改变。同伴已整备：下一张符合类型的牌会帮助选定的盟友。",
+  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.smartDescription": "最近打出的牌：A、S、P。A-S-A：扑击（8 伤害、1 易伤）；S-S-A：理毛（8 格挡、抽 1）；P-S-P：预兆（1 能量、保留 1）。栏位跨回合保留，完成路线后清空。锁定栏位不会移动或改变。同伴已整备：下一张符合类型的牌会帮助选定的盟友。"
 }

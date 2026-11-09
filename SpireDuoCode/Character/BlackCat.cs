@@ -3,6 +3,7 @@ using BaseLib.Utils.NodeFactories;
 using SpireDuo.SpireDuoCode.Cards;
 using SpireDuo.SpireDuoCode.Extensions;
 using SpireDuo.SpireDuoCode.Relics;
+using SpireDuo.SpireDuoCode.Powers;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Helpers;
@@ -31,6 +32,7 @@ public sealed class BlackCat : PlaceholderCharacterModel
     public override CardPoolModel CardPool => ModelDb.CardPool<BlackCatCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<BlackCatRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<BlackCatPotionPool>();
+
 
     public override NCreatureVisuals? CreateCustomVisuals() => NodeFactory<NCreatureVisuals>.CreateFromResource("cat_body.png".CharacterUiOrKoalaPath("koala_body.png"));
     public override Control CustomIcon => NodeFactory<Control>.CreateFromResource(CustomIconTexturePath);
