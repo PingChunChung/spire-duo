@@ -23,11 +23,11 @@ public enum FootprintLine
 /// <summary>Optional combat listeners for effects which are driven by the Footprint state machine.</summary>
 public interface IFootprintListener
 {
-    Task OnFootprintLine(PlayerChoiceContext context, CardPlay cardPlay, FootprintLine line);
-    Task OnFootprintSetOrRotated(PlayerChoiceContext context, CardModel? source);
-    Task OnCompanionResolved(PlayerChoiceContext context, CardPlay cardPlay, Creature? ally);
-    Task OnEmptySlotFilled(PlayerChoiceContext context, CardPlay cardPlay);
-    Task OnFootprintCleared(PlayerChoiceContext context, CardPlay cardPlay);
+    Task OnFootprintLine(PlayerChoiceContext context, CardPlay cardPlay, FootprintLine line) => Task.CompletedTask;
+    Task OnFootprintSetOrRotated(PlayerChoiceContext context, CardModel? source) => Task.CompletedTask;
+    Task OnCompanionResolved(PlayerChoiceContext context, CardPlay cardPlay, Creature? ally) => Task.CompletedTask;
+    Task OnEmptySlotFilled(PlayerChoiceContext context, CardPlay cardPlay) => Task.CompletedTask;
+    Task OnFootprintCleared(PlayerChoiceContext context, CardPlay cardPlay) => Task.CompletedTask;
 }
 
 /// <summary>Combat-local Black Cat state. A single hidden power records the owner's card plays.</summary>
@@ -94,6 +94,12 @@ public sealed class FootprintStatePower : SpireDuoPower
         state._slots[1] = second;
         state._slots[2] = third;
         await state.NotifySetOrRotated(context, source);
+    }
+
+    public static async Task Clear(PlayerChoiceContext context, Creature creature, CardPlay cardPlay)
+    {
+        var state = await GetOrCreate(context, creature, cardPlay.Card);
+        await state.Clear(context, cardPlay);
     }
 
     public async Task TriggerOmenNow(PlayerChoiceContext context, CardPlay cardPlay) => await TriggerOmen(context, cardPlay);
