@@ -67,5 +67,11 @@
   "SPIREDUO-SPLIT_BAMBOO.flavor": "One stalk, two uses.",
   "SPIREDUO-PASSING_NOTE.title": "Passing Note",
   "SPIREDUO-PASSING_NOTE.description": "The first time each player gains [gold]Drowsy[/gold] or [gold]Bamboo[/gold] each combat, the ally with the fewest cards in hand draws [blue]1[/blue] card.",
-  "SPIREDUO-PASSING_NOTE.flavor": "A tiny note, folded twice."
+  "SPIREDUO-PASSING_NOTE.flavor": "A tiny note, folded twice.",
+  "SPIREDUO-MOONBELL_COLLAR.title": "Moonbell Collar",
+  "SPIREDUO-MOONBELL_COLLAR.description": "At the start of each combat, set the middle Footprint slot to S.",
+  "SPIREDUO-MOONBELL_COLLAR.flavor": "A small bell for a quiet house cat.",
+  "SPIREDUO-ECLIPSE_CHIME.title": "Eclipse Chime",
+  "SPIREDUO-ECLIPSE_CHIME.description": "At the start of each combat, set the left Footprint slot to A, the middle slot to S, and lock the middle slot until your first turn ends.",
+  "SPIREDUO-ECLIPSE_CHIME.flavor": "It rings softly under a dark moon."
 }

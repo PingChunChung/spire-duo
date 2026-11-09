@@ -101,8 +101,20 @@ public static class StringExtensions
         return Path.Join(MainFile.ResPath, "images", "charui", path);
     }
 
+    public static string CharacterUiOrKoalaPath(this string catPath, string koalaPath)
+    {
+        var path = catPath.CharacterUiPath();
+        return ResourceLoader.Exists(path) ? path : koalaPath.CharacterUiPath();
+    }
+
     public static string ScenePath(this string path)
     {
         return $"{MainFile.ResPath}/scenes/{path}";
+    }
+
+    public static string SceneOrKoalaPath(this string catPath, string koalaPath)
+    {
+        var path = catPath.ScenePath();
+        return ResourceLoader.Exists(path) ? path : koalaPath.ScenePath();
     }
 }

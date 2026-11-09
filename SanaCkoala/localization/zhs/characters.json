@@ -4,5 +4,10 @@
   "SPIREDUO-KOALA.description": "爱睡的有袋动物。累积[gold]睡意[/gold]换取格挡，再一口气醒来爆发。",
   "SPIREDUO-PANDA.title": "熊猫",
   "SPIREDUO-PANDA.titleObject": "熊猫",
-  "SPIREDUO-PANDA.description": "背着一篮[gold]竹子[/gold]的结实熊猫，随时准备分你一口。"
+  "SPIREDUO-PANDA.description": "背着一篮[gold]竹子[/gold]的结实熊猫，随时准备分你一口。",
+  "SPIREDUO-BLACK_CAT.title": "黑猫",
+  "SPIREDUO-BLACK_CAT.titleObject": "黑猫",
+  "SPIREDUO-BLACK_CAT.description": "安静地观察，将每一步思量化作突然的回应。",
+  "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "换你了。",
+  "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "……小心脚步。"
 }

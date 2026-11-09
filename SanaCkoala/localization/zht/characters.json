@@ -4,5 +4,10 @@
   "SPIREDUO-KOALA.description": "愛睡的有袋動物。累積[gold]睡意[/gold]換取格擋，再一口氣醒來爆發。",
   "SPIREDUO-PANDA.title": "熊貓",
   "SPIREDUO-PANDA.titleObject": "熊貓",
-  "SPIREDUO-PANDA.description": "揹著一籃[gold]竹子[/gold]的結實熊貓，隨時準備分你一口。"
+  "SPIREDUO-PANDA.description": "揹著一籃[gold]竹子[/gold]的結實熊貓，隨時準備分你一口。",
+  "SPIREDUO-BLACK_CAT.title": "黑貓",
+  "SPIREDUO-BLACK_CAT.titleObject": "黑貓",
+  "SPIREDUO-BLACK_CAT.description": "安靜地觀察，將每一步思量化作突然的回應。",
+  "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "換你了。",
+  "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "……小心腳步。"
 }

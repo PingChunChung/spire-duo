@@ -6,5 +6,9 @@
   "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-0r.char": "Is there bamboo up here?",
   "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-0r.next": "Continue",
   "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-1r.ancient": "You climbed all this way for a snack?",
-  "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-attack": "Attack"
+  "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-attack": "Attack",
+  "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.char": "Three steps are enough, if you know where they lead.",
+  "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-1r.ancient": "The cat maps every silence between the stars.",
+  "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-attack": "Attack"
 }

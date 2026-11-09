@@ -23,3 +23,8 @@ public abstract class KoalaPotion : SpireDuoPotion
 public abstract class PandaPotion : SpireDuoPotion
 {
 }
+
+[Pool(typeof(BlackCatPotionPool))]
+public abstract class BlackCatPotion : SpireDuoPotion
+{
+}

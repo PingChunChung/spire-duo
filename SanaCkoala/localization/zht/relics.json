@@ -67,5 +67,11 @@
   "SPIREDUO-SPLIT_BAMBOO.flavor": "一根竹子，兩種用法。",
   "SPIREDUO-PASSING_NOTE.title": "傳紙條",
   "SPIREDUO-PASSING_NOTE.description": "每場戰鬥中，每位玩家第一次獲得[gold]睡意[/gold]或[gold]竹子[/gold]時，手牌最少的一名隊友抽 [blue]1[/blue] 張牌。",
-  "SPIREDUO-PASSING_NOTE.flavor": "小紙條，對折兩次。"
+  "SPIREDUO-PASSING_NOTE.flavor": "小紙條，對折兩次。",
+  "SPIREDUO-MOONBELL_COLLAR.title": "月鈴項圈",
+  "SPIREDUO-MOONBELL_COLLAR.description": "每場戰鬥開始時，將中間足跡欄位設為 S。",
+  "SPIREDUO-MOONBELL_COLLAR.flavor": "給安靜家貓的一只小鈴鐺。",
+  "SPIREDUO-ECLIPSE_CHIME.title": "日蝕風鈴",
+  "SPIREDUO-ECLIPSE_CHIME.description": "每場戰鬥開始時，將左側足跡欄位設為 A、中間設為 S，並鎖定中間欄位直到你的第一回合結束。",
+  "SPIREDUO-ECLIPSE_CHIME.flavor": "暗月下，它輕輕作響。"
 }

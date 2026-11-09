@@ -26,5 +26,19 @@
   "SPIREDUO-PANDA.cardsModifierTitle": "Panda Cards",
   "SPIREDUO-PANDA.cardsModifierDescription": "Panda cards will appear in rewards.",
   "SPIREDUO-PANDA.banter.alive.endTurnPing": "Your turn!",
-  "SPIREDUO-PANDA.banter.dead.endTurnPing": "...save me some bamboo"
+  "SPIREDUO-PANDA.banter.dead.endTurnPing": "...save me some bamboo",
+  "SPIREDUO-BLACK_CAT.title": "The Black Cat",
+  "SPIREDUO-BLACK_CAT.titleObject": "the Black Cat",
+  "SPIREDUO-BLACK_CAT.description": "A quiet observer who turns each deliberate step into a sudden answer.",
+  "SPIREDUO-BLACK_CAT.pronounObject": "them",
+  "SPIREDUO-BLACK_CAT.possessiveAdjective": "their",
+  "SPIREDUO-BLACK_CAT.pronounPossessive": "theirs",
+  "SPIREDUO-BLACK_CAT.pronounSubject": "they",
+  "SPIREDUO-BLACK_CAT.goldMonologue": "A coin makes a nice sound on the floor.",
+  "SPIREDUO-BLACK_CAT.eventDeathPrevention": "Not while the moon is up.",
+  "SPIREDUO-BLACK_CAT.aromaPrinciple": "Moonlight",
+  "SPIREDUO-BLACK_CAT.cardsModifierTitle": "Black Cat Cards",
+  "SPIREDUO-BLACK_CAT.cardsModifierDescription": "Black Cat cards will appear in rewards.",
+  "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "Your turn.",
+  "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "...watch your step"
 }

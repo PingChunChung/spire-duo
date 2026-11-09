@@ -95,6 +95,10 @@ cards = {
                    "呼呼大睡", f"獲得 {B} 點{GB_Z}。\n獲得 {DR} 層{DRZ}。"),
     "LAZY_SUNDAY": ("Lazy Sunday", "At the end of your turn, cards you [gold]Retain[/gold] cost [blue]0[/blue] until played.",
                     "慵懶星期天", "在你的回合結束時，你[gold]保留[/gold]的牌在打出前耗能變為 [blue]0[/blue]。"),
+    # Black Cat
+    "STRIKE_CAT": ("Strike Cat", f"Deal {D} damage.", "貓咪揮擊", f"造成 {D} 點傷害。"),
+    "DEFEND_CAT": ("Defend Cat", f"Gain {B} {GB_E}.", "貓咪防禦", f"獲得 {B} 點{GB_Z}。"),
+    "SOFT_STEP": ("Soft Step", f"Gain {B} {GB_E}.\\nSet the right Footprint slot to S.", "輕步", f"獲得 {B} 點{GB_Z}。\\n將最右側足跡欄位設為 S。"),
     # Panda
     "STRIKE_PANDA": ("Strike", f"Deal {D} damage.", "打擊", f"造成 {D} 點傷害。"),
     "DEFEND_PANDA": ("Defend", f"Gain {B} {GB_E}.", "防禦", f"獲得 {B} 點{GB_Z}。"),
@@ -613,6 +617,8 @@ powers = {
 }
 
 relics = {
+    "MOONBELL_COLLAR": ("Moonbell Collar", "At the start of each combat, set the middle Footprint slot to S.", "A small bell for a quiet house cat.", "月鈴項圈", "每場戰鬥開始時，將中間足跡欄位設為 S。", "給安靜家貓的一只小鈴鐺。"),
+    "ECLIPSE_CHIME": ("Eclipse Chime", "At the start of each combat, set the left Footprint slot to A, the middle slot to S, and lock the middle slot until your first turn ends.", "It rings softly under a dark moon.", "日蝕風鈴", "每場戰鬥開始時，將左側足跡欄位設為 A、中間設為 S，並鎖定中間欄位直到你的第一回合結束。", "暗月下，它輕輕作響。"),
     "EUCALYPTUS_LEAF": ("Eucalyptus Leaf", f"At the start of each combat, gain [blue]{{DrowsyPower}}[/blue] {DRE}.",
                         "Koalas sleep up to twenty hours a day. This is why.",
                         "尤加利葉", f"在每場戰鬥開始時，獲得 [blue]{{DrowsyPower}}[/blue] 層{DRZ}。",
@@ -736,8 +742,27 @@ characters = {
         "SPIREDUO-PANDA.cardsModifierDescription": "Panda cards will appear in rewards.",
         "SPIREDUO-PANDA.banter.alive.endTurnPing": "Your turn!",
         "SPIREDUO-PANDA.banter.dead.endTurnPing": "...save me some bamboo",
+        "SPIREDUO-BLACK_CAT.title": "The Black Cat",
+        "SPIREDUO-BLACK_CAT.titleObject": "the Black Cat",
+        "SPIREDUO-BLACK_CAT.description": "A quiet observer who turns each deliberate step into a sudden answer.",
+        "SPIREDUO-BLACK_CAT.pronounObject": "them",
+        "SPIREDUO-BLACK_CAT.possessiveAdjective": "their",
+        "SPIREDUO-BLACK_CAT.pronounPossessive": "theirs",
+        "SPIREDUO-BLACK_CAT.pronounSubject": "they",
+        "SPIREDUO-BLACK_CAT.goldMonologue": "A coin makes a nice sound on the floor.",
+        "SPIREDUO-BLACK_CAT.eventDeathPrevention": "Not while the moon is up.",
+        "SPIREDUO-BLACK_CAT.aromaPrinciple": "Moonlight",
+        "SPIREDUO-BLACK_CAT.cardsModifierTitle": "Black Cat Cards",
+        "SPIREDUO-BLACK_CAT.cardsModifierDescription": "Black Cat cards will appear in rewards.",
+        "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "Your turn.",
+        "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "...watch your step",
     },
     "zht": {
+        "SPIREDUO-BLACK_CAT.title": "黑貓",
+        "SPIREDUO-BLACK_CAT.titleObject": "黑貓",
+        "SPIREDUO-BLACK_CAT.description": "安靜地觀察，將每一步思量化作突然的回應。",
+        "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "換你了。",
+        "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "……小心腳步。",
         "SPIREDUO-KOALA.description": "愛睡的有袋動物。累積[gold]睡意[/gold]換取格擋，再一口氣醒來爆發。",
         "SPIREDUO-PANDA.title": "熊貓",
         "SPIREDUO-PANDA.titleObject": "熊貓",
@@ -753,9 +778,16 @@ ancients = {
     "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-0r.next": "Continue",
     "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-1r.ancient": "You climbed all this way for a snack?",
     "THE_ARCHITECT.talk.SPIREDUO-PANDA.0-attack": "Attack",
+    "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.char": "Three steps are enough, if you know where they lead.",
+    "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.next": "Continue",
+    "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-1r.ancient": "The cat maps every silence between the stars.",
+    "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-attack": "Attack",
 }
 # The -attack keys are parsed as an ArchitectAttackers name, not shown, so they stay English-only.
 ancients_zht = {
+    "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.char": "三步就夠了，只要你知道它們通向何方。",
+    "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.next": "繼續",
+    "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-1r.ancient": "這隻貓記下了群星之間每一道靜默。",
     "THE_ARCHITECT.talk.SPIREDUO-KOALA.0-0r.char": "這裡適合睡一會兒嗎？",
     "THE_ARCHITECT.talk.SPIREDUO-KOALA.0-0r.next": "繼續",
     "THE_ARCHITECT.talk.SPIREDUO-KOALA.0-1r.ancient": "可以，只要你答應醒來看看風景。",
