@@ -7,7 +7,7 @@ namespace SpireDuo.SpireDuoCode.Character;
 public class KoalaCardPool : CustomCardPoolModel
 {
     public override string Title => Koala.CharacterId; //This is not a display name.
-    
+
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
 
@@ -19,7 +19,7 @@ public class KoalaCardPool : CustomCardPoolModel
     public override float H => 0.55f; //Hue; changes the color.
     public override float S => 0.5f; //Saturation
     public override float V => 1f; //Brightness
-    
+
     //Alternatively, leave these values at 1 and provide a custom frame image.
     /*public override Texture2D CustomFrame(CustomCardModel card)
     {
@@ -29,6 +29,6 @@ public class KoalaCardPool : CustomCardPoolModel
 
     //Color of small card icons
     public override Color DeckEntryCardColor => new("8fa3ad");
-    
+
     public override bool IsColorless => false;
 }

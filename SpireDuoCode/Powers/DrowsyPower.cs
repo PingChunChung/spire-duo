@@ -10,6 +10,12 @@ public sealed class DrowsyPower : SpireDuoPower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
 
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power != this || amount <= 0 || Owner.Player == null) return;
+        await PassingNote.OnResourceGained(choiceContext, Owner.Player);
+    }
+
     public override async Task BeforeSideTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (!participants.Contains(Owner)) return;
@@ -23,6 +29,7 @@ public sealed class DrowsyPower : SpireDuoPower
         int amount = creature.GetPowerAmount<DrowsyPower>();
         if (amount <= 0) return 0;
         await PowerCmd.Remove<DrowsyPower>(creature);
+        await PowerCmd.Apply<WakeMemoryPower>(choiceContext, creature, 1, creature, null);
         var temper = creature.GetPower<ShortTemperPower>();
         if (temper != null) await temper.OnWake(choiceContext, amount);
         var morning = creature.GetPower<MorningPersonPower>();
@@ -33,6 +40,10 @@ public sealed class DrowsyPower : SpireDuoPower
         if (clock != null) await clock.OnWake(choiceContext);
         var snooze = creature.Player?.GetRelic<FiveMoreMinutes>();
         if (snooze != null) await snooze.OnWake(choiceContext, amount);
+        var bell = creature.Player?.GetRelic<DreamCatcherBell>();
+        if (bell != null) await bell.OnWake(choiceContext);
         return amount;
     }
+
+    public static bool WokeThisTurn(Creature creature) => creature.GetPower<WakeMemoryPower>() != null;
 }

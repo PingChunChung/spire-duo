@@ -6,5 +6,12 @@
   "SPIREDUO-BAMBOO_JUICE.title": "竹子汁",
   "SPIREDUO-BAMBOO_JUICE.description": "获得 [blue]{BambooPower}[/blue] 根[gold]竹子[/gold]。",
   "SPIREDUO-HONEY_JAR.title": "蜂蜜罐",
-  "SPIREDUO-HONEY_JAR.description": "获得 [blue]{Block}[/blue] 点[gold]格挡[/gold]。\n获得 [blue]1[/blue] 层[gold]残影[/gold]。"
+  "SPIREDUO-HONEY_JAR.description": "获得 [blue]{Block}[/blue] 点[gold]格挡[/gold]。\n获得 [blue]1[/blue] 层[gold]残影[/gold]。",
+  "SPIREDUO-LUCID_TEA.title": "清醒茶",
+  "SPIREDUO-LUCID_TEA.description": "选择手牌中的 1 张[gold]保留[/gold]牌。它本回合耗能为 [blue]0[/blue]。\n获得 [blue]{DrowsyPower}[/blue] 层[gold]睡意[/gold]。",
+  "SPIREDUO-CRUNCHY_SHOOT.title": "脆竹笋",
+  "SPIREDUO-CRUNCHY_SHOOT.description": "获得 [blue]{BambooPower}[/blue] 根[gold]竹子[/gold]。\n本回合下一次[gold]啃[/gold]竹子时少花 [blue]{CrunchyShootPower}[/blue] 根[gold]竹子[/gold]（最低为 [blue]0[/blue]）。",
+  "SPIREDUO-HALF_AND_HALF.title": "对半喝",
+  "SPIREDUO-HALF_AND_HALF.description": "你和一名队友各获得 [blue]{Block}[/blue] 点[gold]格挡[/gold]，并各抽 [blue]{Cards}[/blue] 张牌。",
+  "SPIREDUO-LUCID_TEA.selectionScreenPrompt": "选择一张保留牌。"
 }

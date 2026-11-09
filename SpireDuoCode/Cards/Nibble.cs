@@ -13,7 +13,7 @@ public sealed class Nibble() : PandaCard(0, CardType.Attack, CardRarity.Common, 
             .Execute(choiceContext);
         if (await BambooPower.Munch(choiceContext, Owner.Creature, 1, this))
         {
-    await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         }
     }
 

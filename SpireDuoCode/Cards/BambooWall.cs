@@ -4,7 +4,7 @@ public sealed class BambooWall() : PandaCard(1, CardType.Skill, CardRarity.Commo
 {
     public override bool GainsBlock => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(5m), new CalculationExtraVar(1m),
-        new CalculatedBlockVar(ValueProp.Move).WithMultiplier((card, _) => card.Owner.Creature.GetPowerAmount<BambooPower>())];
+        new CalculatedBlockVar(ValueProp.Move).WithMultiplier((card, _) => Math.Min(8, card.Owner.Creature.GetPowerAmount<BambooPower>() / 2))];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BambooPower>(), HoverTipFactory.Static(StaticHoverTip.Block)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

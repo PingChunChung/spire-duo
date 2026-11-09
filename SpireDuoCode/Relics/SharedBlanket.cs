@@ -19,12 +19,10 @@ public sealed class SharedBlanket : SpireDuoRelic
         if (!participants.Contains(Owner.Creature)) return;
         int block = Owner.Creature.GetPowerAmount<DrowsyPower>() / 2;
         if (block <= 0) return;
-        var teammates = Owner.RunState.Players.Where(p => p != Owner && p.Creature.IsAlive).ToList();
+        var teammates = Owner.RunState.Players.Where(p => p != Owner && p.Creature.IsAlive)
+            .OrderBy(p => p.Creature.Block).ThenBy(p => Owner.RunState.GetPlayerSlotIndex(p)).ToList();
         if (teammates.Count == 0) return;
         Flash();
-        foreach (var teammate in teammates)
-        {
-            await CreatureCmd.GainBlock(teammate.Creature, block, ValueProp.Unpowered, null);
-        }
+        await CreatureCmd.GainBlock(teammates[0].Creature, block, ValueProp.Unpowered, null);
     }
 }

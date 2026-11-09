@@ -14,7 +14,7 @@ Steam Workshop: [SanaCkoala](https://steamcommunity.com/sharedfiles/filedetails/
 
 - **Drowsy**: at the end of your turn, gain Block equal to your Drowsy.
 - **Waking up**: some cards remove all of your Drowsy at once for a big effect.
-- Three ways to play: keep stacking Drowsy and never wake up (Snoring, Sleep Like a Log, Dreamland); stack it, then wake up for burst damage or Energy (Wake-Up Call, Wide Awake, Tantrum, Morning Person); or Retain cards that grow stronger the longer you hold them (Take It Slow, Long Overdue, Grudge).
+- Three ways to play: build a **Hibernation Fortress** that stays Drowsy (Sleep Debt, Night Watch, Fortress Nap); bank Drowsy for an **Alarm Burst** (Alarm Drill, Snooze Again, Rude Alarm); or manage a **Dream / Retain** hand (Dream Journal, Dream Gate, Deep Script).
 
 ### The Panda
 
@@ -22,15 +22,15 @@ Steam Workshop: [SanaCkoala](https://steamcommunity.com/sharedfiles/filedetails/
 
 - **Bamboo** is a resource gathered with cards and powers.
 - **Munch N**: if you have at least N Bamboo, the card spends it and triggers a bonus effect.
-- Three ways to play: hoard Bamboo and munch it (Dig In, Bottomless Stomach, Second Stomach); turn Block into damage (Belly Bump, Pancake Press, Belly Bounce); or build Strength (National Treasure, Hulking Paws, Fury of the Fluffy).
+- Four ways to play: turn the first Munch into **Full** menu choices (Taste Test, Packed Lunch, Second Course); trade Block for counterattacks (Soft Landing, Counter Curl, Belly Fortress); build multi-hit Strength turns (Paw Practice, Protein Shake, Maul Rhythm); or build and spend **Roll** momentum (Roll Start, Downhill, Pinball Panda).
 
-Each character has 87 cards: 3 Basic, 20 Common, 36 Uncommon, 26 Rare and 2 Ancient, the same split as the vanilla characters. Each also has seven relics besides the starter relic, and two potions.
+Each character has 87 cards: 3 Basic, 20 Common, 36 Uncommon, 26 Rare and 2 Ancient, the same split as the vanilla characters. Each also has seven relics besides the starter relic, and three potions (Common, Uncommon and Rare).
 
 ## Ancient cards and events
 
 - **Archaic Tooth** turns Doze into Deep Sleep and Gather Bamboo into Bamboo Harvest.
 - **Dusty Tome** gives the Koala Lazy Sunday and the Panda Rolling Thunder.
-- Four events appear only in runs with the Koala or the Panda: Picnic for Two (act 1), Stargazing (act 2), Little Quarrel (acts 2 and 3) and Photo Booth (any act). Stargazing and Little Quarrel need more than one player.
+- Twelve events appear only in runs with the Koala or the Panda: Picnic for Two, The Last Dumpling, Eucalyptus Tollbooth and Honeyed Hive (act 1); Stargazing, Borrowed Hammock, Bamboo Appraiser and Rainy-Day Argument (act 2); Little Quarrel, Dream Exchange and The Summit Picnic (act 3); and Photo Booth (any act). Shared-vote events require more than one player.
 
 ## Co-op content
 
@@ -38,17 +38,18 @@ These appear only in runs with more than one player.
 
 | Content | Effect |
 |---|---|
-| Hold Hands | Basic card in both starting decks. You and an ally gain Block. |
+| Hold Hands | Basic card in both starting decks. You and a chosen ally each gain 5 Block (7 upgraded). |
 | Share a Bite | 0 cost. You and an ally each gain Energy. Exhaust. |
 | Quarrel | Deal damage. Every player loses 2 HP. |
 | Make Up | You and an ally heal. Exhaust. |
 | Assist | Deal damage. This turn, an ally's next hit on that enemy deals extra damage. |
 | Promise | Rare power. You and an ally gain Block at the start of each turn. |
-| Two shared relics | Block for every player at the start of combat, and extra healing for allies at Rest Sites. |
+| Shared relics | Couple Rings gives every player Block at combat start; Spare Key heals the lowest-HP ally at Rest Sites; Passing Note lets the ally with the fewest cards in hand draw after a resource gain. |
+| Half-and-Half | Event-only potion. You and a chosen ally each gain 5 Block and draw 1. |
 | Koala cards | Nap Together, Pillow Toss, Snuggle, Wake-Up Kiss and Pajama Party hand out Drowsy, Block, cards and Energy to allies. |
 | Panda cards | Share Bamboo, Shelter, Panda Pile, Piggyback Charge, Carry You, Feeding Time and Partner in Crime protect allies, give them Energy and cards, or hit harder together. |
 | Character relics | Shared Blanket (Koala): allies gain Block at the end of your turn. Picnic Mat (Panda): allies gain Block whenever you Munch. |
-| Events | Stargazing and Little Quarrel. |
+| Events | Stargazing, The Last Dumpling, Borrowed Hammock, Little Quarrel, Honeyed Hive, Rainy-Day Argument and The Summit Picnic. |
 
 ## Installation
 
@@ -88,7 +89,7 @@ The mod id is `SanaCkoala`. C# namespaces and card ids keep the original `SpireD
 | `SpireDuoCode/Powers` | Drowsy, Bamboo and other powers |
 | `SpireDuoCode/Relics` | Starter, character and shared relics |
 | `SpireDuoCode/Potions` | Character potions |
-| `SpireDuoCode/Events` | The four events |
+| `SpireDuoCode/Events` | The twelve events |
 | `SpireDuoCode/Patches` | Harmony patches for fresh modded saves, upgraded starter relics, Archaic Tooth and the shop sprite |
 | `SanaCkoala/localization` | `eng`, `zht`, `zhs` text |
 | `SanaCkoala/images` | Card art, icons, character images |

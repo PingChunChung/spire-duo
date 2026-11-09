@@ -1,6 +1,6 @@
 namespace SpireDuo.SpireDuoCode.Cards;
 
-public sealed class Dreamland() : KoalaCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+public sealed class Dreamland() : KoalaCard(3, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DreamlandPower>(1m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DrowsyPower>()];

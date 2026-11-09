@@ -10,7 +10,7 @@ public sealed class LucidDream() : KoalaCard(1, CardType.Skill, CardRarity.Rare,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var cards = CardFactory.GetDistinctForCombat(Owner, Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
-            .Where(c => (c.Rarity is CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare) && c is not (SleepTalk or LucidDream)),
+            .Where(c => (c.Rarity is CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare) && c is not LucidDream),
             DynamicVars.Cards.IntValue, Owner.RunState.Rng.CombatCardGeneration).ToList();
         foreach (var card in cards)
         {

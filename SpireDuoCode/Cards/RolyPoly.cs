@@ -11,7 +11,7 @@ public sealed class RolyPoly() : PandaCard(1, CardType.Skill, CardRarity.Common,
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         if (await BambooPower.Munch(choiceContext, Owner.Creature, 2, this))
         {
-    await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars["DexterityPower"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars["DexterityPower"].BaseValue, Owner.Creature, this);
         }
     }
 

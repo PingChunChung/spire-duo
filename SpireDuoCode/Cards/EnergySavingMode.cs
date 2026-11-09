@@ -10,6 +10,6 @@ public sealed class EnergySavingMode() : KoalaCard(2, CardType.Power, CardRarity
     }
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars["EnergySavingModePower"].UpgradeValueBy(1m);
     }
 }

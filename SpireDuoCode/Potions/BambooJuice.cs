@@ -8,7 +8,7 @@ public sealed class BambooJuice : PandaPotion
     public override PotionUsage Usage => PotionUsage.CombatOnly;
     public override TargetType TargetType => TargetType.AnyPlayer;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BambooPower>(6m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BambooPower>(4m)];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BambooPower>()];
 

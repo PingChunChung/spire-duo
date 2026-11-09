@@ -12,7 +12,10 @@ public sealed class Shelter() : PandaCard(1, CardType.Skill, CardRarity.Uncommon
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         decimal block = Owner.Creature.Block;
         if (block > 0)
+        {
             await CreatureCmd.GainBlock(cardPlay.Target, block, ValueProp.Unpowered, cardPlay);
+            await CreatureCmd.LoseBlock(Owner.Creature, block);
+        }
     }
     protected override void OnUpgrade()
     {

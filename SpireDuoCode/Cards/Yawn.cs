@@ -1,6 +1,6 @@
 namespace SpireDuo.SpireDuoCode.Cards;
 
-public sealed class Yawn() : KoalaCard(0, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
+public sealed class Yawn() : KoalaCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DrowsyPower>(1m), new PowerVar<WeakPower>(1m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DrowsyPower>(), HoverTipFactory.FromPower<WeakPower>()];

@@ -13,7 +13,7 @@ public sealed class ShareBamboo() : PandaCard(1, CardType.Skill, CardRarity.Unco
         await CreatureCmd.GainBlock(cardPlay.Target, DynamicVars.Block, cardPlay);
         if (await BambooPower.Munch(choiceContext, Owner.Creature, 2, this))
         {
-    await PowerCmd.Apply<StrengthPower>(choiceContext, cardPlay.Target, DynamicVars["StrengthPower"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, cardPlay.Target, DynamicVars["StrengthPower"].BaseValue, Owner.Creature, this);
         }
     }
 

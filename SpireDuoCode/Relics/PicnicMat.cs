@@ -9,9 +9,10 @@ namespace SpireDuo.SpireDuoCode.Relics;
 [Pool(typeof(PandaRelicPool))]
 public sealed class PicnicMat : SpireDuoRelic
 {
+    private int _lastTriggeredTurn = -1;
     public override RelicRarity Rarity => RelicRarity.Rare;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3m, ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4m, ValueProp.Unpowered)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BambooPower>(), HoverTipFactory.Static(StaticHoverTip.Block)];
 
@@ -19,12 +20,13 @@ public sealed class PicnicMat : SpireDuoRelic
 
     internal async Task OnMunch()
     {
-        var teammates = Owner.RunState.Players.Where(p => p != Owner && p.Creature.IsAlive).ToList();
+        int turn = Owner.PlayerCombatState?.TurnNumber ?? 0;
+        if (_lastTriggeredTurn == turn) return;
+        _lastTriggeredTurn = turn;
+        var teammates = Owner.RunState.Players.Where(p => p != Owner && p.Creature.IsAlive)
+            .OrderBy(p => p.Creature.Block).ThenBy(p => Owner.RunState.GetPlayerSlotIndex(p)).ToList();
         if (teammates.Count == 0) return;
         Flash();
-        foreach (var teammate in teammates)
-        {
-            await CreatureCmd.GainBlock(teammate.Creature, DynamicVars.Block.BaseValue, ValueProp.Unpowered, null);
-        }
+        await CreatureCmd.GainBlock(teammates[0].Creature, DynamicVars.Block.BaseValue, ValueProp.Unpowered, null);
     }
 }

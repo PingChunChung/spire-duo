@@ -11,7 +11,7 @@ public sealed class Chomp() : PandaCard(1, CardType.Skill, CardRarity.Common, Ta
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         if (await BambooPower.Munch(choiceContext, Owner.Creature, 2, this))
         {
-    await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         }
     }
 

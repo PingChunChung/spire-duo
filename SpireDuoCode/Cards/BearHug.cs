@@ -13,7 +13,7 @@ public sealed class BearHug() : PandaCard(2, CardType.Attack, CardRarity.Common,
             .Execute(choiceContext);
         if (await BambooPower.Munch(choiceContext, Owner.Creature, 2, this))
         {
-    await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, DynamicVars["WeakPower"].BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, DynamicVars["WeakPower"].BaseValue, Owner.Creature, this);
         }
     }
 

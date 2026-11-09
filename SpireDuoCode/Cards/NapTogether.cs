@@ -3,7 +3,7 @@ namespace SpireDuo.SpireDuoCode.Cards;
 public sealed class NapTogether() : KoalaCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyAlly)
 {
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DrowsyPower>(3m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DrowsyPower>(2m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DrowsyPower>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

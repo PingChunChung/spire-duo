@@ -2,7 +2,7 @@ namespace SpireDuo.SpireDuoCode.Cards;
 
 public sealed class DreamSmash() : KoalaCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(28m, ValueProp.Move), new PowerVar<DrowsyPower>(10m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(20m, ValueProp.Move), new PowerVar<DrowsyPower>(5m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DrowsyPower>()];
     protected override bool IsPlayable => Owner.Creature.GetPowerAmount<DrowsyPower>() >= DynamicVars["DrowsyPower"].IntValue;
     protected override bool ShouldGlowGoldInternal => IsPlayable;
@@ -15,6 +15,7 @@ public sealed class DreamSmash() : KoalaCard(2, CardType.Attack, CardRarity.Rare
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(8m);
+        DynamicVars.Damage.UpgradeValueBy(6m);
+        DynamicVars["DrowsyPower"].UpgradeValueBy(2m);
     }
 }

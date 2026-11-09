@@ -1,6 +1,6 @@
 namespace SpireDuo.SpireDuoCode.Powers;
 
-/// <summary>At the end of the owner's turn, a random enemy takes damage equal to the owner's Block.</summary>
+/// <summary>At the end of the owner's turn, a random enemy takes damage equal to half the owner's Block per stack.</summary>
 public sealed class RollingThunderPower : SpireDuoPower
 {
     public override PowerType Type => PowerType.Buff;
@@ -13,7 +13,7 @@ public sealed class RollingThunderPower : SpireDuoPower
         if (!participants.Contains(Owner)) return;
         for (int i = 0; i < Amount; i++)
         {
-            int block = Owner.Block;
+            int block = Owner.Block / 2;
             if (block <= 0) return;
             var enemies = CombatState.HittableEnemies;
             if (enemies.Count == 0) return;

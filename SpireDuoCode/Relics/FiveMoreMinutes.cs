@@ -14,7 +14,7 @@ public sealed class FiveMoreMinutes : SpireDuoRelic
 
     internal async Task OnWake(PlayerChoiceContext choiceContext, int removed)
     {
-        int regained = removed / 2;
+        int regained = Math.Min(4, removed / 2);
         if (regained <= 0) return;
         Flash();
         await PowerCmd.Apply<DrowsyPower>(choiceContext, Owner.Creature, regained, Owner.Creature, null);

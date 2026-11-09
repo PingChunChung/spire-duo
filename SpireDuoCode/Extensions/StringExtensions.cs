@@ -14,7 +14,7 @@ public static class StringExtensions
     {
         path = Path.Join(MainFile.ResPath, "images", "card_portraits", path);
         if (ResourceLoader.Exists(path)) return path;
-        
+
         MainFile.Logger.Info("Could not find card image path: " + path);
         return Path.Join(MainFile.ResPath, "images", "card_portraits", "card.png");
     }
@@ -23,7 +23,7 @@ public static class StringExtensions
     {
         path = Path.Join(MainFile.ResPath, "images", "card_portraits", "big", path);
         if (ResourceLoader.Exists(path)) return path;
-        
+
         MainFile.Logger.Info("Could not find big card image path: " + path);
         return Path.Join(MainFile.ResPath, "images", "card_portraits", "big", "card.png");
     }
@@ -32,7 +32,7 @@ public static class StringExtensions
     {
         path = Path.Join(MainFile.ResPath, "images", "powers", path);
         if (ResourceLoader.Exists(path)) return path;
-        
+
         MainFile.Logger.Info("Could not find power image path: " + path);
         return Path.Join(MainFile.ResPath, "images", "powers", "power.png");
     }
@@ -41,7 +41,7 @@ public static class StringExtensions
     {
         path = Path.Join(MainFile.ResPath, "images", "powers", "big", path);
         if (ResourceLoader.Exists(path)) return path;
-        
+
         MainFile.Logger.Info("Could not find big power image path: " + path);
         return Path.Join(MainFile.ResPath, "images", "powers", "big", "power.png");
     }
@@ -50,7 +50,7 @@ public static class StringExtensions
     {
         path = Path.Join(MainFile.ResPath, "images", "relics", path);
         if (ResourceLoader.Exists(path)) return path;
-        
+
         MainFile.Logger.Info("Could not find relic image path: " + path);
         return Path.Join(MainFile.ResPath, "images", "relics", "relic.png");
     }
@@ -59,7 +59,7 @@ public static class StringExtensions
     {
         path = Path.Join(MainFile.ResPath, "images", "relics", "big", path);
         if (ResourceLoader.Exists(path)) return path;
-        
+
         MainFile.Logger.Info("Could not find big relic image path: " + path);
         return Path.Join(MainFile.ResPath, "images", "relics", "big", "relic.png");
     }
@@ -84,7 +84,16 @@ public static class StringExtensions
 
     public static string EventImagePath(this string path)
     {
-        return Path.Join(MainFile.ResPath, "images", "events", path);
+        path = Path.Join(MainFile.ResPath, "images", "events", path);
+        if (ResourceLoader.Exists(path)) return path;
+
+        MainFile.Logger.Info("Could not find event image path: " + path);
+        return Path.Join(MainFile.ResPath, "images", "events", "picnic_for_two.png");
+    }
+
+    public static string EnchantmentImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "enchantments", path);
     }
 
     public static string CharacterUiPath(this string path)

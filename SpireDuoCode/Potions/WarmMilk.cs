@@ -8,7 +8,7 @@ public sealed class WarmMilk : KoalaPotion
     public override PotionUsage Usage => PotionUsage.CombatOnly;
     public override TargetType TargetType => TargetType.AnyPlayer;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DrowsyPower>(6m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DrowsyPower>(3m)];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DrowsyPower>()];
 

@@ -19,9 +19,10 @@ public sealed class SpareKey : SpireDuoRelic
     {
         if (player != Owner) return;
         Flash();
-        foreach (var other in Owner.RunState.Players.Where(p => p != Owner && p.Creature.IsAlive).ToList())
-        {
-            await CreatureCmd.Heal(other.Creature, DynamicVars.Heal.BaseValue);
-        }
+        var ally = Owner.RunState.Players.Where(p => p != Owner && p.Creature.IsAlive)
+            .OrderBy(p => p.Creature.CurrentHp)
+            .ThenBy(p => Owner.RunState.GetPlayerSlotIndex(p))
+            .FirstOrDefault();
+        if (ally != null) await CreatureCmd.Heal(ally.Creature, DynamicVars.Heal.BaseValue);
     }
 }

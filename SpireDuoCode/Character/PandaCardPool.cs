@@ -7,7 +7,7 @@ namespace SpireDuo.SpireDuoCode.Character;
 public class PandaCardPool : CustomCardPoolModel
 {
     public override string Title => Panda.CharacterId; //This is not a display name.
-    
+
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
 
@@ -19,7 +19,7 @@ public class PandaCardPool : CustomCardPoolModel
     public override float H => 0f; //Hue; changes the color.
     public override float S => 0.05f; //Saturation
     public override float V => 0.95f; //Brightness
-    
+
     //Alternatively, leave these values at 1 and provide a custom frame image.
     /*public override Texture2D CustomFrame(CustomCardModel card)
     {
@@ -29,6 +29,6 @@ public class PandaCardPool : CustomCardPoolModel
 
     //Color of small card icons
     public override Color DeckEntryCardColor => new("d8d4cc");
-    
+
     public override bool IsColorless => false;
 }

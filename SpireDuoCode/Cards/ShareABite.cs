@@ -16,10 +16,11 @@ public sealed class ShareABite() : SpireDuoCard(0, CardType.Skill, CardRarity.Un
         ArgumentNullException.ThrowIfNull(cardPlay.Target?.Player, "cardPlay.Target.Player");
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, cardPlay.Target.Player);
+        if (IsUpgraded)
+            await CardPileCmd.Draw(choiceContext, 1, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

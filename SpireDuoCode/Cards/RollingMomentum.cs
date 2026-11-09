@@ -2,7 +2,7 @@ using MegaCrit.Sts2.Core.Combat.History.Entries;
 
 namespace SpireDuo.SpireDuoCode.Cards;
 
-public sealed class RollingMomentum() : PandaCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public sealed class RollingMomentum() : PandaCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(5m), new ExtraDamageVar(3m),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => CombatManager.Instance.History.CardPlaysFinished.Count((CardPlayFinishedEntry e) =>
