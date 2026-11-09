@@ -13,12 +13,23 @@ POWERS = {"drowsy_power", "hibernate_power", "bamboo_power", "bamboo_grove_power
           "dreamland_power", "hoarder_power", "bear_stance_power", "snack_addict_power", "belly_bounce_power",
           "feeding_time_power", "second_stomach_power", "bamboo_shoots_power", "fury_of_the_fluffy_power",
           "hulking_paws_power", "partner_in_crime_power"}
+POWERS.update({"night_watch_power", "fortress_nap_power", "dream_gate_power", "deep_script_power"})
+POWERS.update({"full_power", "munch_memory_power", "wake_memory_power", "roll_power", "digest_power", "belly_fortress_power",
+               "counter_curl_power", "bottomless_buffet_power", "return_to_sender_power", "alpha_panda_power",
+               "alpha_panda_ready_power", "rolling_feast_power", "crunchy_shoot_power"})
+# Enchantment trackers reuse their enchantment icon.
+POWERS.update({"well_rested_memory_power", "freshly_cut_power"})
 RELICS = {"eucalyptus_leaf", "bamboo_basket", "couple_rings", "spare_key", "fluffy_pillow", "alarm_clock", "night_cap",
           "body_pillow", "chopsticks", "rice_bowl", "golden_bamboo", "lunch_box", "eucalyptus_crown", "bamboo_hamper",
           "hammock", "five_more_minutes", "shared_blanket", "beanbag", "bamboo_barbell", "picnic_mat"}
-POTIONS = {"warm_milk", "strong_coffee", "bamboo_juice", "honey_jar"}
+RELICS.update({"sleepy_ledger", "dream_catcher_bell", "bamboo_sled", "split_bamboo", "passing_note"})
+POTIONS = {"warm_milk", "strong_coffee", "bamboo_juice", "honey_jar", "lucid_tea", "crunchy_shoot", "half_and_half"}
 # Same 2.13:1 shape as the vanilla 3440x1613 portraits; the event screen fits them into 2560x1200.
-EVENTS = {"picnic_for_two", "stargazing", "little_quarrel", "photo_booth"}
+EVENTS = {"picnic_for_two", "stargazing", "little_quarrel", "photo_booth", "the_last_dumpling", "borrowed_hammock"}
+EVENTS.update({"eucalyptus_tollbooth", "honeyed_hive", "bamboo_appraiser", "rainy_day_argument", "dream_exchange",
+               "the_summit_picnic"})
+# Vanilla enchantment icons are 64x64.
+ENCHANTMENTS = {"well_rested", "freshly_cut"}
 ORB = re.compile(r"(koala|panda)_orb_layer_[1-5]")
 HAND = re.compile(r"(koala|panda)_hand_(point|rock|paper|scissors)")
 # Character height in pixels; BaseLib shows these sprites at native size (vanilla shop Ironclad is ~470px tall).
@@ -53,7 +64,7 @@ def on_canvas(im, size):
     return canvas
 
 
-n = {"card": 0, "power": 0, "relic": 0, "potion": 0, "charui": 0, "event": 0}
+n = {"card": 0, "power": 0, "relic": 0, "potion": 0, "charui": 0, "event": 0, "enchantment": 0}
 for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswith("ref_")):
     im = Image.open(f)
     stem = f.stem
@@ -74,6 +85,10 @@ for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswit
         im.save(dst / "potions" / f.name)
         outline(im, 9).save(dst / "potions" / "outline" / f.name)
         n["potion"] += 1
+    elif stem in ENCHANTMENTS:
+        (dst / "enchantments").mkdir(exist_ok=True)
+        im.convert("RGBA").resize((64, 64), Image.LANCZOS).save(dst / "enchantments" / f.name)
+        n["enchantment"] += 1
     elif stem in EVENTS:
         (dst / "events").mkdir(exist_ok=True)
         im.convert("RGB").resize((1920, 900), Image.LANCZOS).save(dst / "events" / f.name)
