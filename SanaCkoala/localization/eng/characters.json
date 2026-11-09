@@ -40,5 +40,6 @@
   "SPIREDUO-BLACK_CAT.cardsModifierTitle": "Black Cat Cards",
   "SPIREDUO-BLACK_CAT.cardsModifierDescription": "Black Cat cards will appear in rewards.",
   "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "Your turn.",
-  "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "...watch your step"
+  "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "...watch your step",
+  "SPIREDUO-BLACK_CAT.lockedDescription": "Locked. Win Act 3 with the Koala and the Panda in the same party to unlock the Black Cat."
 }
