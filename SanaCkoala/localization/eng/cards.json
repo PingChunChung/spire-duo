@@ -90,7 +90,7 @@
   "SPIREDUO-RAKING_RUN.title": "Raking Run",
   "SPIREDUO-RAKING_RUN.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
   "SPIREDUO-SUDDEN_SPRING.title": "Sudden Spring",
-  "SPIREDUO-SUDDEN_SPRING.description": "Deal {Damage:diff()} damage.\\n[gold]Exhaust[/gold].",
+  "SPIREDUO-SUDDEN_SPRING.description": "Deal {Damage:diff()} damage.",
   "SPIREDUO-CORNERED.title": "Cornered",
   "SPIREDUO-CORNERED.description": "Deal {Damage:diff()} damage.\\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "SPIREDUO-WHISKER_WASH.title": "Whisker Wash",
@@ -110,11 +110,11 @@
   "SPIREDUO-STARLESS_SIGN.title": "Starless Sign",
   "SPIREDUO-STARLESS_SIGN.description": "Set the left Footprint slot to P.\\nDraw 1 card.",
   "SPIREDUO-VELVET_ECLIPSE.title": "Velvet Eclipse",
-  "SPIREDUO-VELVET_ECLIPSE.description": "The first time you trigger Omen each turn, draw 1 card.\\nUpgrade: Gain 2 Block.",
+  "SPIREDUO-VELVET_ECLIPSE.description": "{IfUpgraded:show:Gain 2 [gold]Block[/gold].\\n|}The first time you trigger Omen each turn, draw 1 card.",
   "SPIREDUO-HUSH.title": "Hush",
   "SPIREDUO-HUSH.description": "Apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.\\nIf the right Footprint is P, gain {Block:diff()} [gold]Block[/gold].",
   "SPIREDUO-BLACK_THREAD.title": "Black Thread",
-  "SPIREDUO-BLACK_THREAD.description": "At end of turn, draw 1 card if 2 or more Footprint slots are empty.\\nUpgrade: if any slot is empty.",
+  "SPIREDUO-BLACK_THREAD.description": "At end of turn, if {IfUpgraded:show:any Footprint slot is|2 or more Footprint slots are} empty, draw 1 card.",
   "SPIREDUO-TWO_BEAT_SIGNAL.title": "Two-Beat Signal",
   "SPIREDUO-TWO_BEAT_SIGNAL.description": "An ally gains {AllyBlock:diff()} [gold]Block[/gold].\\nSet the middle Footprint to S.\\nArm Companion: your next Attack gives that ally {CompanionBlock:diff()} Block.",
   "SPIREDUO-SHARED_PERCH.title": "Shared Perch",
@@ -450,5 +450,7 @@
   "SPIREDUO-SAVE_FOR_LATER.selectionScreenPrompt": "Choose a card to gain Retain.",
   "SPIREDUO-DREAM_WITHIN_DREAM.selectionScreenPrompt": "Choose a card to Copy.",
   "SPIREDUO-LUCID_LOOP.selectionScreenPrompt": "Choose a card to retain.",
-  "SPIREDUO-ROLL_BACK.selectionScreenPrompt": "Choose a card to put on top of your Draw Pile."
+  "SPIREDUO-ROLL_BACK.selectionScreenPrompt": "Choose a card to put on top of your Draw Pile.",
+  "SPIREDUO-SLINK.selectionScreenPrompt": "Choose a card to discard.",
+  "SPIREDUO-NEAT_PILE.selectionScreenPrompt": "Choose a card to put on top of your Draw Pile."
 }

@@ -54,13 +54,12 @@ public sealed partial class NFootprintStrip : HBoxContainer
                 StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
                 MouseFilter = MouseFilterEnum.Ignore
             };
+            // Godot resets the size of a plain child Control to its texture, so shrink the 64px lock with Scale instead.
             var locked = new TextureRect
             {
                 Texture = LockTexture,
-                Position = new Vector2(16, 16),
-                Size = new Vector2(10, 10),
-                ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
-                StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
+                Position = new Vector2(13, 13),
+                Scale = Vector2.One * (14f / LockTexture.GetWidth()),
                 MouseFilter = MouseFilterEnum.Ignore,
                 Visible = false
             };
@@ -73,6 +72,18 @@ public sealed partial class NFootprintStrip : HBoxContainer
     }
 
     public override void _Process(double delta) => Refresh();
+
+    // Dark backing so empty slots stay readable over the cat's dark fur.
+    private static readonly StyleBoxFlat Backing = new()
+    {
+        BgColor = new Color(0.06f, 0.04f, 0.1f, 0.55f),
+        CornerRadiusTopLeft = 8,
+        CornerRadiusTopRight = 8,
+        CornerRadiusBottomLeft = 8,
+        CornerRadiusBottomRight = 8
+    };
+
+    public override void _Draw() => DrawStyleBox(Backing, new Rect2(-4, -3, Size.X + 8, Size.Y + 6));
 
     private void Refresh()
     {

@@ -100,25 +100,25 @@ cards = {
     "DEFEND_CAT": ("Defend", f"Gain {B} {GB_E}.", "防禦", f"獲得 {B} 點{GB_Z}。"),
     "SOFT_STEP": ("Soft Step", f"Gain {B} {GB_E}.\\nSet the right Footprint slot to S.", "輕步", f"獲得 {B} 點{GB_Z}。\\n將最右側足跡欄位設為 S。"),
     "CLAW_MARK": ("Claw Mark", f"Deal {D} damage.", "爪痕", f"造成 {D} 點傷害。"),
-    "WINDOW_LEDGE": ("Window Ledge", f"Gain {B} {GB_E}.", "窗台", f"獲得 {B} 點{GB_Z}。"),
-    "TAIL_FEINT": ("Tail Feint", "Apply {WeakPower:diff()} [gold]Weak[/gold].", "尾巴虛晃", "施加 {WeakPower:diff()} 層[gold]虛弱[/gold]。"),
-    "SLINK": ("Slink", f"Draw {CARDS} cards.\\nDiscard 1 card.", "溜步", f"抽 {CARDS} 張牌。\\n棄 1 張牌。"),
-    "RAKING_RUN": ("Raking Run", f"Deal {D} damage {{Repeat:diff()}} times.", "抓掠奔跑", f"造成 {D} 點傷害 {{Repeat:diff()}} 次。"),
-    "SUDDEN_SPRING": ("Sudden Spring", f"Deal {D} damage.\\n[gold]Exhaust[/gold].", "突然躍起", f"造成 {D} 點傷害。\\n[gold]消耗[/gold]。"),
-    "CORNERED": ("Cornered", f"Deal {D} damage.\\nApply {{VulnerablePower:diff()}} [gold]Vulnerable[/gold].", "困在角落", f"造成 {D} 點傷害。\\n施加 {{VulnerablePower:diff()}} 層[gold]易傷[/gold]。"),
-    "WHISKER_WASH": ("Whisker Wash", f"Gain {B} {GB_E}.\\nDraw 1 card.", "洗鬍鬚", f"獲得 {B} 點{GB_Z}。\\n抽 1 張牌。"),
-    "PATIENT_PAW": ("Patient Paw", f"Gain {B} {GB_E}.", "耐心的爪", f"獲得 {B} 點{GB_Z}。"),
-    "NEAT_PILE": ("Neat Pile", "Put {Cards:diff()} card from your hand on top of your draw pile.", "整齊一疊", "將手中的 {Cards:diff()} 張牌放到抽牌堆頂。"),
-    "QUIET_ROUTINE": ("Quiet Routine", f"Next turn, draw {CARDS} cards.", "安靜日常", f"下回合抽 {CARDS} 張牌。"),
-    "CLEAN_BREAK": ("Clean Break", f"Deal {D} damage.\\nIf the left Footprint is S, draw 1 card.", "俐落斷開", f"造成 {D} 點傷害。\\n若左側足跡為 S，抽 1 張牌。"),
-    "BACKPAW": ("Backpaw", f"Deal {D} damage.\\nGain {B} {GB_E}.", "後爪", f"造成 {D} 點傷害。\\n獲得 {B} 點{GB_Z}。"),
-    "CANDLE_AT_NOON": ("Candle at Noon", "The first time you play a Power each turn, gain {CandleAtNoonPower:diff()} [gold]Block[/gold].", "正午的蠟燭", "每回合第一次打出能力牌時，獲得 {CandleAtNoonPower:diff()} 點[gold]格擋[/gold]。"),
-    "STARLESS_SIGN": ("Starless Sign", "Set the left Footprint slot to P.\\nDraw 1 card.", "無星記號", "將左側足跡欄位設為 P。\\n抽 1 張牌。"),
-    "VELVET_ECLIPSE": ("Velvet Eclipse", "The first time you trigger Omen each turn, draw 1 card.\\nUpgrade: Gain 2 Block.", "天鵝絨日蝕", "每回合第一次觸發預兆時，抽 1 張牌。\\n升級：獲得 2 點格擋。"),
-    "HUSH": ("Hush", f"Apply {{WeakPower:diff()}} [gold]Weak[/gold] to ALL enemies.\\nIf the right Footprint is P, gain {B} [gold]Block[/gold].", "噓", f"對所有敵人施加 {{WeakPower:diff()}} 層[gold]虛弱[/gold]。\\n若右側足跡為 P，獲得 {B} 點[gold]格擋[/gold]。"),
-    "BLACK_THREAD": ("Black Thread", "At end of turn, draw 1 card if 2 or more Footprint slots are empty.\\nUpgrade: if any slot is empty.", "黑線", "回合結束時，若至少 2 個足跡欄位為空，抽 1 張牌。\\n升級：任一欄位為空即可。"),
-    "TWO_BEAT_SIGNAL": ("Two-Beat Signal", "An ally gains {AllyBlock:diff()} [gold]Block[/gold].\\nSet the middle Footprint to S.\\nArm Companion: your next Attack gives that ally {CompanionBlock:diff()} Block.", "雙拍訊號", "一名盟友獲得 {AllyBlock:diff()} 點[gold]格擋[/gold]。\\n將中間足跡設為 S。\\n整備同伴：你的下一張攻擊牌使該盟友再獲得 {CompanionBlock:diff()} 點格擋。"),
-    "SHARED_PERCH": ("Shared Perch", f"An ally draws {CARDS} card.\\nLock your left Footprint slot.\\nArm Companion: your next Power gives that ally {{CompanionBlock:diff()}} [gold]Block[/gold].", "共享棲木", f"一名盟友抽 {CARDS} 張牌。\\n鎖定左側足跡欄位。\\n整備同伴：你的下一張能力牌使該盟友獲得 {{CompanionBlock:diff()}} 點[gold]格擋[/gold]。"),
+    "WINDOW_LEDGE": ("Window Ledge", f"Gain {B} {GB_E}.", "窗沿", f"獲得 {B} 點{GB_Z}。"),
+    "TAIL_FEINT": ("Tail Feint", "Apply {WeakPower:diff()} [gold]Weak[/gold].", "尾影佯動", "施加 {WeakPower:diff()} 層[gold]虛弱[/gold]。"),
+    "SLINK": ("Slink", f"Draw {CARDS} cards.\\nDiscard 1 card.", "貼牆潛行", f"抽 {CARDS} 張牌。\\n棄 1 張牌。"),
+    "RAKING_RUN": ("Raking Run", f"Deal {D} damage {{Repeat:diff()}} times.", "掠爪疾跑", f"造成 {D} 點傷害 {{Repeat:diff()}} 次。"),
+    "SUDDEN_SPRING": ("Sudden Spring", f"Deal {D} damage.", "驟然躍起", f"造成 {D} 點傷害。"),
+    "CORNERED": ("Cornered", f"Deal {D} damage.\\nApply {{VulnerablePower:diff()}} [gold]Vulnerable[/gold].", "逼至角落", f"造成 {D} 點傷害。\\n施加 {{VulnerablePower:diff()}} 層[gold]易傷[/gold]。"),
+    "WHISKER_WASH": ("Whisker Wash", f"Gain {B} {GB_E}.\\nDraw 1 card.", "洗鬚", f"獲得 {B} 點{GB_Z}。\\n抽 1 張牌。"),
+    "PATIENT_PAW": ("Patient Paw", f"Gain {B} {GB_E}.", "耐心前掌", f"獲得 {B} 點{GB_Z}。"),
+    "NEAT_PILE": ("Neat Pile", "Put {Cards:diff()} card from your hand on top of your draw pile.", "整齊小堆", "將手中的 {Cards:diff()} 張牌放到抽牌堆頂。"),
+    "QUIET_ROUTINE": ("Quiet Routine", f"Next turn, draw {CARDS} cards.", "安靜例行", f"下回合抽 {CARDS} 張牌。"),
+    "CLEAN_BREAK": ("Clean Break", f"Deal {D} damage.\\nIf the left Footprint is S, draw 1 card.", "俐落收束", f"造成 {D} 點傷害。\\n若左側足跡為 S，抽 1 張牌。"),
+    "BACKPAW": ("Backpaw", f"Deal {D} damage.\\nGain {B} {GB_E}.", "反掌", f"造成 {D} 點傷害。\\n獲得 {B} 點{GB_Z}。"),
+    "CANDLE_AT_NOON": ("Candle at Noon", "The first time you play a Power each turn, gain {CandleAtNoonPower:diff()} [gold]Block[/gold].", "正午燭火", "每回合第一次打出能力牌時，獲得 {CandleAtNoonPower:diff()} 點[gold]格擋[/gold]。"),
+    "STARLESS_SIGN": ("Starless Sign", "Set the left Footprint slot to P.\\nDraw 1 card.", "無星徵兆", "將左側足跡欄位設為 P。\\n抽 1 張牌。"),
+    "VELVET_ECLIPSE": ("Velvet Eclipse", "{IfUpgraded:show:Gain 2 [gold]Block[/gold].\\n|}The first time you trigger Omen each turn, draw 1 card.", "絨月蝕", "{IfUpgraded:show:獲得 2 點[gold]格擋[/gold]。\\n|}每回合第一次觸發預兆時，抽 1 張牌。"),
+    "HUSH": ("Hush", f"Apply {{WeakPower:diff()}} [gold]Weak[/gold] to ALL enemies.\\nIf the right Footprint is P, gain {B} [gold]Block[/gold].", "靜默", f"對所有敵人施加 {{WeakPower:diff()}} 層[gold]虛弱[/gold]。\\n若右側足跡為 P，獲得 {B} 點[gold]格擋[/gold]。"),
+    "BLACK_THREAD": ("Black Thread", "At end of turn, if {IfUpgraded:show:any Footprint slot is|2 or more Footprint slots are} empty, draw 1 card.", "黑線", "回合結束時，若{IfUpgraded:show:任一足跡欄位|至少 2 個足跡欄位}為空，抽 1 張牌。"),
+    "TWO_BEAT_SIGNAL": ("Two-Beat Signal", "An ally gains {AllyBlock:diff()} [gold]Block[/gold].\\nSet the middle Footprint to S.\\nArm Companion: your next Attack gives that ally {CompanionBlock:diff()} Block.", "雙拍暗號", "一名盟友獲得 {AllyBlock:diff()} 點[gold]格擋[/gold]。\\n將中間足跡設為 S。\\n整備同伴：你的下一張攻擊牌使該盟友再獲得 {CompanionBlock:diff()} 點格擋。"),
+    "SHARED_PERCH": ("Shared Perch", f"An ally draws {CARDS} card.\\nLock your left Footprint slot.\\nArm Companion: your next Power gives that ally {{CompanionBlock:diff()}} [gold]Block[/gold].", "共棲高處", f"一名盟友抽 {CARDS} 張牌。\\n鎖定左側足跡欄位。\\n整備同伴：你的下一張能力牌使該盟友獲得 {{CompanionBlock:diff()}} 點[gold]格擋[/gold]。"),
     # Panda
     "STRIKE_PANDA": ("Strike", f"Deal {D} damage.", "打擊", f"造成 {D} 點傷害。"),
     "DEFEND_PANDA": ("Defend", f"Gain {B} {GB_E}.", "防禦", f"獲得 {B} 點{GB_Z}。"),
@@ -636,8 +636,8 @@ powers = {
     "ALPHA_PANDA_READY_POWER": ("Alpha Panda", "At the start of your next turn, gain Strength.", "Gain [blue]{Amount}[/blue] Strength.", "首領熊貓", "在你的下回合開始時，獲得力量。", "獲得 [blue]{Amount}[/blue] 點力量。"),
     "WAKE_MEMORY_POWER": ("Wake Memory", "You woke this turn.", "You woke this turn.", "醒來記憶", "你本回合已醒來。", "你本回合已醒來。"),
     "FOOTPRINT_STATE_POWER": ("Footprints", "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line.", "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line.", "足跡", "最近打出的牌：A、S、P。A-S-A：撲擊（8 傷害、1 易傷）；S-S-A：理毛（8 格擋、抽 1）；P-S-P：預兆（1 能量、保留 1）。欄位跨回合保留，完成路線後清空。", "最近打出的牌：A、S、P。A-S-A：撲擊（8 傷害、1 易傷）；S-S-A：理毛（8 格擋、抽 1）；P-S-P：預兆（1 能量、保留 1）。欄位跨回合保留，完成路線後清空。"),
-    "CANDLE_AT_NOON_POWER": ("Candle at Noon", "The first time you play a Power each turn, gain [blue]{Amount}[/blue] Block.", "Gain [blue]{Amount}[/blue] Block.", "正午的蠟燭", "每回合第一次打出能力牌時，獲得 [blue]{Amount}[/blue] 點格擋。", "獲得 [blue]{Amount}[/blue] 點格擋。"),
-    "VELVET_ECLIPSE_POWER": ("Velvet Eclipse", "The first time you trigger Omen each turn, draw [blue]{Amount}[/blue] card.", "Draw [blue]{Amount}[/blue] card.", "天鵝絨日蝕", "每回合第一次觸發預兆時，抽 [blue]{Amount}[/blue] 張牌。", "抽 [blue]{Amount}[/blue] 張牌。"),
+    "CANDLE_AT_NOON_POWER": ("Candle at Noon", "The first time you play a Power each turn, gain [blue]{Amount}[/blue] Block.", "Gain [blue]{Amount}[/blue] Block.", "正午燭火", "每回合第一次打出能力牌時，獲得 [blue]{Amount}[/blue] 點格擋。", "獲得 [blue]{Amount}[/blue] 點格擋。"),
+    "VELVET_ECLIPSE_POWER": ("Velvet Eclipse", "The first time you trigger Omen each turn, draw [blue]{Amount}[/blue] card.", "Draw [blue]{Amount}[/blue] card.", "絨月蝕", "每回合第一次觸發預兆時，抽 [blue]{Amount}[/blue] 張牌。", "抽 [blue]{Amount}[/blue] 張牌。"),
     "BLACK_THREAD_POWER": ("Black Thread", "At end of turn, if [blue]{Amount}[/blue] or more Footprint slots are empty, draw 1 card.", "Draw 1 card when [blue]{Amount}[/blue] or more Footprint slots are empty.", "黑線", "回合結束時，若至少 [blue]{Amount}[/blue] 個足跡欄位為空，抽 1 張牌。", "至少 [blue]{Amount}[/blue] 個欄位為空時抽 1 張牌。"),
 }
 
@@ -1114,6 +1114,8 @@ card_prompts = {
     "DREAM_WITHIN_DREAM": ("Choose a card to Copy.", "選擇一張牌複製。"),
     "LUCID_LOOP": ("Choose a card to retain.", "選擇一張牌獲得保留。"),
     "ROLL_BACK": ("Choose a card to put on top of your Draw Pile.", "選擇一張牌放到你的抽牌堆頂。"),
+    "SLINK": ("Choose a card to discard.", "選擇一張牌棄掉。"),
+    "NEAT_PILE": ("Choose a card to put on top of your Draw Pile.", "選擇一張牌放到你的抽牌堆頂。"),
 }
 for lang, entries in localized(card_prompts, ("selectionScreenPrompt",)).items():
     card_loc[lang].update(entries)
@@ -1124,6 +1126,12 @@ remote_powers = {
                      "本回合你下一次打中這名敵人時，額外造成 [blue]{Amount}[/blue] 點傷害。"),
 }
 for lang, entries in localized(remote_powers, ("remoteDescription",)).items():
+    power_loc[lang].update(entries)
+# Omen asks the Black Cat to pick the card to Retain.
+power_prompts = {
+    "FOOTPRINT_STATE_POWER": ("Choose a card to Retain this turn.", "選擇一張牌在本回合保留。"),
+}
+for lang, entries in localized(power_prompts, ("selectionScreenPrompt",)).items():
     power_loc[lang].update(entries)
 relic_loc = localized(relics, ("title", "description", "flavor"))
 potion_loc = localized(potions, ("title", "description"))

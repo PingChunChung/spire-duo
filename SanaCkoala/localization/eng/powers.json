@@ -188,5 +188,6 @@
   "SPIREDUO-BLACK_THREAD_POWER.smartDescription": "Draw 1 card when [blue]{Amount}[/blue] or more Footprint slots are empty.",
   "SPIREDUO-FOOTPRINT_UI_TOOLTIP.title": "Footprints",
   "SPIREDUO-FOOTPRINT_UI_TOOLTIP.description": "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line. Locked slots do not move or change. Companion armed: your next matching card helps the chosen ally.",
-  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.smartDescription": "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line. Locked slots do not move or change. Companion armed: your next matching card helps the chosen ally."
+  "SPIREDUO-FOOTPRINT_UI_TOOLTIP.smartDescription": "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line. Locked slots do not move or change. Companion armed: your next matching card helps the chosen ally.",
+  "SPIREDUO-FOOTPRINT_STATE_POWER.selectionScreenPrompt": "Choose a card to Retain this turn."
 }
