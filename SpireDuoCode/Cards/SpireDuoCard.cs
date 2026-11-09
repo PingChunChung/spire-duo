@@ -40,4 +40,11 @@ public abstract class PandaCard(int cost, CardType type, CardRarity rarity, Targ
 
 [Pool(typeof(BlackCatCardPool))]
 public abstract class BlackCatCard(int cost, CardType type, CardRarity rarity, TargetType target) :
-    SpireDuoCard(cost, type, rarity, target);
+    SpireDuoCard(cost, type, rarity, target)
+{
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        var state = await FootprintStatePower.GetOrCreate(choiceContext, Owner.Creature, this);
+        await state.Record(choiceContext, cardPlay);
+    }
+}

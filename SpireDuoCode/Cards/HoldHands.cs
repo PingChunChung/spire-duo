@@ -25,6 +25,15 @@ public sealed class HoldHands() : SpireDuoCard(1, CardType.Skill, CardRarity.Bas
         await CreatureCmd.GainBlock(cardPlay.Target, DynamicVars.Block, cardPlay);
     }
 
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (Owner.Character is SpireDuo.SpireDuoCode.Character.BlackCat)
+        {
+            var state = await FootprintStatePower.GetOrCreate(choiceContext, Owner.Creature, this);
+            await state.Record(choiceContext, cardPlay);
+        }
+    }
+
     protected override void OnUpgrade()
     {
         DynamicVars.Block.UpgradeValueBy(2m);

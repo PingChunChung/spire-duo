@@ -1,9 +1,6 @@
-using BaseLib.Config;
-
 namespace SpireDuo.SpireDuoCode.Config;
 
-public sealed class DevSettings : SimpleModConfig
+public static class DevSettings
 {
-    [ConfigSection("Developer")]
-    public static bool UnlockAllCharacters { get; set; } = false;
+    public static readonly bool UnlockAllCharacters = Environment.GetEnvironmentVariable("SANACKOALA_UNLOCK_ALL") == "1";
 }

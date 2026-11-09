@@ -8,7 +8,7 @@ public sealed class SoftStep() : BlackCatCard(1, CardType.Skill, CardRarity.Basi
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-        // TODO(cat-batch-2): set the right Footprint slot to S.
+        await FootprintStatePower.Set(choiceContext, Owner.Creature, 2, Footprint.Skill, this);
     }
 
     protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(3m);

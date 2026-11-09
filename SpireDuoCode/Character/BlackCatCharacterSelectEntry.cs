@@ -14,6 +14,7 @@ public sealed class BlackCatCharacterSelectEntry : CustomCharacterSelectEntry
     public override string EntryDescription => Text("description");
     public override string LockedDescription => Text("lockedDescription");
     public override CharacterModel InitialCharacter => ModelDb.Character<BlackCat>();
+    public override CharacterModel AvailabilitySourceCharacter => ModelDb.Character<BlackCat>();
     public override bool UnlockedInCharacterSelect => ProgressStore.Current.BlackCatUnlocked || DevSettings.UnlockAllCharacters;
     private static string Text(string key) => new LocString("characters", $"SPIREDUO-BLACK_CAT.{key}").GetFormattedText();
 

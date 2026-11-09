@@ -173,5 +173,17 @@
   "SPIREDUO-WELL_RESTED_MEMORY_POWER.smartDescription": "",
   "SPIREDUO-FRESHLY_CUT_POWER.title": "新鮮切口",
   "SPIREDUO-FRESHLY_CUT_POWER.description": "",
-  "SPIREDUO-FRESHLY_CUT_POWER.smartDescription": ""
+  "SPIREDUO-FRESHLY_CUT_POWER.smartDescription": "",
+  "SPIREDUO-FOOTPRINT_STATE_POWER.title": "足跡",
+  "SPIREDUO-FOOTPRINT_STATE_POWER.description": "最近打出的牌：A、S、P。A-S-A：撲擊（8 傷害、1 易傷）；S-S-A：理毛（8 格擋、抽 1）；P-S-P：預兆（1 能量、保留 1）。欄位跨回合保留，完成路線後清空。",
+  "SPIREDUO-FOOTPRINT_STATE_POWER.smartDescription": "最近打出的牌：A、S、P。A-S-A：撲擊（8 傷害、1 易傷）；S-S-A：理毛（8 格擋、抽 1）；P-S-P：預兆（1 能量、保留 1）。欄位跨回合保留，完成路線後清空。",
+  "SPIREDUO-CANDLE_AT_NOON_POWER.title": "正午的蠟燭",
+  "SPIREDUO-CANDLE_AT_NOON_POWER.description": "每回合第一次打出能力牌時，獲得 [blue]{Amount}[/blue] 點格擋。",
+  "SPIREDUO-CANDLE_AT_NOON_POWER.smartDescription": "獲得 [blue]{Amount}[/blue] 點格擋。",
+  "SPIREDUO-VELVET_ECLIPSE_POWER.title": "天鵝絨日蝕",
+  "SPIREDUO-VELVET_ECLIPSE_POWER.description": "每回合第一次觸發預兆時，抽 [blue]{Amount}[/blue] 張牌。",
+  "SPIREDUO-VELVET_ECLIPSE_POWER.smartDescription": "抽 [blue]{Amount}[/blue] 張牌。",
+  "SPIREDUO-BLACK_THREAD_POWER.title": "黑線",
+  "SPIREDUO-BLACK_THREAD_POWER.description": "回合結束時，若有至少 2 個空足跡欄位，抽 [blue]{Amount}[/blue] 張牌。",
+  "SPIREDUO-BLACK_THREAD_POWER.smartDescription": "抽 [blue]{Amount}[/blue] 張牌。"
 }

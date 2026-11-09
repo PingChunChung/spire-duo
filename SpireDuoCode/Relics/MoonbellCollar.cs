@@ -10,10 +10,9 @@ public sealed class MoonbellCollar : SpireDuoRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    public override Task BeforeCombatStart()
+    public override async Task BeforeCombatStart()
     {
         Flash();
-        // TODO(cat-batch-2): set the middle Footprint slot to S.
-        return Task.CompletedTask;
+        await FootprintStatePower.Set(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Footprint.Skill);
     }
 }

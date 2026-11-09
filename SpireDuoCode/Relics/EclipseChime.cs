@@ -10,10 +10,12 @@ public sealed class EclipseChime : SpireDuoRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    public override Task BeforeCombatStart()
+    public override async Task BeforeCombatStart()
     {
         Flash();
-        // TODO(cat-batch-2): set A-S, then lock the middle Footprint slot through the first turn.
-        return Task.CompletedTask;
+        var context = new ThrowingPlayerChoiceContext();
+        await FootprintStatePower.Set(context, Owner.Creature, 0, Footprint.Attack);
+        await FootprintStatePower.Set(context, Owner.Creature, 1, Footprint.Skill);
+        await FootprintStatePower.Lock(context, Owner.Creature, 1);
     }
 }

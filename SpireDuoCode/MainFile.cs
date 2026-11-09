@@ -1,7 +1,6 @@
 using System.Reflection;
 using Godot;
 using HarmonyLib;
-using BaseLib.Config;
 using SpireDuo.SpireDuoCode.Character;
 using SpireDuo.SpireDuoCode.Config;
 using MegaCrit.Sts2.Core.Modding;
@@ -26,7 +25,6 @@ public partial class MainFile : Node
 
         Harmony harmony = new(ModId);
 
-        ModConfigRegistry.Register(ModId, new DevSettings());
         _ = new BlackCatCharacterSelectEntry();
 
         harmony.PatchAll(assembly);

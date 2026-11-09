@@ -173,5 +173,17 @@
   "SPIREDUO-WELL_RESTED_MEMORY_POWER.smartDescription": "",
   "SPIREDUO-FRESHLY_CUT_POWER.title": "Freshly-Cut",
   "SPIREDUO-FRESHLY_CUT_POWER.description": "",
-  "SPIREDUO-FRESHLY_CUT_POWER.smartDescription": ""
+  "SPIREDUO-FRESHLY_CUT_POWER.smartDescription": "",
+  "SPIREDUO-FOOTPRINT_STATE_POWER.title": "Footprints",
+  "SPIREDUO-FOOTPRINT_STATE_POWER.description": "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line.",
+  "SPIREDUO-FOOTPRINT_STATE_POWER.smartDescription": "Last cards you played: A, S, P. A-S-A: Pounce (8 damage, 1 Vulnerable); S-S-A: Groom (8 Block, draw 1); P-S-P: Omen (1 Energy, Retain 1). Slots persist between turns and clear after a Line.",
+  "SPIREDUO-CANDLE_AT_NOON_POWER.title": "Candle at Noon",
+  "SPIREDUO-CANDLE_AT_NOON_POWER.description": "The first time you play a Power each turn, gain [blue]{Amount}[/blue] Block.",
+  "SPIREDUO-CANDLE_AT_NOON_POWER.smartDescription": "Gain [blue]{Amount}[/blue] Block.",
+  "SPIREDUO-VELVET_ECLIPSE_POWER.title": "Velvet Eclipse",
+  "SPIREDUO-VELVET_ECLIPSE_POWER.description": "The first time you trigger Omen each turn, draw [blue]{Amount}[/blue] card.",
+  "SPIREDUO-VELVET_ECLIPSE_POWER.smartDescription": "Draw [blue]{Amount}[/blue] card.",
+  "SPIREDUO-BLACK_THREAD_POWER.title": "Black Thread",
+  "SPIREDUO-BLACK_THREAD_POWER.description": "At end of turn, if 2 or more Footprint slots are empty, draw [blue]{Amount}[/blue] card.",
+  "SPIREDUO-BLACK_THREAD_POWER.smartDescription": "Draw [blue]{Amount}[/blue] card."
 }
