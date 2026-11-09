@@ -234,5 +234,20 @@
   "SPIREDUO-QUIET_PACT_POWER.smartDescription": "Companion resolution grants Artifact to you and its ally.",
   "SPIREDUO-GUARDIAN_OF_THE_EAVES_POWER.smartDescription": "The first ally damaged each turn retaliates.",
   "SPIREDUO-NIGHT_ATLAS_POWER.smartDescription": "The first basic Line each turn gives Energy and a card.",
-  "SPIREDUO-CAT_OF_THE_THRESHOLD_POWER.smartDescription": "Once per combat, survive lethal damage at 1 HP."
+  "SPIREDUO-CAT_OF_THE_THRESHOLD_POWER.smartDescription": "Once per combat, survive lethal damage at 1 HP.",
+  "SPIREDUO-HUNTERS_PAUSE_POWER.title": "獵手停步",
+  "SPIREDUO-HUNTERS_PAUSE_POWER.description": "每回合第一次撲擊額外造成 [blue]{Amount}[/blue] 點傷害。",
+  "SPIREDUO-HUNTERS_PAUSE_POWER.smartDescription": "額外造成 [blue]{Amount}[/blue] 點傷害。",
+  "SPIREDUO-SCRUPULOUS_POWER.title": "一絲不苟",
+  "SPIREDUO-SCRUPULOUS_POWER.description": "每次觸發理毛後，獲得 [blue]{Amount}[/blue] 點敏捷直到回合結束。",
+  "SPIREDUO-SCRUPULOUS_POWER.smartDescription": "獲得 [blue]{Amount}[/blue] 點敏捷直到回合結束。",
+  "SPIREDUO-CATNAP_LEDGER_POWER.title": "小憩帳本",
+  "SPIREDUO-CATNAP_LEDGER_POWER.description": "每回合首次打出第 2 張技能牌時，抽 1 張牌。",
+  "SPIREDUO-CATNAP_LEDGER_POWER.smartDescription": "抽 1 張牌。",
+  "SPIREDUO-EVENING_WASH_POWER.title": "暮色洗梳",
+  "SPIREDUO-EVENING_WASH_POWER.description": "下回合開始時，獲得 [blue]{Amount}[/blue] 點格擋。",
+  "SPIREDUO-EVENING_WASH_POWER.smartDescription": "下回合獲得 [blue]{Amount}[/blue] 點格擋。",
+  "SPIREDUO-SCRUPULOUS_DEXTERITY_POWER.title": "一絲不苟",
+  "SPIREDUO-SCRUPULOUS_DEXTERITY_POWER.description": "持續到回合結束的敏捷。",
+  "SPIREDUO-SCRUPULOUS_DEXTERITY_POWER.smartDescription": "持續到回合結束的敏捷。"
 }

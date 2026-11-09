@@ -234,5 +234,20 @@
   "SPIREDUO-QUIET_PACT_POWER.smartDescription": "Companion resolution grants Artifact to you and its ally.",
   "SPIREDUO-GUARDIAN_OF_THE_EAVES_POWER.smartDescription": "The first ally damaged each turn retaliates.",
   "SPIREDUO-NIGHT_ATLAS_POWER.smartDescription": "The first basic Line each turn gives Energy and a card.",
-  "SPIREDUO-CAT_OF_THE_THRESHOLD_POWER.smartDescription": "Once per combat, survive lethal damage at 1 HP."
+  "SPIREDUO-CAT_OF_THE_THRESHOLD_POWER.smartDescription": "Once per combat, survive lethal damage at 1 HP.",
+  "SPIREDUO-HUNTERS_PAUSE_POWER.title": "Hunter's Pause",
+  "SPIREDUO-HUNTERS_PAUSE_POWER.description": "The first Pounce each turn deals [blue]{Amount}[/blue] additional damage.",
+  "SPIREDUO-HUNTERS_PAUSE_POWER.smartDescription": "Deals [blue]{Amount}[/blue] additional damage.",
+  "SPIREDUO-SCRUPULOUS_POWER.title": "Scrupulous",
+  "SPIREDUO-SCRUPULOUS_POWER.description": "Whenever you trigger Groom, gain [blue]{Amount}[/blue] Dexterity until end of turn.",
+  "SPIREDUO-SCRUPULOUS_POWER.smartDescription": "Gain [blue]{Amount}[/blue] Dexterity until end of turn.",
+  "SPIREDUO-CATNAP_LEDGER_POWER.title": "Catnap Ledger",
+  "SPIREDUO-CATNAP_LEDGER_POWER.description": "The first time you play your second Skill each turn, draw 1 card.",
+  "SPIREDUO-CATNAP_LEDGER_POWER.smartDescription": "Draw 1 card.",
+  "SPIREDUO-EVENING_WASH_POWER.title": "Evening Wash",
+  "SPIREDUO-EVENING_WASH_POWER.description": "At the start of your next turn, gain [blue]{Amount}[/blue] Block.",
+  "SPIREDUO-EVENING_WASH_POWER.smartDescription": "Gain [blue]{Amount}[/blue] Block next turn.",
+  "SPIREDUO-SCRUPULOUS_DEXTERITY_POWER.title": "Scrupulous",
+  "SPIREDUO-SCRUPULOUS_DEXTERITY_POWER.description": "Temporary Dexterity until end of turn.",
+  "SPIREDUO-SCRUPULOUS_DEXTERITY_POWER.smartDescription": "Temporary Dexterity until end of turn."
 }

@@ -23,24 +23,6 @@ public abstract class UncommonCatCard(int cost, CardType type, TargetType target
     }
 }
 
-public sealed class AlleyArc() : UncommonCatCard(1, CardType.Attack, TargetType.AnyEnemy);
-public sealed class FenceVault() : UncommonCatCard(1, CardType.Skill, TargetType.Self);
-public sealed class MoonlitLunge() : UncommonCatCard(2, CardType.Attack, TargetType.AnyEnemy);
-public sealed class PawprintMap() : UncommonCatCard(1, CardType.Skill, TargetType.Self);
-public sealed class DaringDescent() : UncommonCatCard(1, CardType.Attack, TargetType.AnyEnemy);
-public sealed class RooftopChase() : UncommonCatCard(-1, CardType.Attack, TargetType.RandomEnemy);
-public sealed class HuntersPause() : UncommonCatCard(1, CardType.Power, TargetType.Self);
-public sealed class VelvetAmbush() : UncommonCatCard(2, CardType.Attack, TargetType.AnyEnemy);
-public sealed class LastPaw() : UncommonCatCard(1, CardType.Attack, TargetType.AnyEnemy);
-public sealed class BristleAndBrush() : UncommonCatCard(1, CardType.Skill, TargetType.Self);
-public sealed class TidyMind() : UncommonCatCard(0, CardType.Skill, TargetType.Self);
-public sealed class WarmLoaf() : UncommonCatCard(2, CardType.Skill, TargetType.Self);
-public sealed class FleaComb() : UncommonCatCard(1, CardType.Attack, TargetType.AnyEnemy);
-public sealed class Scrupulous() : UncommonCatCard(1, CardType.Power, TargetType.Self);
-public sealed class CatnapLedger() : UncommonCatCard(1, CardType.Power, TargetType.Self);
-public sealed class SweepAside() : UncommonCatCard(1, CardType.Skill, TargetType.Self);
-public sealed class EveningWash() : UncommonCatCard(1, CardType.Skill, TargetType.Self);
-public sealed class PolishedClaws() : UncommonCatCard(1, CardType.Attack, TargetType.AnyEnemy);
 public sealed class OmenReader() : UncommonCatCard(2, CardType.Power, TargetType.Self);
 public sealed class HalfMoonRitual() : UncommonCatCard(1, CardType.Skill, TargetType.Self);
 public sealed class InkedWindow() : UncommonCatCard(1, CardType.Power, TargetType.Self);

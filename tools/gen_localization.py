@@ -1151,6 +1151,26 @@ cards.update({
 cards.update({key: (name, "A Black Cat uncommon card.", zh, "一張黑貓非凡卡牌。") for key, name, zh in [
     ("ALLEY_ARC", "Alley Arc", "巷弄弧線"), ("FENCE_VAULT", "Fence Vault", "翻越籬欄"), ("MOONLIT_LUNGE", "Moonlit Lunge", "月下突刺"), ("PAWPRINT_MAP", "Pawprint Map", "爪印地圖"), ("DARING_DESCENT", "Daring Descent", "冒險俯衝"), ("ROOFTOP_CHASE", "Rooftop Chase", "屋脊追逐"), ("HUNTERS_PAUSE", "Hunter's Pause", "獵手停步"), ("VELVET_AMBUSH", "Velvet Ambush", "絨布伏擊"), ("LAST_PAW", "Last Paw", "最後一掌"), ("BRISTLE_AND_BRUSH", "Bristle and Brush", "鬃毛與梳子"), ("TIDY_MIND", "Tidy Mind", "整潔心緒"), ("WARM_LOAF", "Warm Loaf", "暖麵包"), ("FLEA_COMB", "Flea Comb", "跳蚤梳"), ("SCRUPULOUS", "Scrupulous", "一絲不苟"), ("CATNAP_LEDGER", "Catnap Ledger", "小睡帳本"), ("SWEEP_ASIDE", "Sweep Aside", "掃到一旁"), ("EVENING_WASH", "Evening Wash", "晚間洗漱"), ("POLISHED_CLAWS", "Polished Claws", "拋光利爪"), ("OMEN_READER", "Omen Reader", "預兆讀者"), ("HALF_MOON_RITUAL", "Half-Moon Ritual", "半月儀式"), ("INKED_WINDOW", "Inked Window", "墨染窗"), ("FORETELL", "Foretell", "預言"), ("LANTERN_SHADOW", "Lantern Shadow", "燈影"), ("NINE_LIVES", "Nine Lives", "九命"), ("MIDNIGHT_ORACLE", "Midnight Oracle", "午夜神諭"), ("ECLIPSE_VEIL", "Eclipse Veil", "日蝕面紗"), ("FAMILIAR_ROUTE", "Familiar Route", "熟悉路徑"), ("THREAD_THE_NEEDLE", "Thread the Needle", "穿針引線"), ("MOONBEAM_MESSAGE", "Moonbeam Message", "月光訊息"), ("TANDEM_PROWL", "Tandem Prowl", "結伴巡行"), ("WATCH_THEIR_BACK", "Watch Their Back", "守望背後"), ("BORROWED_RHYTHM", "Borrowed Rhythm", "借來節奏"), ("QUIET_COMPANY", "Quiet Company", "安靜陪伴"), ("PASSING_BLINK", "Passing Blink", "擦身一瞬"), ("TWIN_MOON", "Twin Moon", "雙月"), ("LANTERN_PASS", "Lantern Pass", "傳燈")
 ]})
+cards.update({
+    "ALLEY_ARC": ("Alley Arc", f"Deal {D} damage. If this completes Pounce, deal {{PounceBonus:diff()}} more damage.", "巷弄弧線", f"造成 {D} 點傷害。若將完成撲擊，再造成 {{PounceBonus:diff()}} 點傷害。"),
+    "FENCE_VAULT": ("Fence Vault", f"Gain {B} Block. Rotate Footprints right.", "翻越籬欄", f"獲得 {B} 點格擋。足跡右旋。"),
+    "MOONLIT_LUNGE": ("Moonlit Lunge", "Deal {IfUpgraded:show:18|15} damage. If Pounce has triggered this turn, deal {IfUpgraded:show:28|24} instead.", "月下突刺", "造成 {IfUpgraded:show:18|15} 點傷害。若本回合已觸發撲擊，改為造成 {IfUpgraded:show:28|24} 點傷害。"),
+    "PAWPRINT_MAP": ("Pawprint Map", "Set the left and right Footprints to A.", "爪印地圖", "將左格與右格足跡設為 A。"),
+    "DARING_DESCENT": ("Daring Descent", f"Deal {D} damage. If the enemy has [gold]Vulnerable[/gold], draw {{Cards:diff()}} cards.", "冒險俯衝", f"造成 {D} 點傷害。若敵人有[gold]易傷[/gold]，抽 {{Cards:diff()}} 張牌。"),
+    "ROOFTOP_CHASE": ("Rooftop Chase", f"Deal {D} damage to a random enemy for each Energy spent. Rotate Footprints right after each hit.", "屋脊追逐", f"每花費 1 點能量，對隨機敵人造成 {D} 點傷害。每次命中後足跡右旋。"),
+    "HUNTERS_PAUSE": ("Hunter's Pause", "The first Pounce each turn deals {HuntersPausePower:diff()} additional damage.", "獵手停步", "每回合第一次撲擊額外造成 {HuntersPausePower:diff()} 點傷害。"),
+    "VELVET_AMBUSH": ("Velvet Ambush", "Deal {IfUpgraded:show:15|12} damage. If all Footprints are filled, deal {IfUpgraded:show:24|20} instead.", "絨影伏擊", "造成 {IfUpgraded:show:15|12} 點傷害。若三格足跡皆非空，改為造成 {IfUpgraded:show:24|20} 點。"),
+    "LAST_PAW": ("Last Paw", f"Deal {D} damage. If this is the third card played this turn, deal double damage.", "最後一掌", f"造成 {D} 點傷害。若這是本回合第 3 張牌，傷害加倍。"),
+    "BRISTLE_AND_BRUSH": ("Bristle and Brush", f"Gain {B} Block. Lock the middle Footprint.", "毛刷與梳子", f"獲得 {B} 點格擋。鎖定中格足跡。"),
+    "TIDY_MIND": ("Tidy Mind", "Draw {Cards:diff()} card{Cards:plural}. Discard 1 card. Set the middle Footprint to S.", "整理心緒", "抽 {Cards:diff()} 張牌。棄 1 張牌。將中格足跡設為 S。"),
+    "WARM_LOAF": ("Warm Loaf", f"Gain {B} Block.", "暖麵包姿", f"獲得 {B} 點格擋。"),
+    "FLEA_COMB": ("Flea Comb", f"Deal {D} damage. Remove {{StrengthPower:diff()}} [gold]Strength[/gold].", "除蚤梳", f"造成 {D} 點傷害。移除 {{StrengthPower:diff()}} 點[gold]力量[/gold]。"),
+    "SCRUPULOUS": ("Scrupulous", "Whenever you trigger Groom, gain {ScrupulousPower:diff()} Dexterity until end of turn.", "一絲不苟", "每次觸發理毛後，獲得 {ScrupulousPower:diff()} 點敏捷直到回合結束。"),
+    "CATNAP_LEDGER": ("Catnap Ledger", "The first time you play your second Skill each turn, draw 1 card.{IfUpgraded:show: Gain 2 Block.|}", "小憩帳本", "每回合首次打出第 2 張技能牌時，抽 1 張牌。{IfUpgraded:show:再獲得 2 點格擋。|}"),
+    "SWEEP_ASIDE": ("Sweep Aside", f"Gain {B} Block. Exhaust 1 card from your hand.", "掃到一旁", f"獲得 {B} 點格擋。從手牌中消耗 1 張牌。"),
+    "EVENING_WASH": ("Evening Wash", "At the start of your next turn, gain {EveningWashPower:diff()} Block.", "暮色洗梳", "下回合開始時，獲得 {EveningWashPower:diff()} 點格擋。"),
+    "POLISHED_CLAWS": ("Polished Claws", "Deal {IfUpgraded:show:9|7} damage. If the first two Footprints are S-S, deal {IfUpgraded:show:20|16} instead.", "磨亮爪尖", "造成 {IfUpgraded:show:9|7} 點傷害。若前兩格足跡為 S-S，改為造成 {IfUpgraded:show:20|16} 點。"),
+})
 card_loc = localized(cards, ("title", "description"))
 # Title of the card selection screen for cards that make the player choose.
 card_prompts = {
@@ -1161,6 +1181,10 @@ card_prompts = {
     "SLINK": ("Choose a card to discard.", "選擇一張牌棄掉。"),
     "NEAT_PILE": ("Choose a card to put on top of your Draw Pile.", "選擇一張牌放到你的抽牌堆頂。"),
 }
+card_prompts.update({
+    "TIDY_MIND": ("Choose a card to discard.", "選擇一張牌棄掉。"),
+    "SWEEP_ASIDE": ("Choose a card to Exhaust.", "選擇一張牌消耗。"),
+})
 for lang, entries in localized(card_prompts, ("selectionScreenPrompt",)).items():
     card_loc[lang].update(entries)
 powers.update({
@@ -1182,6 +1206,13 @@ powers.update({
         ("NIGHT_ATLAS_POWER", "Night Atlas", "The first basic Line each turn gives Energy and a card."),
         ("CAT_OF_THE_THRESHOLD_POWER", "Cat of the Threshold", "Once per combat, survive lethal damage at 1 HP."),
     ]
+})
+powers.update({
+    "HUNTERS_PAUSE_POWER": ("Hunter's Pause", "The first Pounce each turn deals [blue]{Amount}[/blue] additional damage.", "Deals [blue]{Amount}[/blue] additional damage.", "獵手停步", "每回合第一次撲擊額外造成 [blue]{Amount}[/blue] 點傷害。", "額外造成 [blue]{Amount}[/blue] 點傷害。"),
+    "SCRUPULOUS_POWER": ("Scrupulous", "Whenever you trigger Groom, gain [blue]{Amount}[/blue] Dexterity until end of turn.", "Gain [blue]{Amount}[/blue] Dexterity until end of turn.", "一絲不苟", "每次觸發理毛後，獲得 [blue]{Amount}[/blue] 點敏捷直到回合結束。", "獲得 [blue]{Amount}[/blue] 點敏捷直到回合結束。"),
+    "CATNAP_LEDGER_POWER": ("Catnap Ledger", "The first time you play your second Skill each turn, draw 1 card.", "Draw 1 card.", "小憩帳本", "每回合首次打出第 2 張技能牌時，抽 1 張牌。", "抽 1 張牌。"),
+    "EVENING_WASH_POWER": ("Evening Wash", "At the start of your next turn, gain [blue]{Amount}[/blue] Block.", "Gain [blue]{Amount}[/blue] Block next turn.", "暮色洗梳", "下回合開始時，獲得 [blue]{Amount}[/blue] 點格擋。", "下回合獲得 [blue]{Amount}[/blue] 點格擋。"),
+    "SCRUPULOUS_DEXTERITY_POWER": ("Scrupulous", "Temporary Dexterity until end of turn.", "Temporary Dexterity until end of turn.", "一絲不苟", "持續到回合結束的敏捷。", "持續到回合結束的敏捷。"),
 })
 power_loc = localized(powers, ("title", "description", "smartDescription"))
 # Shown instead of smartDescription to players other than the one who applied the power.

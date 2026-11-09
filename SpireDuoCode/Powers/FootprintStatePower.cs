@@ -44,6 +44,7 @@ public sealed class FootprintStatePower : SpireDuoPower
     public IReadOnlyList<bool> Locked => _locked;
     public bool CompanionArmed => _companionAlly != null;
     public bool HasTriggered(FootprintLine line) => _triggeredThisTurn.Contains(line);
+    public int PlayedCardsThisTurn { get; private set; }
     private readonly HashSet<FootprintLine> _triggeredThisTurn = [];
 
     public override PowerType Type => PowerType.Buff;
@@ -160,6 +161,8 @@ public sealed class FootprintStatePower : SpireDuoPower
         if (footprint == Footprint.Empty)
             return;
 
+        PlayedCardsThisTurn++;
+
         if (CompanionArmed && cardPlay.Card.Type == _companionType)
         {
             if (_companionAlly is { IsDead: false })
@@ -186,6 +189,7 @@ public sealed class FootprintStatePower : SpireDuoPower
         {
             Array.Fill(_locked, false);
             _triggeredThisTurn.Clear();
+            PlayedCardsThisTurn = 0;
         }
         return Task.CompletedTask;
     }
@@ -208,6 +212,26 @@ public sealed class FootprintStatePower : SpireDuoPower
             _slots[writable[i]] = _slots[writable[i + 1]];
         _slots[writable[^1]] = footprint;
         return filledEmpty;
+    }
+
+    public bool WillTrigger(FootprintLine line, Footprint next)
+    {
+        int[] writable = Enumerable.Range(0, _slots.Length).Where(index => !_locked[index]).ToArray();
+        if (writable.Length == 0)
+            return false;
+
+        Footprint[] predicted = (Footprint[])_slots.Clone();
+        for (int i = 0; i < writable.Length - 1; i++)
+            predicted[writable[i]] = predicted[writable[i + 1]];
+        predicted[writable[^1]] = next;
+
+        return line switch
+        {
+            FootprintLine.Pounce => predicted.SequenceEqual([Footprint.Attack, Footprint.Skill, Footprint.Attack]),
+            FootprintLine.Groom => predicted.SequenceEqual([Footprint.Skill, Footprint.Skill, Footprint.Attack]),
+            FootprintLine.Omen => predicted.SequenceEqual([Footprint.Power, Footprint.Skill, Footprint.Power]),
+            _ => false
+        };
     }
 
     private async Task TriggerPounce(PlayerChoiceContext context, CardPlay cardPlay)
