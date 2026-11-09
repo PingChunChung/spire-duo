@@ -26,7 +26,7 @@ public sealed class GuardianOfTheEavesPower : SpireDuoPower
 
         _protectedAlly = null;
         Flash();
-        Creature? enemy = Owner.CombatState!.HittableEnemies.FirstOrDefault();
+        Creature? enemy = Owner.Player!.RunState.Rng.CombatTargets.NextItem(Owner.CombatState!.HittableEnemies);
         if (enemy != null)
             await CreatureCmd.Damage(context, enemy, Amount, ValueProp.Unpowered, Owner, source);
     }

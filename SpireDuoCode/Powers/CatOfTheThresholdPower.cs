@@ -20,9 +20,29 @@ public sealed class CatOfTheThresholdPower : SpireDuoPower
         return Task.CompletedTask;
     }
 
+    public override async Task AfterDamageReceived(
+        PlayerChoiceContext context,
+        Creature target,
+        DamageResult result,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? source)
+    {
+        if (_pendingOmen && target == Owner)
+            await ResolveOmen(context);
+    }
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext context, Player player)
     {
         if (!_pendingOmen || player != Owner.Player)
+            return;
+
+        await ResolveOmen(context);
+    }
+
+    private async Task ResolveOmen(PlayerChoiceContext context)
+    {
+        if (!_pendingOmen)
             return;
 
         _pendingOmen = false;
@@ -40,7 +60,7 @@ public sealed class CatOfTheThresholdPower : SpireDuoPower
         await FootprintStatePower.SetAll(context, Owner, Footprint.Power, Footprint.Skill, Footprint.Power, play.Card);
         FootprintStatePower state = await FootprintStatePower.GetOrCreate(context, Owner, play.Card);
         await state.TriggerOmenNow(context, play);
-        if (Amount > 0m)
-            await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, play);
+        if (Amount > 1m)
+            await CreatureCmd.GainBlock(Owner, Amount - 1m, ValueProp.Unpowered, play);
     }
 }

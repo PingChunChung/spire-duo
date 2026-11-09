@@ -1191,6 +1191,21 @@ cards.update({
     "TWIN_MOON": ("Twin Moon", "You and an ally each draw {Cards:diff()} cards. Set the middle Footprint to S.", "雙月", "你與一名盟友各抽 {Cards:diff()} 張牌。設定中格為 S。"),
     "LANTERN_PASS": ("Lantern Pass", "An ally gains 1 Energy. Arm Companion: the next Skill gives that ally {CompanionBlock:diff()} Block.{IfUpgraded:show: That ally draws 1 card.|}", "傳燈", "該盟友獲得 1 能量。Arm Companion：下一張 Skill 給該盟友 {CompanionBlock:diff()} 格擋。{IfUpgraded:show:該盟友再抽 1 張牌。|}"),
 })
+cards.update({
+    "PERFECT_ARC": ("Perfect Arc", f"Deal {D} damage. If Pounce triggered this turn, deal 8 more damage.", "完美弧線", f"造成 {D} 點傷害。若本回合觸發過撲擊，再造成 8 點傷害。"),
+    "DARK_MOON_CONTRACT": ("Dark Moon Contract", "At the start of your turn, set the left Footprint to P and draw 1 card.{IfUpgraded:show: Gain 1 Block.|}", "暗月契約", "每回合開始時，設定左側足跡為 P 並抽 1 張牌。{IfUpgraded:show:獲得 1 點格擋。|}"),
+    "VELVET_FATE": ("Velvet Fate", "Lose {IfUpgraded:show:3|4} HP. Upgrade exactly 1 card in your hand for this combat.", "絨毛命運", "失去 {IfUpgraded:show:3|4} 點生命。選擇剛好 1 張手牌，使其升級至本戰鬥結束。"),
+    "SHARED_NIGHTSHIFT": ("Shared Nightshift", "The first time an ally plays an Attack each turn, gain {SharedNightshiftPower:diff()} Block and they gain {IfUpgraded:show:5|3} Block.", "共守夜班", "每回合首次有盟友打出攻擊牌時，你獲得 {SharedNightshiftPower:diff()} 點格擋，該盟友獲得 {IfUpgraded:show:5|3} 點格擋。"),
+    "SECRET_SIGNAL": ("Secret Signal", "While Companion is armed, the next allied Attack resolves it and draws {SecretSignalPower:diff()} cards.", "祕密訊號", "同伴足跡待命時，下一次你或盟友打出攻擊牌會結算它並抽 {SecretSignalPower:diff()} 張牌。"),
+    "QUIET_PACT": ("Quiet Pact", "Whenever Companion resolves, you and its chosen ally each gain 1 Artifact.", "寂靜約定", "每次同伴足跡結算後，你與該次指定的盟友各獲得 1 層人工製品。"),
+    "GUARDIAN_OF_THE_EAVES": ("Guardian of the Eaves", "The first time an ally would lose HP each turn, prevent {IfUpgraded:show:12|8} damage and deal {IfUpgraded:show:12|8} damage to a random enemy.", "簷下守衛", "每回合盟友首次將失去生命時，防止 {IfUpgraded:show:12|8} 點傷害，並對隨機敵人造成 {IfUpgraded:show:12|8} 點傷害。"),
+    "SECOND_BELL": ("Second Bell", "Unlock all Footprints. Copy each non-empty Footprint into an adjacent empty slot.{IfUpgraded:show: Draw 2 cards.|}", "第二鈴", "解除所有足跡鎖定。將每個非空足跡複製到相鄰的空格。{IfUpgraded:show:抽 2 張牌。|}"),
+    "NIGHT_ATLAS": ("Night Atlas", "The first basic Line each turn gives 1 Energy and draws 1 card. The next different basic Line resolves twice.{IfUpgraded:show: Gain 4 Block after it resolves twice.|}", "夜行星圖", "每回合首次完成基本連段時，獲得 1 點能量並抽 1 張牌。本回合下一個不同的基本連段會結算兩次。{IfUpgraded:show:其結算兩次後獲得 4 點格擋。|}"),
+    "TIDY_MIND": ("Tidy Mind", "Draw {Cards:diff()} {Cards:plural:card|cards}. Discard 1 card. Set the middle Footprint to S.", "整理心緒", "抽 {Cards:diff()} 張牌。棄 1 張牌。將中格足跡設為 S。"),
+    "OMEN_READER": ("Omen Reader", "Whenever you play a Power, draw {OmenReaderPower:diff()} {OmenReaderPower:plural:card|cards}.", "讀兆", "每當你打出 Power，抽 {OmenReaderPower:diff()} 張牌。"),
+    "FORETELL": ("Paw Augury", "Look at the top 3 cards of your draw pile. Put 1 into your hand. Rotate Footprints right.{IfUpgraded:show:|}", "先知", "查看抽牌堆前 3 張牌，選 1 張放入手牌。右旋足跡。{IfUpgraded:show:|}"),
+    "MIDNIGHT_ORACLE": ("Midnight Oracle", "The first time you play a Power each turn, reduce the cost of {MidnightOraclePower:diff()} random {MidnightOraclePower:plural:card|cards} in your hand to 0 this turn.", "午夜神諭", "每回合第一次打出 Power 後，將手牌中 {MidnightOraclePower:diff()} 張隨機牌本回合費用降為 0。"),
+})
 card_loc = localized(cards, ("title", "description"))
 # Title of the card selection screen for cards that make the player choose.
 card_prompts = {
@@ -1205,6 +1220,8 @@ card_prompts.update({
     "FORETELL": ("Choose a card to put into your hand.", "選擇一張牌放入手牌。"),
     "TIDY_MIND": ("Choose a card to discard.", "選擇一張牌棄掉。"),
     "SWEEP_ASIDE": ("Choose a card to Exhaust.", "選擇一張牌消耗。"),
+    "SILENT_HOUSEHOLD": ("Choose any number of cards to Exhaust.", "選擇任意張牌消耗。"),
+    "VELVET_FATE": ("Choose exactly 1 card to upgrade.", "選擇剛好 1 張牌升級。"),
 })
 for lang, entries in localized(card_prompts, ("selectionScreenPrompt",)).items():
     card_loc[lang].update(entries)
@@ -1244,6 +1261,14 @@ powers.update({
     "BORROWED_RHYTHM_POWER": ("Borrowed Rhythm", "Your next card costs 1 less this turn.", "Your next card costs less.", "借來的節拍", "你本回合下一張牌費用 -1。", "你下一張牌費用降低。"),
     "QUIET_COMPANY_POWER": ("Quiet Company", "Whenever an ally gains Block, gain [blue]{Amount}[/blue] Block.", "Gain Block.", "安靜陪伴", "每次盟友獲得格擋時，你獲得 [blue]{Amount}[/blue] 格擋。", "獲得格擋。"),
 })
+powers.update({
+    "LANTERN_SHADOW_POWER": ("Lantern Shadow", "The first Omen each turn grants [blue]1[/blue] Artifact.", "Gain [blue]1[/blue] Artifact.", "燈影", "每回合首次預兆時，獲得 [blue]1[/blue] 層人工製品。", "獲得 [blue]1[/blue] 層人工製品。"),
+    "SHARED_NIGHTSHIFT_POWER": ("Shared Nightshift", "The first allied Attack each turn grants you [blue]{Amount}[/blue] Block and the ally [blue]{Amount}[/blue] - 2 Block.", "Grant Block to you and the ally.", "共守夜班", "每回合首次盟友攻擊時，你獲得 [blue]{Amount}[/blue] 點格擋，盟友獲得比你少 2 點格擋。", "你與盟友獲得格擋。"),
+    "SECRET_SIGNAL_POWER": ("Secret Signal", "An allied Attack resolves armed Companion and draws [blue]{Amount}[/blue] cards.", "Draw [blue]{Amount}[/blue] cards.", "祕密訊號", "盟友攻擊會結算待命同伴並抽 [blue]{Amount}[/blue] 張牌。", "抽 [blue]{Amount}[/blue] 張牌。"),
+    "QUIET_PACT_POWER": ("Quiet Pact", "Companion resolution grants [blue]1[/blue] Artifact to you and its ally.", "Grant [blue]1[/blue] Artifact to both.", "寂靜約定", "同伴結算時，你與盟友各獲得 [blue]1[/blue] 層人工製品。", "雙方各獲得 [blue]1[/blue] 層人工製品。"),
+    "GUARDIAN_OF_THE_EAVES_POWER": ("Guardian of the Eaves", "The first ally HP loss each turn prevents and retaliates for [blue]{Amount}[/blue].", "Prevent and retaliate for [blue]{Amount}[/blue].", "簷下守衛", "每回合首次盟友失去生命時，防止並反擊 [blue]{Amount}[/blue] 點傷害。", "防止並反擊 [blue]{Amount}[/blue] 點傷害。"),
+    "NIGHT_ATLAS_POWER": ("Night Atlas", "The first basic Line each turn gives [blue]1[/blue] Energy and draws [blue]1[/blue] card. The next different basic Line resolves twice.", "The next different Line resolves twice.", "夜行星圖", "每回合首次基本連段獲得 [blue]1[/blue] 點能量並抽 [blue]1[/blue] 張牌；下一個不同基本連段結算兩次。", "下一個不同基本連段結算兩次。"),
+})
 power_loc = localized(powers, ("title", "description", "smartDescription"))
 # Shown instead of smartDescription to players other than the one who applied the power.
 remote_powers = {
@@ -1255,6 +1280,7 @@ for lang, entries in localized(remote_powers, ("remoteDescription",)).items():
 # Omen asks the Black Cat to pick the card to Retain.
 power_prompts = {
     "FOOTPRINT_STATE_POWER": ("Choose a card to Retain this turn.", "選擇一張牌在本回合保留。"),
+    "EBON_CALENDAR_POWER": ("Choose a card from your discard pile.", "從棄牌堆選擇一張牌。"),
 }
 for lang, entries in localized(power_prompts, ("selectionScreenPrompt",)).items():
     power_loc[lang].update(entries)

@@ -44,6 +44,7 @@ public sealed class FootprintStatePower : SpireDuoPower
     public IReadOnlyList<bool> Locked => _locked;
     public bool CompanionArmed => _companionAlly != null;
     public bool HasTriggered(FootprintLine line) => _triggeredThisTurn.Contains(line);
+    public int PouncesThisCombat { get; private set; }
     public int PlayedCardsThisTurn { get; private set; }
     private readonly HashSet<FootprintLine> _triggeredThisTurn = [];
 
@@ -85,6 +86,27 @@ public sealed class FootprintStatePower : SpireDuoPower
     {
         var state = await GetOrCreate(context, creature, source);
         Array.Fill(state._locked, false);
+    }
+
+    public static async Task CopyNonEmptySlotsIntoAdjacentEmptySlots(PlayerChoiceContext context, Creature creature, CardModel? source = null)
+    {
+        var state = await GetOrCreate(context, creature, source);
+        Footprint[] original = (Footprint[])state._slots.Clone();
+
+        for (int index = 0; index < original.Length; index++)
+        {
+            if (original[index] == Footprint.Empty)
+                continue;
+
+            int right = index + 1;
+            int left = index - 1;
+            if (right < original.Length && state._slots[right] == Footprint.Empty && !state._locked[right])
+                state._slots[right] = original[index];
+            else if (left >= 0 && state._slots[left] == Footprint.Empty && !state._locked[left])
+                state._slots[left] = original[index];
+        }
+
+        await state.NotifySetOrRotated(context, source);
     }
 
     public static async Task SetAll(PlayerChoiceContext context, Creature creature, Footprint first, Footprint second, Footprint third, CardModel? source = null)
@@ -296,7 +318,7 @@ public sealed class FootprintStatePower : SpireDuoPower
         Array.Fill(_slots, Footprint.Empty);
         Array.Fill(_locked, false);
         Flash();
-        foreach (IFootprintListener listener in Listeners())
+        foreach (IFootprintListener listener in Listeners().ToList())
             await listener.OnFootprintCleared(context, cardPlay);
     }
 
@@ -310,25 +332,28 @@ public sealed class FootprintStatePower : SpireDuoPower
     private async Task NotifyLine(PlayerChoiceContext context, CardPlay play, FootprintLine line)
     {
         _triggeredThisTurn.Add(line);
-        foreach (IFootprintListener listener in Listeners())
+        if (line == FootprintLine.Pounce)
+            PouncesThisCombat++;
+
+        foreach (IFootprintListener listener in Listeners().ToList())
             await listener.OnFootprintLine(context, play, line);
     }
 
     private async Task NotifySetOrRotated(PlayerChoiceContext context, CardModel? source)
     {
-        foreach (IFootprintListener listener in Listeners())
+        foreach (IFootprintListener listener in Listeners().ToList())
             await listener.OnFootprintSetOrRotated(context, source);
     }
 
     private async Task NotifyEmptySlotFilled(PlayerChoiceContext context, CardPlay play)
     {
-        foreach (IFootprintListener listener in Listeners())
+        foreach (IFootprintListener listener in Listeners().ToList())
             await listener.OnEmptySlotFilled(context, play);
     }
 
     private async Task NotifyCompanionResolved(PlayerChoiceContext context, CardPlay play, Creature? ally)
     {
-        foreach (IFootprintListener listener in Listeners())
+        foreach (IFootprintListener listener in Listeners().ToList())
             await listener.OnCompanionResolved(context, play, ally);
     }
 

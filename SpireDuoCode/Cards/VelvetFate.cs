@@ -4,4 +4,27 @@ using SpireDuo.SpireDuoCode.Powers;
 namespace SpireDuo.SpireDuoCode.Cards;
 
 public sealed class VelvetFate() : BlackCatCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
-{ protected override async Task OnPlay(PlayerChoiceContext c, CardPlay p) { await CreatureCmd.Damage(c, Owner.Creature, IsUpgraded ? 3 : 4, ValueProp.Unpowered, Owner.Creature, this); var card = (await CardSelectCmd.FromHandForUpgrade(c, Owner, this)); if (card != null) CardCmd.Upgrade(card); } protected override void OnUpgrade() { } }
+{
+    protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay)
+    {
+        await CreatureCmd.Damage(
+            context,
+            Owner.Creature,
+            IsUpgraded ? 3m : 4m,
+            ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move,
+            this);
+
+        CardModel? selected = (await CardSelectCmd.FromHand(
+            context,
+            Owner,
+            new CardSelectorPrefs(SelectionScreenPrompt, 1),
+            card => card.IsUpgradable,
+            this)).FirstOrDefault();
+        if (selected != null)
+            CardCmd.Upgrade(selected);
+    }
+
+    protected override void OnUpgrade()
+    {
+    }
+}
