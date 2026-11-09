@@ -13,11 +13,13 @@ public sealed class CatOfTheThresholdPower : SpireDuoPower
 
     public override bool ShouldDieLate(Creature creature) => creature != Owner || _used;
 
-    public override Task AfterPreventingDeath(Creature creature)
+    // Preventing death leaves the creature at 0 HP; like Lizard Tail, heal it back up ourselves.
+    public override async Task AfterPreventingDeath(Creature creature)
     {
+        Flash();
         _used = true;
         _pendingOmen = true;
-        return Task.CompletedTask;
+        await CreatureCmd.Heal(creature, 1m);
     }
 
     public override async Task AfterDamageReceived(
@@ -28,7 +30,15 @@ public sealed class CatOfTheThresholdPower : SpireDuoPower
         Creature? dealer,
         CardModel? source)
     {
-        if (_pendingOmen && target == Owner)
+        // During the enemy turn the Omen's Energy and Retain would be wasted, so those wait for our next turn.
+        if (_pendingOmen && target == Owner && Owner.CombatState?.CurrentSide == Owner.Side)
+            await ResolveOmen(context);
+    }
+
+    // The killing blow itself skips AfterDamageReceived, so a death from our own card resolves once that card finishes.
+    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+    {
+        if (_pendingOmen && cardPlay.Card.Owner == Owner.Player && Owner.CombatState?.CurrentSide == Owner.Side)
             await ResolveOmen(context);
     }
 
@@ -48,7 +58,7 @@ public sealed class CatOfTheThresholdPower : SpireDuoPower
         _pendingOmen = false;
         var play = new CardPlay
         {
-            Card = ModelDb.Card<BlackThread>(),
+            Card = Owner.CombatState!.CreateCard<BlackThread>(Owner.Player!),
             Target = null,
             ResultPile = PileType.Exhaust,
             Resources = default,

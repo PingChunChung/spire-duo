@@ -12,7 +12,9 @@ public sealed class NinthSpark : BlackCatPotion
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        var choices = new CardModel[] { ModelDb.Card<StrikeCat>(), ModelDb.Card<DefendCat>(), ModelDb.Card<BlackThread>() };
+        // The choose screen only renders combat instances, not canonical models.
+        var combat = Owner.Creature.CombatState!;
+        var choices = new CardModel[] { combat.CreateCard<StrikeCat>(Owner), combat.CreateCard<DefendCat>(Owner), combat.CreateCard<BlackThread>(Owner) };
         CardModel? choice = await CardSelectCmd.FromChooseACardScreen(choiceContext, choices, Owner);
         FootprintLine line = choice?.Type switch
         {
@@ -23,7 +25,7 @@ public sealed class NinthSpark : BlackCatPotion
         var state = await FootprintStatePower.GetOrCreate(choiceContext, Owner.Creature);
         await state.TriggerLineNow(choiceContext, new CardPlay
         {
-            Card = ModelDb.Card<BlackThread>(),
+            Card = Owner.Creature.CombatState!.CreateCard<BlackThread>(Owner),
             Target = null,
             ResultPile = PileType.Exhaust,
             Resources = default,

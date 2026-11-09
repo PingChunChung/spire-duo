@@ -7,6 +7,7 @@ public sealed class NightAtlasPower : FootprintListenerPower
 {
     private int _turn = -1;
     private FootprintLine? _firstLine;
+    private bool _doubledThisTurn;
 
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
@@ -18,14 +19,16 @@ public sealed class NightAtlasPower : FootprintListenerPower
         {
             _turn = turn;
             _firstLine = line;
+            _doubledThisTurn = false;
             await PlayerCmd.GainEnergy(1, Owner.Player!);
             await CardPileCmd.Draw(context, 1, Owner.Player!);
             return;
         }
 
-        if (_firstLine != line)
+        // The extra resolution notifies listeners again, so mark the double before triggering it.
+        if (!_doubledThisTurn && _firstLine != line)
         {
-            _firstLine = null;
+            _doubledThisTurn = true;
             FootprintStatePower state = await FootprintStatePower.GetOrCreate(context, Owner, cardPlay.Card);
             await state.TriggerLineNow(context, cardPlay, line);
             if (Amount > 1)

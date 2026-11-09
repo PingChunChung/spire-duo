@@ -12,7 +12,9 @@ public sealed class PawprintDraught : BlackCatPotion
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        var choices = new CardModel[] { ModelDb.Card<StrikeCat>(), ModelDb.Card<DefendCat>(), ModelDb.Card<BlackThread>() };
+        // The choose screen only renders combat instances, not canonical models.
+        var combat = Owner.Creature.CombatState!;
+        var choices = new CardModel[] { combat.CreateCard<StrikeCat>(Owner), combat.CreateCard<DefendCat>(Owner), combat.CreateCard<BlackThread>(Owner) };
         CardModel? choice = await CardSelectCmd.FromChooseACardScreen(choiceContext, choices, Owner);
         Footprint footprint = choice?.Type switch
         {
@@ -22,8 +24,9 @@ public sealed class PawprintDraught : BlackCatPotion
             _ => Footprint.Attack
         };
         var state = await FootprintStatePower.GetOrCreate(choiceContext, Owner.Creature);
-        int slot = Enumerable.Range(0, 3).FirstOrDefault(index => state.Slots[index] == Footprint.Empty && !state.Locked[index]);
-        await state.Set(choiceContext, slot, footprint, null);
+        int slot = Enumerable.Range(0, 3).FirstOrDefault(index => state.Slots[index] == Footprint.Empty && !state.Locked[index], -1);
+        if (slot >= 0)
+            await state.Set(choiceContext, slot, footprint, null);
         await CardPileCmd.Draw(choiceContext, 1, Owner);
     }
 }
