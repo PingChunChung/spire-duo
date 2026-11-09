@@ -25,7 +25,11 @@ RELICS = {"eucalyptus_leaf", "bamboo_basket", "couple_rings", "spare_key", "fluf
           "hammock", "five_more_minutes", "shared_blanket", "beanbag", "bamboo_barbell", "picnic_mat"}
 RELICS.update({"sleepy_ledger", "dream_catcher_bell", "bamboo_sled", "split_bamboo", "passing_note"})
 RELICS.update({"moonbell_collar", "eclipse_chime"})
-POTIONS = {"warm_milk", "strong_coffee", "bamboo_juice", "honey_jar", "lucid_tea", "crunchy_shoot", "half_and_half"}
+# Black Cat batch 4.
+POWERS.update({"black_thread_power", "borrowed_rhythm_power", "candle_at_noon_power", "cat_of_the_threshold_power", "catnap_ledger_power", "catwalk_king_power", "constellation_nap_power", "dark_moon_contract_power", "ebon_calendar_power", "evening_wash_power", "feline_velocity_power", "guardian_of_the_eaves_power", "hunters_pause_power", "immaculate_coat_power", "inked_window_power", "inkwell_sky_power", "lantern_shadow_power", "midnight_oracle_power", "night_atlas_power", "omen_reader_power", "purrfect_order_power", "quiet_company_power", "quiet_pact_power", "scrupulous_power", "secret_signal_power", "shared_nightshift_power", "soft_authority_power", "tandem_prowl_power", "velvet_eclipse_power"})
+RELICS.update({"velvet_pouch", "windowsill_token", "quiet_hourglass", "gutter_crown", "comet_comb", "lantern_of_one_window", "curiosity_string"})
+POTIONS = {"warm_milk", "strong_coffee", "bamboo_juice", "honey_jar", "lucid_tea", "crunchy_shoot", "half_and_half",
+           "pawprint_draught", "moonmilk_flask", "ninth_spark"}
 # Same 2.13:1 shape as the vanilla 3440x1613 portraits; the event screen fits them into 2560x1200.
 EVENTS = {"picnic_for_two", "stargazing", "little_quarrel", "photo_booth", "the_last_dumpling", "borrowed_hammock"}
 EVENTS.update({"eucalyptus_tollbooth", "honeyed_hive", "bamboo_appraiser", "rainy_day_argument", "dream_exchange",
