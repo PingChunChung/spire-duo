@@ -28,3 +28,8 @@ public abstract class PandaPotion : SpireDuoPotion
 public abstract class BlackCatPotion : SpireDuoPotion
 {
 }
+
+[Pool(typeof(RaccoonPotionPool))]
+public abstract class RaccoonPotion : SpireDuoPotion
+{
+}

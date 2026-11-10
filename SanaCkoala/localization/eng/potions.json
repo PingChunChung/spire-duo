@@ -21,5 +21,11 @@
   "SPIREDUO-NINTH_SPARK.title": "Ninth Spark",
   "SPIREDUO-NINTH_SPARK.description": "Choose a basic Line to trigger without changing your Footprints.",
   "SPIREDUO-PAWPRINT_DRAUGHT.selectionScreenPrompt": "Choose a Footprint.",
-  "SPIREDUO-NINTH_SPARK.selectionScreenPrompt": "Choose a Line to trigger."
+  "SPIREDUO-NINTH_SPARK.selectionScreenPrompt": "Choose a Line to trigger.",
+  "SPIREDUO-COIN_RATTLE.title": "Coin Rattle",
+  "SPIREDUO-COIN_RATTLE.description": "Stash 1 card from your hand. Draw 1 card.",
+  "SPIREDUO-SUDS_BOTTLE.title": "Suds Bottle",
+  "SPIREDUO-SUDS_BOTTLE.description": "Spend 1 stashed card. Remove all Debuffs. Gain {Block} Block.",
+  "SPIREDUO-BLACK_MARKET_RECEIPT.title": "Black-Market Receipt",
+  "SPIREDUO-BLACK_MARKET_RECEIPT.description": "Choose a stashed card. Play it once without paying its Energy. Then Exhaust it."
 }

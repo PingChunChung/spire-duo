@@ -34,6 +34,8 @@ public static class MilestoneRunPatches
         }
         if (state.Players.Any(player => player.Character is BlackCat))
             MilestoneTracker.Unlock(MilestoneIds.CatFirstRun);
+        if (state.Players.Any(player => player.Character is Raccoon))
+            MilestoneTracker.Unlock(MilestoneIds.RaccoonFirstRun);
         ProgressStore.Flush();
     }
 
@@ -106,6 +108,8 @@ public static class MilestoneRunPatches
                 MilestoneTracker.Unlock(MilestoneIds.PandaClear);
             if (state.Players.Any(player => player.Character is BlackCat))
                 MilestoneTracker.Unlock(MilestoneIds.CatVictory);
+            if (state.Players.Any(player => player.Character is Raccoon))
+                MilestoneTracker.Unlock(MilestoneIds.RaccoonClear);
             if (MilestoneTracker.IsCoopModRun(state))
                 MilestoneTracker.Unlock(MilestoneIds.TwoPersonClear);
         }

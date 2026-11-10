@@ -11,5 +11,12 @@
   "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "换你了。",
   "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "……小心脚步。",
   "SPIREDUO-BLACK_CAT.lockedDescription": "尚未解锁。塔顶上好像有谁在等……也许无尾熊和熊猫都该上去看看。",
-  "SPIREDUO-BLACK_CAT.unlockedBanner": "黑猫加入了！之后在选角画面就能选牠。"
+  "SPIREDUO-BLACK_CAT.unlockedBanner": "黑猫加入了！之后在选角画面就能选牠。",
+  "SPIREDUO-RACCOON.title": "浣熊",
+  "SPIREDUO-RACCOON.titleObject": "浣熊",
+  "SPIREDUO-RACCOON.description": "手脚很快，袋子很满，好东西留着晚点用。",
+  "SPIREDUO-RACCOON.lockedDescription": "尚未解锁。黑猫好像在塔顶交了一个朋友……也许带牠上去看看。",
+  "SPIREDUO-RACCOON.unlockedBanner": "有位新朋友加入爬塔了。选角画面出现了一条隐藏的小路。",
+  "SPIREDUO-RACCOON.banter.alive.endTurnPing": "换你了。",
+  "SPIREDUO-RACCOON.banter.dead.endTurnPing": "……留点东西晚点用。"
 }

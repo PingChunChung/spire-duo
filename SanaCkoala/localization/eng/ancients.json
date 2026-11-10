@@ -10,5 +10,9 @@
   "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.char": "Three steps are enough, if you know where they lead.",
   "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-0r.next": "Continue",
   "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-1r.ancient": "The cat maps every silence between the stars.",
-  "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-attack": "Attack"
+  "THE_ARCHITECT.talk.SPIREDUO-BLACK_CAT.0-attack": "Attack",
+  "THE_ARCHITECT.talk.SPIREDUO-RACCOON.0-0r.char": "Make room for the card you will need, not the card you need now.",
+  "THE_ARCHITECT.talk.SPIREDUO-RACCOON.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.SPIREDUO-RACCOON.0-1r.ancient": "Nothing is worthless after midnight.",
+  "THE_ARCHITECT.talk.SPIREDUO-RACCOON.0-attack": "Attack"
 }

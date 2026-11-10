@@ -26,7 +26,7 @@ Steam Workshop: [SanaCkoala](https://steamcommunity.com/sharedfiles/filedetails/
 
 ### ???
 
-Something is waiting at the top of the Spire. Take the Koala and the Panda up there and see who shows up.
+Something is waiting at the top of the Spire. Take the Koala and the Panda up there and see who shows up. And that may not be the last pair of paws.
 
 Each character has 87 cards: 3 Basic, 20 Common, 36 Uncommon, 26 Rare and 2 Ancient, the same split as the vanilla characters. Each also has seven relics besides the starter relic, and three potions (Common, Uncommon and Rare).
 
@@ -57,13 +57,13 @@ These appear only in runs with more than one player.
 
 ## Memory Album
 
-A **Memory Album** button on the main menu opens an achievement album: 48 achievements on six pages (Journey, Koala, Panda, a hidden page, Together and Keepsakes). 37 can be earned in singleplayer. The other 11 need a co-op run; any teammate and any characters count.
+A **Memory Album** button on the main menu opens an achievement album: 56 achievements on seven pages (Journey, Koala, Panda, two hidden pages, Together and Keepsakes). 45 can be earned in singleplayer. The other 11 need a co-op run; any teammate and any characters count.
 
-- Achievements are Bronze, Silver or Gold, worth 1, 2 or 3 points (94 in total). Counting achievements show a progress bar and are marked "Almost there" at 70%. Three are hidden until earned.
+- Achievements are Bronze, Silver or Gold, worth 1, 2 or 3 points (109 in total). Counting achievements show a progress bar and are marked "Almost there" at 70%. Three are hidden until earned.
 - A banner with the medal appears when you earn one, the album button shows a red dot, and new entries pop in the next time you open the album.
 - One page stays hidden until you find who it belongs to.
 - The end-of-run screen lists up to three achievements earned that run and up to three that are close.
-- At 20, 45, 70 and 94 points the album gets a new background and a pin appears next to the album button. Gold achievements give a title shown at the top of the album.
+- At 20, 45, 70 and 109 points the album gets a new background and a pin appears next to the album button. Gold achievements give a title shown at the top of the album.
 - Achievements are keepsakes only. They never change cards, rewards, events or combat. They are earned for the whole party and saved in each player's own progress file.
 
 ## Installation

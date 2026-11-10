@@ -42,5 +42,21 @@
   "SPIREDUO-BLACK_CAT.banter.alive.endTurnPing": "Your turn.",
   "SPIREDUO-BLACK_CAT.banter.dead.endTurnPing": "...watch your step",
   "SPIREDUO-BLACK_CAT.lockedDescription": "Locked. Something is waiting at the top of the Spire... maybe the Koala and the Panda should both get there.",
-  "SPIREDUO-BLACK_CAT.unlockedBanner": "The Black Cat has joined you! It can now be picked at character select."
+  "SPIREDUO-BLACK_CAT.unlockedBanner": "The Black Cat has joined you! It can now be picked at character select.",
+  "SPIREDUO-RACCOON.title": "The Raccoon",
+  "SPIREDUO-RACCOON.titleObject": "the Raccoon",
+  "SPIREDUO-RACCOON.description": "A quick hand, a full bag, and a plan for later.",
+  "SPIREDUO-RACCOON.lockedDescription": "Locked. The Black Cat seems to have a friend at the top of the Spire... maybe take it up there.",
+  "SPIREDUO-RACCOON.unlockedBanner": "A new friend has joined the climb. A hidden path is now open at character select.",
+  "SPIREDUO-RACCOON.pronounObject": "them",
+  "SPIREDUO-RACCOON.possessiveAdjective": "their",
+  "SPIREDUO-RACCOON.pronounPossessive": "theirs",
+  "SPIREDUO-RACCOON.pronounSubject": "they",
+  "SPIREDUO-RACCOON.goldMonologue": "This might come in handy later.",
+  "SPIREDUO-RACCOON.eventDeathPrevention": "Not before I check that pocket.",
+  "SPIREDUO-RACCOON.aromaPrinciple": "Midnight",
+  "SPIREDUO-RACCOON.cardsModifierTitle": "Raccoon Cards",
+  "SPIREDUO-RACCOON.cardsModifierDescription": "Raccoon cards will appear in rewards.",
+  "SPIREDUO-RACCOON.banter.alive.endTurnPing": "Your turn.",
+  "SPIREDUO-RACCOON.banter.dead.endTurnPing": "...save something for later"
 }

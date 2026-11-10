@@ -18,7 +18,7 @@ public static class MilestoneTracker
     private static readonly HashSet<string> RunUnlocks = [];
     public static bool LastRunWasLost { get; private set; }
 
-    public static bool IsModRun(IRunState state) => state.Players.Any(player => player.Character is Koala or Panda or BlackCat);
+    public static bool IsModRun(IRunState state) => state.Players.Any(player => player.Character is Koala or Panda or BlackCat or Raccoon);
 
     public static bool IsCoopModRun(IRunState state) => IsModRun(state) && state.Players.Count > 1;
 
@@ -213,6 +213,28 @@ public static class MilestoneTracker
             Unlock(MilestoneIds.CatPounce10);
     }
 
+    public static void RecordRaccoonStashed(Creature creature, RaccoonStashStatePower state)
+    {
+        if (creature.IsDead || creature.Player?.Character is not Raccoon)
+            return;
+
+        if (state.Count >= 3)
+            Unlock(MilestoneIds.RaccoonStash3);
+        if (state.Slots.Select(card => card.Type).Distinct().Count() >= 3)
+            Unlock(MilestoneIds.RaccoonTypes);
+    }
+
+    public static void RecordRaccoonSpent(Creature creature, CardModel card)
+    {
+        if (creature.IsDead || creature.Player?.Character is not Raccoon || creature.CombatState is not { } combat)
+            return;
+
+        if (IncrementCombatCount(combat, "RaccoonSpent") >= 8)
+            Unlock(MilestoneIds.RaccoonSpend8);
+        if (RaccoonStashStatePower.CostValue(card) == 3 && IncrementCombatCount(combat, "RaccoonValue3") >= 3)
+            Unlock(MilestoneIds.RaccoonValue3);
+    }
+
     public static void RecordCompanionResolved(Creature creature, Creature? ally)
     {
         if (creature.IsDead || ally is not { IsDead: false } || creature.Player?.Character is not BlackCat || creature.Player.RunState is not { } state || !IsCoopModRun(state))
@@ -244,6 +266,8 @@ public static class MilestoneTracker
         CombatFalls.Remove(combatState);
         RetainedCards.Remove(combatState);
         NightWatchTurns.Remove(combatState);
+        if (combatState.RunState.CurrentRoom?.RoomType == RoomType.Boss && CombatCounts.TryGetValue(combatState, out Dictionary<string, int>? counts) && counts.GetValueOrDefault("RaccoonSpent") >= 5)
+            Unlock(MilestoneIds.RaccoonBossHaul);
         CombatCounts.Remove(combatState);
         MunchesThisTurn.Remove(combatState);
     }

@@ -129,7 +129,7 @@ public sealed partial class MemoryAlbumScreen : CanvasLayer
         {
             int unlocked = AchievementCatalog.All.Count(definition => definition.Page == page && IsUnlocked(definition));
             int total = AchievementCatalog.All.Count(definition => definition.Page == page);
-            var button = new Button { Text = $"{Text($"ALBUM.page.{page}")} {unlocked}/{total}", ToggleMode = true, ButtonGroup = pageGroup, ButtonPressed = page == _page };
+            var button = new Button { Text = $"{PageTitle(page)} {unlocked}/{total}", ToggleMode = true, ButtonGroup = pageGroup, ButtonPressed = page == _page };
             button.Pressed += () => { _page = page; RebuildGrid(); };
             pages.AddChild(button);
         }
@@ -215,6 +215,11 @@ public sealed partial class MemoryAlbumScreen : CanvasLayer
             _grid.AddChild(CreateCatTeaser());
             return;
         }
+        if (_page == AchievementPage.Raccoon && !ProgressStore.Current.RaccoonUnlocked && !DevSettings.AlbumAll)
+        {
+            _grid.AddChild(CreateRaccoonTeaser());
+            return;
+        }
 
         foreach (AchievementDefinition definition in AchievementCatalog.All.Where(definition => definition.Page == _page && MatchesFilter(definition)))
             _grid.AddChild(CreateEntry(definition));
@@ -240,6 +245,20 @@ public sealed partial class MemoryAlbumScreen : CanvasLayer
         AddPicture(panel, "res://SanaCkoala/images/milestones/cat_teaser.png");
         panel.AddChild(new Label { Text = Text("ALBUM.catTeaser"), HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart });
         panel.AddChild(new Label { Text = $"{Text("ALBUM.koalaCleared")} {Check(ProgressStore.Current.KoalaSpireCleared)}\n{Text("ALBUM.pandaCleared")} {Check(ProgressStore.Current.PandaSpireCleared)}", HorizontalAlignment = HorizontalAlignment.Center });
+        return teaser;
+    }
+
+    private Control CreateRaccoonTeaser()
+    {
+        var teaser = CardFrame(new Color(0.07f, 0.1f, 0.14f), new Color(0.55f, 0.4f, 0.24f));
+        teaser.CustomMinimumSize = new Vector2(300, 300);
+        var panel = new VBoxContainer { Alignment = BoxContainer.AlignmentMode.Center };
+        teaser.AddChild(panel);
+        // The hint names the Black Cat, so players who have not met the cat yet get a vaguer line.
+        var question = new Label { Text = "?", HorizontalAlignment = HorizontalAlignment.Center };
+        question.AddThemeFontSizeOverride("font_size", 96);
+        panel.AddChild(question);
+        panel.AddChild(new Label { Text = Text(ProgressStore.Current.BlackCatUnlocked ? "ALBUM.raccoonTeaser" : "ALBUM.raccoonTeaserEarly"), HorizontalAlignment = HorizontalAlignment.Center, AutowrapMode = TextServer.AutowrapMode.WordSmart });
         return teaser;
     }
 
@@ -369,6 +388,13 @@ public sealed partial class MemoryAlbumScreen : CanvasLayer
         string titleKey = AchievementCatalog.GetTitleKey();
         string title = titleKey == "ALBUM.title.None" ? Text(titleKey) : Text($"{titleKey}.title");
         return string.Format(RawText("ALBUM.header"), unlocked, points, title);
+    }
+
+    private static string PageTitle(AchievementPage page)
+    {
+        if (page == AchievementPage.Raccoon && !ProgressStore.Current.RaccoonUnlocked && !DevSettings.AlbumAll)
+            return Text("ALBUM.page.RaccoonLocked");
+        return Text($"ALBUM.page.{page}");
     }
 
     private static string Text(string key) => new LocString("main_menu_ui", $"SPIREDUO-{key}").GetFormattedText();

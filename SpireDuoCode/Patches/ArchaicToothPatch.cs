@@ -15,5 +15,6 @@ public static class ArchaicToothPatch
     {
         __result[ModelDb.Card<Doze>().Id] = ModelDb.Card<DeepSleep>();
         __result[ModelDb.Card<GatherBamboo>().Id] = ModelDb.Card<BambooHarvest>();
+        __result[ModelDb.Card<PocketLining>().Id] = ModelDb.Card<MoonlitHoard>();
     }
 }

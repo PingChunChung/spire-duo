@@ -26,16 +26,22 @@ public static class BlackCatUnlockPatch
             return;
         bool koala = state.Players.Any(p => p.Character is Koala);
         bool panda = state.Players.Any(p => p.Character is Panda);
-        if (!koala && !panda)
-            return;
+        if (koala || panda)
+        {
+            SanaCkoalaProgress progress = ProgressStore.RecordSpireClear(koala, panda);
+            if (!progress.BlackCatUnlocked && progress.KoalaSpireCleared && progress.PandaSpireCleared)
+            {
+                ProgressStore.UnlockBlackCat();
+                MainFile.Logger.Info("Black Cat unlocked");
+                MilestoneBanner.EnqueueMessage(new LocString("characters", "SPIREDUO-BLACK_CAT.unlockedBanner").GetFormattedText());
+                MilestoneTracker.Unlock(MilestoneIds.BlackCatJoins);
+            }
+        }
 
-        SanaCkoalaProgress progress = ProgressStore.RecordSpireClear(koala, panda);
-        if (progress.BlackCatUnlocked || !progress.KoalaSpireCleared || !progress.PandaSpireCleared)
-            return;
-
-        ProgressStore.UnlockBlackCat();
-        MainFile.Logger.Info("Black Cat unlocked");
-        MilestoneBanner.EnqueueMessage(new LocString("characters", "SPIREDUO-BLACK_CAT.unlockedBanner").GetFormattedText());
-        MilestoneTracker.Unlock(MilestoneIds.BlackCatJoins);
+        if (state.Players.Any(player => player.Character is BlackCat) && ProgressStore.UnlockRaccoon())
+        {
+            MainFile.Logger.Info("Raccoon unlocked");
+            MilestoneBanner.EnqueueMessage(new LocString("characters", "SPIREDUO-RACCOON.unlockedBanner").GetFormattedText());
+        }
     }
 }

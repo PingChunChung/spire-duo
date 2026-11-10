@@ -21,6 +21,18 @@ public static class ProgressStore
         Save();
     }
 
+    public static bool UnlockRaccoon()
+    {
+        var progress = Current;
+        if (progress.RaccoonUnlocked)
+            return false;
+
+        progress.RaccoonUnlocked = true;
+        MilestoneTracker.Unlock(MilestoneIds.RaccoonJoins);
+        Save();
+        return true;
+    }
+
     /// <summary>Records which of the Koala and the Panda have won Act 3 and returns the updated progress.</summary>
     public static SanaCkoalaProgress RecordSpireClear(bool koala, bool panda)
     {
@@ -66,7 +78,7 @@ public static class ProgressStore
 
     private static SanaCkoalaProgress Load()
     {
-        if (!Godot.FileAccess.FileExists(ProgressPath)) return new SanaCkoalaProgress { SchemaVersion = 3 };
+        if (!Godot.FileAccess.FileExists(ProgressPath)) return new SanaCkoalaProgress { SchemaVersion = 5 };
 
         try
         {
@@ -77,14 +89,21 @@ public static class ProgressStore
             progress.CollectedRelicIds ??= [];
             progress.CollectedEventIds ??= [];
             progress.Stats ??= new SanaCkoalaStats();
+            bool persistMigration = progress.SchemaVersion < 5 || (!progress.RaccoonUnlocked && progress.Achievements.ContainsKey(MilestoneIds.CatVictory));
             Migrate(progress);
+            if (persistMigration)
+            {
+                _current = progress;
+                Save();
+                _current = null;
+            }
             return progress;
         }
         catch (Exception exception)
         {
             MainFile.Logger.Warn($"Unable to read progress; preserving the unreadable file and starting fresh: {exception.Message}");
             _needsBadFileBackup = true;
-            return new SanaCkoalaProgress { SchemaVersion = 3 };
+            return new SanaCkoalaProgress { SchemaVersion = 5 };
         }
     }
 
@@ -121,7 +140,13 @@ public static class ProgressStore
         // Existing unlocks predate the reveal animation and must not appear as new.
         if (progress.SchemaVersion < 3 || migratedLegacyMilestones || addedBlackCatAchievement)
             progress.SeenUnlocks.UnionWith(progress.Achievements.Keys);
-        progress.SchemaVersion = 3;
+        if (!progress.RaccoonUnlocked && progress.Achievements.ContainsKey(MilestoneIds.CatVictory))
+        {
+            progress.RaccoonUnlocked = true;
+        }
+        if (progress.RaccoonUnlocked)
+            progress.Achievements.TryAdd(MilestoneIds.RaccoonJoins, DateTime.Now.ToString("yyyy-MM-dd"));
+        progress.SchemaVersion = 5;
 
         // Counters that existed before the achievements did (runs, wins, Hold Hands) can already be past a target.
         foreach (AchievementDefinition definition in AchievementCatalog.All.Where(definition => definition.ProgressTarget > 0 && definition.StatKey != null))

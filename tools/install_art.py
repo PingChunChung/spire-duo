@@ -1,5 +1,5 @@
 """install_art.py <mod images dir> <art dir>...: resize Codex art into the mod's image folders.
-Files named ref_* or _* and *_work drafts are skipped."""
+Files named ref_* or _* and *_work drafts (next to their finished file) are skipped."""
 import re
 import sys, pathlib
 from PIL import Image, ImageFilter
@@ -30,22 +30,28 @@ POWERS.update({"black_thread_power", "borrowed_rhythm_power", "candle_at_noon_po
 RELICS.update({"velvet_pouch", "windowsill_token", "quiet_hourglass", "gutter_crown", "comet_comb", "lantern_of_one_window", "curiosity_string"})
 POTIONS = {"warm_milk", "strong_coffee", "bamboo_juice", "honey_jar", "lucid_tea", "crunchy_shoot", "half_and_half",
            "pawprint_draught", "moonmilk_flask", "ninth_spark"}
+# Raccoon batches 1-5.
+POWERS.update({"borrowed_lantern_power", "hidden_compartment_power", "price_tag_power", "catalogue_power", "greedy_glance_power", "night_shift_power", "deep_pockets_power", "quiet_trade_power", "master_thief_power", "false_identity_power", "rags_to_riches_power", "bottomless_bag_power", "glass_beads_power", "rain_barrel_power", "night_ledger_power", "hidden_market_power", "streetwise_power", "cover_story_power", "trusted_fence_power", "moonlit_hoard_power", "king_of_the_alley_power"})
+RELICS.update({"canvas_satchel", "bottomless_satchel", "bent_spoon", "lost_keyring", "price_sticker", "trash_crown", "silver_carabiner", "spare_tote", "night_vendor_permit"})
+POTIONS.update({"coin_rattle", "suds_bottle", "black_market_receipt"})
 # Same 2.13:1 shape as the vanilla 3440x1613 portraits; the event screen fits them into 2560x1200.
 EVENTS = {"picnic_for_two", "stargazing", "little_quarrel", "photo_booth", "the_last_dumpling", "borrowed_hammock"}
 EVENTS.update({"eucalyptus_tollbooth", "honeyed_hive", "bamboo_appraiser", "rainy_day_argument", "dream_exchange",
                "the_summit_picnic"})
 # Vanilla enchantment icons are 64x64.
 ENCHANTMENTS = {"well_rested", "freshly_cut"}
-ORB = re.compile(r"(koala|panda|cat)_orb_layer_[1-5]")
-HAND = re.compile(r"(koala|panda|cat)_hand_(point|rock|paper|scissors)")
+ORB = re.compile(r"(koala|panda|cat|raccoon)_orb_layer_[1-5]")
+HAND = re.compile(r"(koala|panda|cat|raccoon)_hand_(point|rock|paper|scissors)")
 # Footprint slot icons on the Black Cat's health bar.
 FOOTPRINT = re.compile(r"footprint_(attack|skill|power|empty|lock)")
 # Already at final size; copied as-is.
-CHARUI = {"cat_body", "character_icon_cat", "map_marker_cat", "char_select_cat", "char_select_cat_locked"}
+CHARUI = {"cat_body", "character_icon_cat", "map_marker_cat", "char_select_cat", "char_select_cat_locked",
+          "raccoon_body", "character_icon_raccoon", "map_marker_raccoon", "char_select_raccoon", "char_select_raccoon_locked"}
 # Character height in pixels; BaseLib shows these sprites at native size (vanilla shop Ironclad is ~470px tall).
-REST_SITE = {"koala_rest_site": 430, "panda_rest_site": 460, "cat_rest_site": 350}
-MERCHANT = {"koala_merchant": 400, "panda_merchant": 450, "cat_merchant": 380}
-SELECT_BG = {"koala_char_select_bg", "panda_char_select_bg", "cat_char_select_bg"}
+REST_SITE = {"koala_rest_site": 430, "panda_rest_site": 460, "cat_rest_site": 350, "raccoon_rest_site": 350}
+MERCHANT = {"koala_merchant": 400, "panda_merchant": 450, "cat_merchant": 380, "raccoon_merchant": 380}
+SELECT_BG = {"koala_char_select_bg", "panda_char_select_bg", "cat_char_select_bg", "raccoon_char_select_bg"}
+STASH = {"stash_empty", "stash_cardback", "stash_attack", "stash_skill", "stash_power", "stash_cost_0", "stash_cost_1", "stash_cost_2", "stash_cost_3", "stash_seal"}
 # BaseLib centres the rest-site sprite at y = -0.1 * height, so on a 630px canvas its bottom edge sits at +252,
 # the same ground line as the vanilla Ironclad's hitbox.
 REST_SITE_CANVAS_HEIGHT = 630
@@ -74,8 +80,13 @@ def on_canvas(im, size):
     return canvas
 
 
-n = {"card": 0, "power": 0, "relic": 0, "potion": 0, "charui": 0, "event": 0, "enchantment": 0}
-for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswith(("ref_", "_")) and not p.stem.endswith("_work")):
+n = {"card": 0, "power": 0, "relic": 0, "potion": 0, "charui": 0, "stash": 0, "event": 0, "enchantment": 0}
+def is_draft(p):
+    """A Codex *_work draft sits next to its finished file; a card id like dirty_work has no such partner."""
+    return p.stem.endswith("_work") and p.with_name(p.stem[:-5] + ".png").exists()
+
+
+for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswith(("ref_", "_")) and not is_draft(p)):
     im = Image.open(f)
     stem = f.stem
     if stem in POWERS:
@@ -107,6 +118,10 @@ for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswit
         (dst / "charui" / "footprints").mkdir(exist_ok=True)
         im.convert("RGBA").resize((64, 64), Image.LANCZOS).save(dst / "charui" / "footprints" / f.name)
         n["charui"] += 1
+    elif stem in STASH:
+        (dst / "ui").mkdir(exist_ok=True)
+        im.convert("RGBA").resize((64, 64), Image.LANCZOS).save(dst / "ui" / f.name)
+        n["stash"] += 1
     elif stem in CHARUI:
         im.convert("RGBA").save(dst / "charui" / f.name)
         n["charui"] += 1
@@ -140,7 +155,7 @@ for f in sorted(p for d in srcs for p in d.glob("*.png") if not p.name.startswit
         n["card"] += 1
 
 # The co-op vote and Ancient dialogue icons draw this silhouette behind the character icon.
-for who in ("koala", "panda", "cat"):
+for who in ("koala", "panda", "cat", "raccoon"):
     icon = Image.open(dst / "charui" / f"character_icon_{who}.png").convert("RGBA")
     outline(icon, 7).save(dst / "charui" / f"character_icon_{who}_outline.png")
 print(n)

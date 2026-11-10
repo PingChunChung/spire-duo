@@ -21,5 +21,11 @@
   "SPIREDUO-NINTH_SPARK.title": "第九火花",
   "SPIREDUO-NINTH_SPARK.description": "选择一条基本路线来触发，不改变你的足迹。",
   "SPIREDUO-PAWPRINT_DRAUGHT.selectionScreenPrompt": "选择一个足迹。",
-  "SPIREDUO-NINTH_SPARK.selectionScreenPrompt": "选择要触发的路线。"
+  "SPIREDUO-NINTH_SPARK.selectionScreenPrompt": "选择要触发的路线。",
+  "SPIREDUO-COIN_RATTLE.title": "零钱罐",
+  "SPIREDUO-COIN_RATTLE.description": "从手牌藏入 1 张牌。抽 1 张牌。",
+  "SPIREDUO-SUDS_BOTTLE.title": "肥皂水瓶",
+  "SPIREDUO-SUDS_BOTTLE.description": "花费 1 张藏牌。移除所有减益。获得 {Block} 点格挡。",
+  "SPIREDUO-BLACK_MARKET_RECEIPT.title": "黑市收据",
+  "SPIREDUO-BLACK_MARKET_RECEIPT.description": "选择一张藏牌。无需支付能量打出一次，然后消耗它。"
 }

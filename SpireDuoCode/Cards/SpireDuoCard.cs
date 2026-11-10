@@ -41,3 +41,7 @@ public abstract class PandaCard(int cost, CardType type, CardRarity rarity, Targ
 [Pool(typeof(BlackCatCardPool))]
 public abstract class BlackCatCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     SpireDuoCard(cost, type, rarity, target);
+
+[Pool(typeof(RaccoonCardPool))]
+public abstract class RaccoonCard(int cost, CardType type, CardRarity rarity, TargetType target) :
+    SpireDuoCard(cost, type, rarity, target);

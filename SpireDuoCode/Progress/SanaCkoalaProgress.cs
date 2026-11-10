@@ -4,7 +4,7 @@ namespace SpireDuo.SpireDuoCode.Progress;
 
 public sealed class SanaCkoalaProgress
 {
-    // A missing schemaVersion is a v1 file. New files are explicitly created at v3 by ProgressStore.
+    // A missing schemaVersion is a v1 file. New files are explicitly created at v5 by ProgressStore.
     public int SchemaVersion { get; set; }
     public bool BlackCatUnlocked { get; set; }
     public bool KoalaSpireCleared { get; set; }

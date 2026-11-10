@@ -18,6 +18,7 @@ public static class TouchOfOrobasPatch
             EucalyptusLeaf => ModelDb.Relic<EucalyptusCrown>(),
             BambooBasket => ModelDb.Relic<BambooHamper>(),
             MoonbellCollar => ModelDb.Relic<EclipseChime>(),
+            CanvasSatchel => ModelDb.Relic<BottomlessSatchel>(),
             _ => null
         };
         if (upgraded == null) return true;

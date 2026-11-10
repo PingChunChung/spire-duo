@@ -8,7 +8,7 @@ public static class AlbumVisuals
 
     public static int StyleThreshold => AchievementCatalog.GetPoints() switch
     {
-        >= 94 => 94,
+        >= AchievementCatalog.MaximumPoints => 94,
         >= 70 => 70,
         >= 45 => 45,
         >= 20 => 20,

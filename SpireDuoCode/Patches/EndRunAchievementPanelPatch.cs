@@ -68,6 +68,7 @@ public static class EndRunAchievementPanelPatch
             .Where(definition => !definition.Hidden && definition.ProgressTarget > 0 && !ProgressStore.Current.Achievements.ContainsKey(definition.Id))
             .Where(definition => MilestoneTracker.GetStat(definition.StatKey!) > 0)
             .Where(definition => definition.Page != AchievementPage.BlackCat || ProgressStore.Current.BlackCatUnlocked)
+            .Where(definition => definition.Page != AchievementPage.Raccoon || ProgressStore.Current.RaccoonUnlocked)
             .OrderByDescending(definition => (float)MilestoneTracker.GetStat(definition.StatKey!) / definition.ProgressTarget)
             .Take(3)
             .ToList();

@@ -24,6 +24,8 @@ public static class FootprintCombatStartPatch
         {
             foreach (var player in combatState.Players.Where(player => player.Character is BlackCat))
                 await FootprintStatePower.GetOrCreate(new ThrowingPlayerChoiceContext(), player.Creature);
+            foreach (var player in combatState.Players.Where(player => player.Character is Raccoon))
+                await RaccoonStashStatePower.GetOrCreate(new ThrowingPlayerChoiceContext(), player.Creature);
         }
 
         foreach (var model in runState.IterateHookListeners(combatState))

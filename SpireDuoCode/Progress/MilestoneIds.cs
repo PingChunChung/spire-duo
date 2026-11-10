@@ -35,6 +35,14 @@ public static class MilestoneIds
     public const string CatCompanion10 = "CAT_COMPANION_10";
     public const string CatThreshold = "CAT_THRESHOLD";
     public const string CatVictory = "CAT_VICTORY";
+    public const string RaccoonJoins = "RACCOON_JOINS";
+    public const string RaccoonFirstRun = "RACCOON_FIRST_RUN";
+    public const string RaccoonStash3 = "RACCOON_STASH_3";
+    public const string RaccoonSpend8 = "RACCOON_SPEND_8";
+    public const string RaccoonTypes = "RACCOON_TYPES";
+    public const string RaccoonValue3 = "RACCOON_VALUE_3";
+    public const string RaccoonBossHaul = "RACCOON_BOSS_HAUL";
+    public const string RaccoonClear = "RACCOON_CLEAR";
     public const string SideBySide = "SIDE_BY_SIDE";
     public const string HoldHands10 = "HOLD_HANDS_10";
     public const string HoldHands = "HOLD_HANDS";
