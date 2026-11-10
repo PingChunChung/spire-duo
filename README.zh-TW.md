@@ -61,6 +61,17 @@ Steam 工作坊：[SanaCkoala](https://steamcommunity.com/sharedfiles/filedetail
 | 角色遺物 | 無尾熊的共用毛毯在回合結束時給隊友格擋；熊貓的野餐墊在你啃竹子時給隊友格擋；黑貓的獨窗燈在每場戰鬥第一次用卡給隊友資源時，讓你們各抽 1 張。 |
 | 事件 | 一起看星星、最後一顆餃子、借來的吊床、小吵架。 |
 
+## 回憶相簿
+
+主選單多了**回憶相簿**按鈕，裡面是成就相簿：48 個成就分成 6 頁（旅途、無尾熊、熊貓、月下腳印、同行、收藏）。其中 37 個單人就拿得到，另外 11 個要在多人對局達成，隊友是誰、玩什麼角色都算。
+
+- 成就分銅牌、銀牌、金牌，分別算 1、2、3 點，共 94 點。要累計次數的成就會顯示進度條，做到 70% 時標上「快完成了」。有 3 個是隱藏成就，達成前看不到內容。
+- 達成時畫面上方會跳出帶獎牌的提示，相簿按鈕亮起紅點，下次打開相簿時新的格子會跳出來。
+- 黑貓解鎖前，牠的分頁只會出現月下腳印和解鎖進度。
+- 每局結算畫面會列出這局拿到的成就（最多 3 個），以及快完成的成就（最多 3 個）。
+- 點數到 20、45、70、94 點時，相簿會換新背景，相簿按鈕旁也會出現一枚別針。金牌成就會給一個稱號，顯示在相簿最上方。
+- 成就只做紀念，不會改變卡牌、獎勵、事件或戰鬥。成就由全隊共享，存在每位玩家各自的進度檔。
+
 ## 安裝
 
 在 Steam 工作坊訂閱即可。這個 mod 需要 [BaseLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3737335127)，訂閱時 Steam 會提示一起訂閱。
@@ -90,7 +101,7 @@ dotnet publish SanaCkoala.csproj
 
 mod id 是 `SanaCkoala`。C# 命名空間和卡牌 id 保留原本的 `SpireDuo` 前綴，舊版存下的對局仍然讀得到。
 
-想在沒解鎖時測試黑貓，啟動遊戲前設定環境變數 `SANACKOALA_UNLOCK_ALL=1`。
+想在沒解鎖時測試黑貓，啟動遊戲前設定環境變數 `SANACKOALA_UNLOCK_ALL=1`。設定 `SANACKOALA_ALBUM_ALL=1` 會讓回憶相簿全部顯示成已達成，但不會寫檔。開發者主控台指令 `sanackoala_achievement <ID>` 會直接達成一個成就，`sanackoala_achievement unseen` 重播揭曉動畫，`sanackoala_achievement reset` 清除成就與統計（黑貓維持解鎖）。
 
 ## 專案結構
 
@@ -99,7 +110,7 @@ mod id 是 `SanaCkoala`。C# 命名空間和卡牌 id 保留原本的 `SpireDuo`
 | `SpireDuoCode/Character` | 角色、卡池、遺物池 |
 | `SpireDuoCode/Cards` | 所有卡牌 |
 | `SpireDuoCode/Powers` | 睡意、竹子、足跡等能力 |
-| `SpireDuoCode/Progress` | mod 自有進度檔（黑貓解鎖） |
+| `SpireDuoCode/Progress` | mod 自有進度檔、成就與回憶相簿 |
 | `SpireDuoCode/Relics` | 起始遺物、角色遺物與共用遺物 |
 | `SpireDuoCode/Potions` | 角色藥水 |
 | `SpireDuoCode/Events` | 12 個事件 |

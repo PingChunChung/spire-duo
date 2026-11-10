@@ -61,6 +61,17 @@ These appear only in runs with more than one player.
 | Character relics | Shared Blanket (Koala): allies gain Block at the end of your turn. Picnic Mat (Panda): allies gain Block whenever you Munch. Lantern of One Window (Black Cat): the first time one of your cards gives an ally a resource each combat, you both draw 1. |
 | Events | Stargazing, The Last Dumpling, Borrowed Hammock, Little Quarrel, Honeyed Hive, Rainy-Day Argument and The Summit Picnic. |
 
+## Memory Album
+
+A **Memory Album** button on the main menu opens an achievement album: 48 achievements on six pages (Journey, Koala, Panda, Moonlit Paws, Together and Keepsakes). 37 can be earned in singleplayer. The other 11 need a co-op run; any teammate and any characters count.
+
+- Achievements are Bronze, Silver or Gold, worth 1, 2 or 3 points (94 in total). Counting achievements show a progress bar and are marked "Almost there" at 70%. Three are hidden until earned.
+- A banner with the medal appears when you earn one, the album button shows a red dot, and new entries pop in the next time you open the album.
+- Until the Black Cat is unlocked, its page only shows moonlit pawprints and the unlock progress.
+- The end-of-run screen lists up to three achievements earned that run and up to three that are close.
+- At 20, 45, 70 and 94 points the album gets a new background and a pin appears next to the album button. Gold achievements give a title shown at the top of the album.
+- Achievements are keepsakes only. They never change cards, rewards, events or combat. They are earned for the whole party and saved in each player's own progress file.
+
 ## Installation
 
 Subscribe on the Steam Workshop. The mod requires [BaseLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3737335127), and Steam asks you to subscribe to it as well.
@@ -90,7 +101,7 @@ dotnet publish SanaCkoala.csproj
 
 The mod id is `SanaCkoala`. C# namespaces and card ids keep the original `SpireDuo` prefix, so runs saved with earlier versions still load.
 
-To test the Black Cat without unlocking it, start the game with the environment variable `SANACKOALA_UNLOCK_ALL=1`.
+To test the Black Cat without unlocking it, start the game with the environment variable `SANACKOALA_UNLOCK_ALL=1`. `SANACKOALA_ALBUM_ALL=1` shows every Memory Album entry as earned without saving anything. The dev console command `sanackoala_achievement <ID>` earns one achievement, `sanackoala_achievement unseen` replays the reveal, and `sanackoala_achievement reset` clears achievements and stats (the Black Cat stays unlocked).
 
 ## Project layout
 
@@ -99,7 +110,7 @@ To test the Black Cat without unlocking it, start the game with the environment 
 | `SpireDuoCode/Character` | Character models, card pools, relic pools |
 | `SpireDuoCode/Cards` | All cards |
 | `SpireDuoCode/Powers` | Drowsy, Bamboo, Footprints and other powers |
-| `SpireDuoCode/Progress` | Mod-owned progress file (Black Cat unlock) |
+| `SpireDuoCode/Progress` | Mod-owned progress file, achievements and the Memory Album |
 | `SpireDuoCode/Relics` | Starter, character and shared relics |
 | `SpireDuoCode/Potions` | Character potions |
 | `SpireDuoCode/Events` | The twelve events |
