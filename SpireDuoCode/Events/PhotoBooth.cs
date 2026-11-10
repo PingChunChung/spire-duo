@@ -2,6 +2,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Entities.Gold;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Extensions;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Events;
 
@@ -18,6 +19,7 @@ public sealed class PhotoBooth : SpireDuoEvent
 
     private async Task Photo()
     {
+        MilestoneTracker.Unlock(MilestoneIds.PhotoBooth);
         await PlayerCmd.LoseGold(DynamicVars.Gold.IntValue, Owner, GoldLossType.Spent);
         var prefs = new CardSelectorPrefs(L10NLookup($"{Id.Entry}.pages.PHOTO.selectionScreenPrompt"), 1);
         var card = (await CardSelectCmd.FromDeckGeneric(Owner, prefs, c => c.Type != CardType.Quest)).FirstOrDefault();

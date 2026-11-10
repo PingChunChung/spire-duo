@@ -1,5 +1,6 @@
 using MegaCrit.Sts2.Core.Entities.Players;
 using SpireDuo.SpireDuoCode.Cards;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Powers;
 
@@ -16,6 +17,7 @@ public sealed class CatOfTheThresholdPower : SpireDuoPower
     // Preventing death leaves the creature at 0 HP; like Lizard Tail, heal it back up ourselves.
     public override async Task AfterPreventingDeath(Creature creature)
     {
+        MilestoneTracker.RecordThresholdPrevention(creature);
         Flash();
         _used = true;
         _pendingOmen = true;

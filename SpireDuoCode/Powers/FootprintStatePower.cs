@@ -2,6 +2,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Rooms;
 using SpireDuo.SpireDuoCode.Character;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Powers;
 
@@ -44,9 +45,11 @@ public sealed class FootprintStatePower : SpireDuoPower
     public IReadOnlyList<bool> Locked => _locked;
     public bool CompanionArmed => _companionAlly != null;
     public bool HasTriggered(FootprintLine line) => _triggeredThisTurn.Contains(line);
+    public bool HasTriggeredThisCombat(FootprintLine line) => _triggeredThisCombat.Contains(line);
     public int PouncesThisCombat { get; private set; }
     public int PlayedCardsThisTurn { get; private set; }
     private readonly HashSet<FootprintLine> _triggeredThisTurn = [];
+    private readonly HashSet<FootprintLine> _triggeredThisCombat = [];
 
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
@@ -332,8 +335,10 @@ public sealed class FootprintStatePower : SpireDuoPower
     private async Task NotifyLine(PlayerChoiceContext context, CardPlay play, FootprintLine line)
     {
         _triggeredThisTurn.Add(line);
+        _triggeredThisCombat.Add(line);
         if (line == FootprintLine.Pounce)
             PouncesThisCombat++;
+        MilestoneTracker.RecordFootprintLine(this, line);
 
         foreach (IFootprintListener listener in Listeners().ToList())
             await listener.OnFootprintLine(context, play, line);
@@ -353,6 +358,8 @@ public sealed class FootprintStatePower : SpireDuoPower
 
     private async Task NotifyCompanionResolved(PlayerChoiceContext context, CardPlay play, Creature? ally)
     {
+        MilestoneTracker.RecordCompanionResolved(Owner, ally);
+        MilestoneTracker.RecordCompanionHandoff(Owner, ally);
         foreach (IFootprintListener listener in Listeners().ToList())
             await listener.OnCompanionResolved(context, play, ally);
     }

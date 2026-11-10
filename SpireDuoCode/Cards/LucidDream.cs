@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.Factories;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Cards;
 
@@ -15,6 +16,7 @@ public sealed class LucidDream() : KoalaCard(1, CardType.Skill, CardRarity.Rare,
         foreach (var card in cards)
         {
             card.AddKeyword(CardKeyword.Retain);
+            MilestoneTracker.RecordRetainGranted(Owner.Creature, card);
             await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
         }
     }

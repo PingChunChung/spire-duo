@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.Events;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Events;
 
@@ -13,12 +14,14 @@ public sealed class PicnicForTwo : SpireDuoEvent
 
     private async Task Share()
     {
+        MilestoneTracker.Unlock(MilestoneIds.Picnic);
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
         SetEventFinished(PageDescription("SHARE"));
     }
 
     private async Task Feast()
     {
+        MilestoneTracker.Unlock(MilestoneIds.Picnic);
         await CreatureCmd.GainMaxHp(Owner.Creature, DynamicVars.MaxHp.BaseValue);
         SetEventFinished(PageDescription("FEAST"));
     }

@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.CardSelection;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Cards;
 
@@ -12,7 +13,11 @@ public sealed class SaveForLater() : KoalaCard(1, CardType.Skill, CardRarity.Com
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         var selection = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(SelectionScreenPrompt, 1), context: choiceContext, player: Owner,
             filter: c => c != this && !c.Keywords.Contains(CardKeyword.Retain), source: this)).FirstOrDefault();
-        selection?.AddKeyword(CardKeyword.Retain);
+        if (selection != null)
+        {
+            selection.AddKeyword(CardKeyword.Retain);
+            MilestoneTracker.RecordRetainGranted(Owner.Creature, selection);
+        }
     }
     protected override void OnUpgrade()
     {

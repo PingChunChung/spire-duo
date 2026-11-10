@@ -1,5 +1,7 @@
 namespace SpireDuo.SpireDuoCode.Powers;
 
+using SpireDuo.SpireDuoCode.Progress;
+
 public sealed class PromisePower : SpireDuoPower
 {
     public override PowerType Type => PowerType.Buff;
@@ -12,5 +14,6 @@ public sealed class PromisePower : SpireDuoPower
         if (!participants.Contains(Owner)) return;
         Flash();
         await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
+        MilestoneTracker.RecordPromiseTurn(Owner);
     }
 }

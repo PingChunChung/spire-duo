@@ -35,30 +35,7 @@ public static class BlackCatUnlockPatch
 
         ProgressStore.UnlockBlackCat();
         MainFile.Logger.Info("Black Cat unlocked");
-        ShowBanner();
-    }
-
-    private static void ShowBanner()
-    {
-        if (Engine.GetMainLoop() is not SceneTree tree)
-            return;
-
-        var layer = new CanvasLayer { Layer = 100 };
-        var label = new Label
-        {
-            Text = new LocString("characters", "SPIREDUO-BLACK_CAT.unlockedBanner").GetFormattedText(),
-            HorizontalAlignment = HorizontalAlignment.Center,
-            AnchorLeft = 0f,
-            AnchorRight = 1f,
-            OffsetTop = 120f,
-            MouseFilter = Control.MouseFilterEnum.Ignore
-        };
-        label.AddThemeFontSizeOverride("font_size", 36);
-        label.AddThemeColorOverride("font_color", new Color(1f, 0.86f, 0.45f));
-        label.AddThemeColorOverride("font_outline_color", Colors.Black);
-        label.AddThemeConstantOverride("outline_size", 8);
-        layer.AddChild(label);
-        tree.Root.CallDeferred(Node.MethodName.AddChild, layer);
-        tree.CreateTimer(6.0).Timeout += layer.QueueFree;
+        MilestoneBanner.EnqueueMessage(new LocString("characters", "SPIREDUO-BLACK_CAT.unlockedBanner").GetFormattedText());
+        MilestoneTracker.Unlock(MilestoneIds.BlackCatJoins);
     }
 }

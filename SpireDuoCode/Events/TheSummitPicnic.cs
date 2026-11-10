@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Rewards;
 using SpireDuo.SpireDuoCode.Potions;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Events;
 
@@ -19,6 +20,7 @@ public sealed class TheSummitPicnic : SpireDuoEvent
 
     private Task SetTheTable()
     {
+        MilestoneTracker.Unlock(MilestoneIds.SummitPicnic);
         SetEventState(PageDescription("MENU"), [Option(Feast, "MENU"), Option(PackLight, "MENU")]);
         return Task.CompletedTask;
     }

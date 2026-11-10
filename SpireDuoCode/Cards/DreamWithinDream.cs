@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.CardSelection;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Cards;
 
@@ -13,6 +14,7 @@ public sealed class DreamWithinDream() : KoalaCard(1, CardType.Skill, CardRarity
         if (selection == null) return;
         var copy = selection.CreateClone();
         copy.AddKeyword(CardKeyword.Retain);
+        MilestoneTracker.RecordRetainGranted(Owner.Creature, copy);
         await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Hand, Owner);
     }
     protected override void OnUpgrade()

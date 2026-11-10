@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Factories;
 using SpireDuo.SpireDuoCode.Cards;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Events;
 
@@ -19,6 +20,7 @@ public sealed class Stargazing : SpireDuoEvent
 
     private async Task MakeAPromise()
     {
+        MilestoneTracker.Unlock(MilestoneIds.Stargazing);
         var card = Owner.RunState.CreateCard<Promise>(Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
         SetEventFinished(PageDescription("MAKE_A_PROMISE"));
@@ -26,6 +28,7 @@ public sealed class Stargazing : SpireDuoEvent
 
     private async Task Wish()
     {
+        MilestoneTracker.Unlock(MilestoneIds.Stargazing);
         await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Damage, null, null);
         await RelicCmd.Obtain(RelicFactory.PullNextRelicFromFront(Owner).ToMutable(), Owner);
         SetEventFinished(PageDescription("WISH"));

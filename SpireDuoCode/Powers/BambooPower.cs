@@ -1,5 +1,6 @@
 using SpireDuo.SpireDuoCode.Relics;
 using SpireDuo.SpireDuoCode.Enchantments;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Powers;
 
@@ -12,6 +13,7 @@ public sealed class BambooPower : SpireDuoPower
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (power != this || amount <= 0 || Owner.Player == null) return;
+        MilestoneTracker.RecordBamboo(Owner, Amount);
         await PassingNote.OnResourceGained(choiceContext, Owner.Player);
     }
 
@@ -56,6 +58,7 @@ public sealed class BambooPower : SpireDuoPower
 
     private static async Task AfterMunch(PlayerChoiceContext choiceContext, Creature creature, CardModel? source, int amount)
     {
+        MilestoneTracker.RecordMunch(creature, amount);
         if (source?.Enchantment is FreshlyCut && creature.GetPower<FreshlyCutPower>() == null)
             await PowerCmd.Apply<FreshlyCutPower>(choiceContext, creature, 4m, creature, source);
         if (creature.GetPower<FullPower>() == null)

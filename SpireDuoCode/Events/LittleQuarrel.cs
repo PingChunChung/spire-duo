@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Events;
 using SpireDuo.SpireDuoCode.Cards;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Events;
 
@@ -20,6 +21,7 @@ public sealed class LittleQuarrel : SpireDuoEvent
 
     private async Task Apologize()
     {
+        MilestoneTracker.Unlock(MilestoneIds.MakeUp);
         var card = Owner.RunState.CreateCard<MakeUp>(Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);

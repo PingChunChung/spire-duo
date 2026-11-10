@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.CardSelection;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Cards;
 
@@ -18,6 +19,8 @@ public sealed class LucidLoop() : KoalaCard(1, CardType.Skill, CardRarity.Uncomm
         if (selected == null) return;
         bool retained = selected.Keywords.Contains(CardKeyword.Retain);
         selected.AddKeyword(CardKeyword.Retain);
+        if (!retained)
+            MilestoneTracker.RecordRetainGranted(Owner.Creature, selected);
         if (retained) selected.EnergyCost.SetUntilPlayed(Math.Max(0, selected.EnergyCost.GetAmountToSpend() - DynamicVars.Energy.IntValue), reduceOnly: true);
     }
     protected override void OnUpgrade() => DynamicVars.Energy.UpgradeValueBy(1m);

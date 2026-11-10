@@ -1296,6 +1296,94 @@ potion_prompts = {
 }
 for lang, entries in localized(potion_prompts, ("selectionScreenPrompt",)).items():
     potion_loc[lang].update(entries)
+milestones = {
+    "ALBUM.menu": ("Memory Album", "回憶相簿"),
+    "ALBUM.title": ("Memory Album", "回憶相簿"),
+    "ALBUM.back": ("Back", "返回"),
+    "ALBUM.stats": ("Runs: {0}  •  Co-op runs: {1}  •  Victories: {2}  •  Combats won: {3}  •  Hold Hands: {4}  •  {5} / {6}", "出發次數：{0}　•　多人次數：{1}　•　破關次數：{2}　•　贏下的戰鬥：{3}　•　牽手次數：{4}　•　{5} / {6}"),
+    "FIRST_STEPS": ("First Steps", "第一步", "A new little adventure has begun.", "新的小小冒險開始了。", "Start a run with a SanaCkoala character.", "用 SanaCkoala 角色開始一局。"),
+    "SIDE_BY_SIDE": ("Side by Side", "並肩出發", "There is more room on the road with companions nearby.", "有夥伴在身旁，路也顯得寬一些。", "Co-op: start a SanaCkoala run.", "多人：開始一局 SanaCkoala 對局。"),
+    "FIRST_WIN": ("First Win", "第一場勝利", "The first hard-fought room is behind you.", "第一個艱難的房間已經在身後。", "Win a combat in a SanaCkoala run.", "在 SanaCkoala 對局贏下一場戰鬥。"),
+    "ACT1_CLEAR": ("Past the First Gate", "走過第一幕", "One gate opens, and the climb feels possible.", "第一道門打開了，攀登也變得可能。", "Defeat the first act boss.", "打倒第 1 幕 Boss。"),
+    "ACT2_CLEAR": ("Halfway Up", "走到一半", "You stop for a breath and see how far you have come.", "停下喘口氣，才發現已經走了這麼遠。", "Defeat the second act boss.", "打倒第 2 幕 Boss。"),
+    "SPIRE_CLEAR": ("The Top of the Spire", "登頂", "At the top, every shared step feels warm.", "站在頂端時，每一步都還帶著暖意。", "Win a SanaCkoala run.", "贏下一局 SanaCkoala 對局。"),
+    "BLACK_CAT_JOINS": ("A Cat Comes Home", "黑貓回家了", "A familiar pair of paws has found its way home.", "一雙熟悉的爪子找到回家的路。", "Unlock the Black Cat.", "解鎖黑貓。"),
+    "CAT_VICTORY": ("Nine Lives", "九條命", "The Black Cat made it all the way to the top.", "黑貓一路走到了頂端。", "Win act 3 with the Black Cat in the party.", "隊伍有黑貓時贏下第 3 幕。"),
+    "PICNIC": ("Picnic for Two", "雙人野餐", "A quiet meal makes the road feel kinder.", "一頓安靜的飯，讓旅途溫柔了一點。", "Finish the Picnic for Two event.", "完成「雙人野餐」事件。"),
+    "STARGAZING": ("Under the Stars", "一起看星星", "A promise sounds different under a wide night sky.", "在遼闊夜空下，承諾聽起來不太一樣。", "Co-op: finish the Under the Stars event.", "多人：完成「一起看星星」事件。"),
+    "MAKE_UP": ("Making Up", "和好", "A gentle answer can be the bravest one.", "溫柔的回答，有時是最勇敢的選擇。", "Co-op: choose to make up after a quarrel.", "多人：在爭執事件中選擇和好。"),
+    "PHOTO_BOOTH": ("Say Cheese", "拍大頭貼", "One small picture keeps a bright moment close.", "一張小照片，留住明亮的片刻。", "Use a paid Photo Booth option.", "選擇大頭貼機的付費選項。"),
+    "SUMMIT_PICNIC": ("On Top of the World", "山頂野餐", "Even high above the clouds, there is time to set the table.", "就算在雲端之上，也有時間把桌子擺好。", "Finish the Summit Picnic event.", "完成「山頂野餐」事件。"),
+    "HOLD_HANDS": ("Never Letting Go", "不放手", "Fifty small gestures made the journey steadier.", "五十次小小的牽手，讓旅程更踏實。", "Co-op: play Hold Hands 50 times.", "多人：累計打出牽手 50 次。"),
+    "DEEP_SLEEP": ("Out Cold", "睡死了", "That is one very serious nap.", "這可真是一次認真的午睡。", "Have 20 or more Drowsy at once.", "單次擁有 20 層以上睡意。"),
+    "BIG_APPETITE": ("Bottomless Belly", "無底洞", "Three helpings in one turn—now that is appetite.", "同一回合吃了三份——這才叫胃口。", "Munch Bamboo three times in one turn.", "同一回合啃竹子 3 次。"),
+    "THREE_LINES": ("Every Step Counts", "步步到位", "Pounce, Groom, and Omen all found their rhythm.", "撲擊、理毛與預兆，都找到了自己的節奏。", "Trigger all three Black Cat lines in one combat.", "同一場戰鬥觸發黑貓三種路線。"),
+    "BACK_ON_FEET": ("Back on Our Feet", "再站起來", "Someone fell, but the team carried the fight home.", "有人倒下了，但隊伍還是把勝利帶回家。", "Co-op: win a combat after a player falls.", "多人：有人倒下後仍贏下戰鬥。"),
+    "SEE_YOU_NEXT_TIME": ("Next Time", "下次再來", "The climb can wait. The memories will be here.", "登頂可以再等等，回憶會留在這裡。", "End a SanaCkoala run without victory.", "以失敗結束 SanaCkoala 對局。"),
+}
+milestones.update({
+    "ALBUM.header": ("Achievements {0} / 48  •  Points {1} / 94  •  Title: {2}", "成就 {0} / 48　•　點數 {1} / 94　•　稱號：{2}"),
+    "ALBUM.almost": ("Almost there", "快完成了"),
+    "ALBUM.dateUnknown": ("A memory from before dates", "很久以前的回憶"),
+    "ALBUM.hiddenHint": ("This page has not been written yet.", "尚未留下這段紀錄。"),
+    "ALBUM.catTeaser": ("Moonlit pawprints are getting closer.", "月下的腳印愈來愈近。"),
+    "ALBUM.runEarned": ("This run", "本局獲得"),
+    "ALBUM.runProgressing": ("In progress", "推進中"),
+    "ALBUM.runTryAgain": ("Next time, then. The album will keep your page.", "下次再來，相簿會幫你留著這一頁。"),
+    "ALBUM.catRevealTitle": ("A Cat Comes Home", "黑貓回家"),
+    "ALBUM.catRevealBody": ("A quiet pair of paws has found its way home.", "一雙安靜的爪子，找到回家的路了。"),
+    "ALBUM.koalaCleared": ("Koala cleared", "無尾熊已破關"),
+    "ALBUM.pandaCleared": ("Panda cleared", "熊貓已破關"),
+    "ALBUM.title.None": ("The first page is waiting", "第一頁正等著你"),
+    "ALBUM.page.Journey": ("Journey", "旅途"), "ALBUM.page.Koala": ("Koala", "無尾熊"), "ALBUM.page.Panda": ("Panda", "熊貓"), "ALBUM.page.BlackCat": ("Moonlit Paws", "月下腳印"), "ALBUM.page.Together": ("Together", "同行"), "ALBUM.page.Moments": ("Keepsakes", "收藏"),
+    "ALBUM.filter.All": ("All", "全部"), "ALBUM.filter.Solo": ("Solo", "可單人"), "ALBUM.filter.Coop": ("Co-op", "多人"), "ALBUM.filter.Unfinished": ("Unfinished", "未完成"), "ALBUM.filter.Finished": ("Finished", "已完成"),
+    "ALBUM.tier.Bronze": ("Bronze", "銅牌"), "ALBUM.tier.Silver": ("Silver", "銀牌"), "ALBUM.tier.Gold": ("Gold", "金牌"), "ALBUM.tier.Moon": ("Moon", "月牌"),
+})
+achievement_defaults = {
+    "ELITE_WIN": ("Tough Customer", "硬骨頭", "Defeat an elite.", "擊敗一名菁英。", "Defeat an elite in a SanaCkoala run.", "在 SanaCkoala 的一局中擊敗菁英。"),
+    "RUNS_10": ("Familiar Road", "熟悉的路", "Ten departures make the path feel known.", "十次出發，這條路也熟悉了。", "Start 10 SanaCkoala runs.", "累計開始 10 局 SanaCkoala。"),
+    "WINS_5": ("Seasoned Climber", "老練的攀登者", "Five summits leave warm stories behind.", "五次登頂，留下暖暖的故事。", "Win 5 SanaCkoala runs.", "累計贏得 5 局 SanaCkoala。"),
+    "KOALA_FIRST_NAP": ("Just Five More", "再五分鐘", "A proper nap has begun.", "一場像樣的午睡開始了。", "Have 10 Drowsy at once.", "單次擁有 10 層睡意。"),
+    "KOALA_WAKE_15": ("Rude Alarm", "討厭的鬧鐘", "That wake-up had some real momentum.", "這次醒來可真有力。", "Wake up with 15 or more Drowsy.", "醒來時移除 15 層以上睡意。"),
+    "KOALA_DROWSY_100": ("Sleep Debt", "睡眠債", "A long-running nap tally.", "一筆長長的午睡帳。", "Accumulate 100 Drowsy.", "累計獲得 100 層睡意。"),
+    "KOALA_BLOCK_30": ("Pillow Fort", "枕頭堡壘", "A soft wall can still be a wall.", "柔軟的牆，還是一道牆。", "End a turn with 30 or more Drowsy.", "回合結束時擁有 30 層以上睡意。"),
+    "KOALA_DREAM_3": ("Dream Journal", "夢境日記", "Three dreams saved for later.", "把三個夢留到以後。", "Give 3 cards Retain in one combat.", "同一場戰鬥讓 3 張牌獲得保留。"),
+    "KOALA_CLEAR": ("Koala at the Top", "無尾熊登頂", "The sleepy climb reached the sky.", "帶著睡意登上雲端。", "Win act 3 with a Koala in the party.", "隊伍有無尾熊時贏下第 3 幕。"),
+    "KOALA_NIGHT_WATCH": ("Night Watch", "夜間守望", "A quiet watch through the longest night.", "安靜守過漫長的夜。", "In a boss fight, end 5 turns in a row with 10 or more Drowsy.", "首領戰中，連續 5 個回合結束時擁有 10 層以上睡意。"),
+    "PANDA_BAMBOO_10": ("Fresh Shoot", "新鮮竹筍", "A fine stack of bamboo.", "一大把新鮮竹子。", "Have 10 Bamboo at once.", "單次擁有 10 根竹子。"),
+    "PANDA_FIRST_MUNCH": ("First Bite", "第一口", "Crunchy and promising.", "清脆，還很有希望。", "Munch Bamboo once.", "啃竹子 1 次。"),
+    "PANDA_MUNCH_50": ("Bamboo Buffet", "竹子吃到飽", "The buffet keeps going.", "這場吃到飽還沒結束。", "Munch 50 times.", "累計啃竹子 50 次。"),
+    "PANDA_MUNCH_ALL_12": ("Clean the Basket", "清空竹籃", "Not a single shoot left.", "一根竹筍都沒剩。", "Munch 12 Bamboo in one go.", "一次啃掉 12 根竹子。"),
+    "PANDA_ROLL_10": ("Downhill", "一路滾下去", "Momentum makes its own path.", "動能會自己找到路。", "Have 10 Roll at once.", "單次擁有 10 層翻滾。"),
+    "PANDA_CLEAR": ("Panda at the Top", "熊貓登頂", "The bamboo trail reached the clouds.", "竹子鋪成的路通往雲端。", "Win act 3 with a Panda in the party.", "隊伍有熊貓時贏下第 3 幕。"),
+    "PANDA_FEAST": ("No Leftovers", "沒有剩菜", "A feast worth remembering.", "值得記住的一餐。", "Munch 12 times in one boss fight.", "同一場首領戰啃竹子 12 次。"),
+    "CAT_FIRST_RUN": ("New Paws", "新爪印", "A new companion takes their first steps.", "新同伴踏出第一步。", "Start a run with the Black Cat.", "用黑貓開始一局。"),
+    "CAT_FIRST_LINE": ("A Mark in Snow", "雪地印記", "The first line leaves its mark.", "第一條線留下印記。", "Trigger a Black Cat line.", "觸發一次黑貓路線。"),
+    "CAT_POUNCE_10": ("Patient Hunter", "耐心的獵人", "Ten patient pounces.", "十次耐心的撲擊。", "Trigger Pounce 10 times in one combat.", "同一場戰鬥觸發撲擊 10 次。"),
+    "CAT_COMPANION_10": ("Always Nearby", "始終在旁", "A companion arrives right on time.", "同伴總在剛好的時候出現。", "Co-op: resolve Companion 10 times.", "多人：累計讓同伴生效 10 次。"),
+    "CAT_THRESHOLD": ("Not Tonight", "今晚不行", "The threshold held.", "門檻守住了。", "Prevent defeat with the Black Cat.", "以黑貓阻止一次倒下。"),
+    "HOLD_HANDS_10": ("Steady Steps", "穩穩前行", "Ten small gestures keep everyone close.", "十次小小的牽手，大家走得更近。", "Co-op: play Hold Hands 10 times.", "多人：累計打出牽手 10 次。"),
+    "SHARE_A_BITE_10": ("Pass the Plate", "遞過盤子", "The best bites are shared.", "最好的一口，總是分享。", "Co-op: play Share a Bite 10 times.", "多人：打出「分你一口」10 次。"),
+    "PROMISE_TURNS_10": ("Kept Promise", "守住承諾", "Promises carry through the turn.", "承諾陪著回合走完。", "Co-op: let Promise grant Block 10 times.", "多人：讓「約定」給予格擋 10 次。"),
+    "COMPANION_HANDOFF": ("Right on Cue", "剛好接上", "A handoff timed just right.", "剛好接上的默契。", "Co-op: resolve Companion on a teammate 3 times in one combat.", "多人：同一場戰鬥讓隊友身上的同伴生效 3 次。"),
+    "TWO_PERSON_CLEAR": ("Together to the Top", "一起登頂", "The summit feels warmer together.", "一起到達頂端，更暖和。", "Co-op: win act 3.", "多人：贏下第 3 幕。"),
+    "EVENTS_6": ("Postcard Rack", "明信片架", "Six little stops along the road.", "路上的六次小停留。", "Finish 6 different SanaCkoala events.", "完成 6 種不同的 SanaCkoala 事件。"),
+    "RELICS_7": ("Well Packed", "行李裝好了", "Every keepsake found a place.", "每個紀念品都有了位置。", "Collect 7 different SanaCkoala relics.", "收集 7 種不同的 SanaCkoala 遺物。"),
+    "ALL_PAGES": ("The Whole Album", "整本相簿", "Every page has a story now.", "現在每一頁都有故事。", "Unlock the other 47 achievements.", "解鎖其餘 47 個成就。"),
+}
+milestones.update({key: value for key, value in achievement_defaults.items() if key not in milestones})
+milestone_loc = {"eng": {}, "zht": {}, "zhs": {}}
+for key, values in milestones.items():
+    if key.startswith("ALBUM."):
+        milestone_loc["eng"][key] = values[0]
+        milestone_loc["zht"][key] = values[1]
+        milestone_loc["zhs"][key] = zhs(values[1])
+    else:
+        title, description, hint = values[0], values[2], values[4]
+        zht_title, zht_description, zht_hint = values[1], values[3], values[5]
+        milestone_loc["eng"].update({f"{key}.title": title, f"{key}.description": description, f"{key}.hint": hint, f"{key}.banner": f"Memory added: {title}"})
+        milestone_loc["zht"].update({f"{key}.title": zht_title, f"{key}.description": zht_description, f"{key}.hint": zht_hint, f"{key}.banner": f"已收進回憶相簿：{zht_title}"})
+        milestone_loc["zhs"].update({f"{key}.title": zhs(zht_title), f"{key}.description": zhs(zht_description), f"{key}.hint": zhs(zht_hint), f"{key}.banner": zhs(f"已收進回憶相簿：{zht_title}")})
 characters["zhs"] = {k: zhs(v) for k, v in characters["zht"].items()}
 event_loc = {"eng": {}, "zht": {}, "zhs": {}}
 for event, entries in events.items():
@@ -1313,6 +1401,8 @@ for lang in ("eng", "zht", "zhs"):
     merge(d / "characters.json", characters[lang])
     merge(d / "events.json", event_loc[lang])
     merge(d / "enchantments.json", enchantment_loc[lang])
+    # The game only merges mod text into its own tables, so milestone text lives in main_menu_ui.
+    merge(d / "main_menu_ui.json", {f"SPIREDUO-{k}": v for k, v in milestone_loc[lang].items()})
 merge(loc / "eng" / "ancients.json", ancients)
 merge(loc / "zht" / "ancients.json", ancients_zht)
 merge(loc / "zhs" / "ancients.json", {k: zhs(v) for k, v in ancients_zht.items()})

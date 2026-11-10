@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Models.Encounters;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Rewards;
 using SpireDuo.SpireDuoCode.Cards;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Events;
 
@@ -33,6 +34,7 @@ public sealed class RainyDayArgument : SpireDuoEvent
 
     private async Task MakeTea()
     {
+        MilestoneTracker.Unlock(MilestoneIds.MakeUp);
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
         SetEventFinished(PageDescription("MAKE_TEA"));
     }

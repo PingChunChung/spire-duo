@@ -1,3 +1,5 @@
+using SpireDuo.SpireDuoCode.Progress;
+
 namespace SpireDuo.SpireDuoCode.Powers;
 
 /// <summary>Momentum: each Attack played adds 1 Roll after it resolves. Roll payoffs spend all of it.</summary>
@@ -16,6 +18,13 @@ public sealed class RollPower : SpireDuoPower
         int amount = roll.Amount;
         await PowerCmd.Remove(roll);
         return amount;
+    }
+
+    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power == this && amount > 0)
+            MilestoneTracker.RecordRoll(Owner, Amount);
+        return Task.CompletedTask;
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

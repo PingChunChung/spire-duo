@@ -1,4 +1,5 @@
 using SpireDuo.SpireDuoCode.Relics;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Powers;
 
@@ -13,12 +14,14 @@ public sealed class DrowsyPower : SpireDuoPower
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (power != this || amount <= 0 || Owner.Player == null) return;
+        MilestoneTracker.RecordDrowsy(Owner, Amount, amount);
         await PassingNote.OnResourceGained(choiceContext, Owner.Player);
     }
 
     public override async Task BeforeSideTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (!participants.Contains(Owner)) return;
+        MilestoneTracker.RecordDrowsyTurnEnd(Owner, Amount);
         Flash();
         await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
     }
@@ -28,6 +31,7 @@ public sealed class DrowsyPower : SpireDuoPower
     {
         int amount = creature.GetPowerAmount<DrowsyPower>();
         if (amount <= 0) return 0;
+        MilestoneTracker.RecordWake(creature, amount);
         await PowerCmd.Remove<DrowsyPower>(creature);
         await PowerCmd.Apply<WakeMemoryPower>(choiceContext, creature, 1, creature, null);
         var temper = creature.GetPower<ShortTemperPower>();

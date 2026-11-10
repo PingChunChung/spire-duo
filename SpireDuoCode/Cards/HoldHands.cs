@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using SpireDuo.SpireDuoCode.Progress;
 
 namespace SpireDuo.SpireDuoCode.Cards;
 
@@ -23,6 +24,7 @@ public sealed class HoldHands() : SpireDuoCard(1, CardType.Skill, CardRarity.Bas
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         await CreatureCmd.GainBlock(cardPlay.Target, DynamicVars.Block, cardPlay);
+        MilestoneTracker.RecordHoldHands();
     }
 
     protected override void OnUpgrade()
