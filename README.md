@@ -2,7 +2,7 @@
 
 # SanaCkoala
 
-A Slay the Spire 2 mod that adds three playable characters: the Koala, the Panda, and the unlockable Black Cat. All three work in singleplayer and are built to play well together in co-op.
+A Slay the Spire 2 mod that adds two playable characters, the Koala and the Panda, plus one more who is waiting to be found. They all work in singleplayer and are built to play well together in co-op.
 
 Steam Workshop: [SanaCkoala](https://steamcommunity.com/sharedfiles/filedetails/?id=3835466853)
 
@@ -24,14 +24,9 @@ Steam Workshop: [SanaCkoala](https://steamcommunity.com/sharedfiles/filedetails/
 - **Munch N**: if you have at least N Bamboo, the card spends it and triggers a bonus effect.
 - Four ways to play: turn the first Munch into **Full** menu choices (Taste Test, Packed Lunch, Second Course); trade Block for counterattacks (Soft Landing, Counter Curl, Belly Fortress); build multi-hit Strength turns (Paw Practice, Protein Shake, Maul Rhythm); or build and spend **Roll** momentum (Roll Start, Downhill, Pinball Panda).
 
-### The Black Cat (unlockable)
+### ???
 
-68 HP. Unlock it by winning Act 3 with the Koala and the Panda in the same party, or by winning Act 3 once with each of them (separate runs and singleplayer count). Each player's unlock is stored in the mod's own progress file (`%APPDATA%\SlayTheSpire2\SanaCkoala\progress.json`); game saves are not touched. Starter relic **Moonbell Collar**: start each combat with the middle Footprint slot set to S. Touch of Orobas upgrades it to **Eclipse Chime** (left slot A, middle slot S and locked until your first turn ends).
-
-- **Footprints**: three slots above the health bar remember the types of your last cards, A (Attack), S (Skill) and P (Power). They carry over between turns.
-- Finish a Line to trigger it and clear the slots: **Pounce** A-S-A (8 damage, 1 Vulnerable), **Groom** S-S-A (8 Block, draw 1), **Omen** P-S-P (1 Energy, Retain 1 card).
-- Cards can **Set**, **Rotate** or **Lock** slots to line up the next Line. **Companion** cards make your next matching card help a chosen ally.
-- Ancient cards: **Night Atlas** (the next different Line resolves twice) and **Cat of the Threshold** (once per combat, survive a killing blow at 1 HP).
+Something is waiting at the top of the Spire. Take the Koala and the Panda up there and see who shows up.
 
 Each character has 87 cards: 3 Basic, 20 Common, 36 Uncommon, 26 Rare and 2 Ancient, the same split as the vanilla characters. Each also has seven relics besides the starter relic, and three potions (Common, Uncommon and Rare).
 
@@ -57,17 +52,16 @@ These appear only in runs with more than one player.
 | Half-and-Half | Event-only potion. You and a chosen ally each gain 5 Block and draw 1. |
 | Koala cards | Nap Together, Pillow Toss, Snuggle, Wake-Up Kiss and Pajama Party hand out Drowsy, Block, cards and Energy to allies. |
 | Panda cards | Share Bamboo, Shelter, Panda Pile, Piggyback Charge, Carry You, Feeding Time and Partner in Crime protect allies, give them Energy and cards, or hit harder together. |
-| Black Cat cards | Two-Beat Signal, Shared Perch, Moonbeam Message, Paired Shadows, Borrowed Rhythm, Lantern Pass, Moonlit Relay, One Warm Spot, Twin Moon and Watch Their Back give one chosen ally Block, Energy or cards, often while setting or locking Footprints. |
-| Character relics | Shared Blanket (Koala): allies gain Block at the end of your turn. Picnic Mat (Panda): allies gain Block whenever you Munch. Lantern of One Window (Black Cat): the first time one of your cards gives an ally a resource each combat, you both draw 1. |
+| Character relics | Shared Blanket (Koala): allies gain Block at the end of your turn. Picnic Mat (Panda): allies gain Block whenever you Munch. |
 | Events | Stargazing, The Last Dumpling, Borrowed Hammock, Little Quarrel, Honeyed Hive, Rainy-Day Argument and The Summit Picnic. |
 
 ## Memory Album
 
-A **Memory Album** button on the main menu opens an achievement album: 48 achievements on six pages (Journey, Koala, Panda, Moonlit Paws, Together and Keepsakes). 37 can be earned in singleplayer. The other 11 need a co-op run; any teammate and any characters count.
+A **Memory Album** button on the main menu opens an achievement album: 48 achievements on six pages (Journey, Koala, Panda, a hidden page, Together and Keepsakes). 37 can be earned in singleplayer. The other 11 need a co-op run; any teammate and any characters count.
 
 - Achievements are Bronze, Silver or Gold, worth 1, 2 or 3 points (94 in total). Counting achievements show a progress bar and are marked "Almost there" at 70%. Three are hidden until earned.
 - A banner with the medal appears when you earn one, the album button shows a red dot, and new entries pop in the next time you open the album.
-- Until the Black Cat is unlocked, its page only shows moonlit pawprints and the unlock progress.
+- One page stays hidden until you find who it belongs to.
 - The end-of-run screen lists up to three achievements earned that run and up to three that are close.
 - At 20, 45, 70 and 94 points the album gets a new background and a pin appears next to the album button. Gold achievements give a title shown at the top of the album.
 - Achievements are keepsakes only. They never change cards, rewards, events or combat. They are earned for the whole party and saved in each player's own progress file.
@@ -101,7 +95,7 @@ dotnet publish SanaCkoala.csproj
 
 The mod id is `SanaCkoala`. C# namespaces and card ids keep the original `SpireDuo` prefix, so runs saved with earlier versions still load.
 
-To test the Black Cat without unlocking it, start the game with the environment variable `SANACKOALA_UNLOCK_ALL=1`. `SANACKOALA_ALBUM_ALL=1` shows every Memory Album entry as earned without saving anything. The dev console command `sanackoala_achievement <ID>` earns one achievement, `sanackoala_achievement unseen` replays the reveal, and `sanackoala_achievement reset` clears achievements and stats (the Black Cat stays unlocked).
+To test the hidden character without unlocking it, start the game with the environment variable `SANACKOALA_UNLOCK_ALL=1`. `SANACKOALA_ALBUM_ALL=1` shows every Memory Album entry as earned without saving anything. The dev console command `sanackoala_achievement <ID>` earns one achievement, `sanackoala_achievement unseen` replays the reveal, and `sanackoala_achievement reset` clears achievements and stats (the hidden character stays unlocked).
 
 ## Project layout
 
@@ -109,7 +103,7 @@ To test the Black Cat without unlocking it, start the game with the environment 
 |---|---|
 | `SpireDuoCode/Character` | Character models, card pools, relic pools |
 | `SpireDuoCode/Cards` | All cards |
-| `SpireDuoCode/Powers` | Drowsy, Bamboo, Footprints and other powers |
+| `SpireDuoCode/Powers` | Drowsy, Bamboo and other powers |
 | `SpireDuoCode/Progress` | Mod-owned progress file, achievements and the Memory Album |
 | `SpireDuoCode/Relics` | Starter, character and shared relics |
 | `SpireDuoCode/Potions` | Character potions |
